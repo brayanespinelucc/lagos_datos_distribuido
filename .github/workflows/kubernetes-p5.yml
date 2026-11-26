@@ -1,0 +1,38 @@
+name: Laboratorio Kubernetes P5
+on:
+  workflow_dispatch:
+  push:
+    branches: [entrega/bloque-0-momento-1]
+    paths:
+      - '.github/workflows/kubernetes-p5.yml'
+      - 'tests/kubernetes/p5*.py'
+      - 'tests/kubernetes/p5*.sh'
+      - 'tests/kubernetes/kind-p5.yaml'
+      - 'tests/kubernetes/aplicacion-p5.yaml'
+permissions:
+  contents: read
+concurrency:
+  group: laboratorio-p5-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  laboratorio:
+    # El laboratorio automático utiliza exclusivamente el runner estándar de un repositorio público.
+    if: github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Clúster y ensayo controlado
+        env:
+          P5_OUTPUT: ${{ runner.temp }}/evidencia-p5
+        run: tests/kubernetes/p5-lab.sh
+      - name: Conservar actas, salidas de kubectl y capturas
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: kubernetes-p5-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/evidencia-p5/
+          if-no-files-found: error
+          retention-days: 14

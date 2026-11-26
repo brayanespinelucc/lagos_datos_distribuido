@@ -1,0 +1,63 @@
+{
+  "inicio_utc": "2026-11-26T15:37:31.464115+00:00",
+  "nombre": "lago-p5-alternativa",
+  "version": {
+    "comando": [
+      "/workspace/work/rke2-p5/k3d",
+      "version"
+    ],
+    "rc": 0,
+    "salida": "k3d version v5.8.3\nk3s version v1.31.5-k3s1 (default)\n"
+  },
+  "crear": {
+    "comando": [
+      "/workspace/work/rke2-p5/k3d",
+      "cluster",
+      "create",
+      "lago-p5-alternativa",
+      "--servers",
+      "1",
+      "--agents",
+      "2",
+      "--image",
+      "rancher/k3s:v1.35.8-k3s1",
+      "--no-lb",
+      "--api-port",
+      "127.0.0.1:0",
+      "--kubeconfig-update-default=false",
+      "--kubeconfig-switch-context=false",
+      "--no-rollback",
+      "--timeout",
+      "150s",
+      "--k3s-arg",
+      "--snapshotter=native@all"
+    ],
+    "rc": 1,
+    "salida": "INFO[0000] Prep: Network                                \nINFO[0000] Created network 'k3d-lago-p5-alternativa'    \nINFO[0000] Created image volume k3d-lago-p5-alternativa-images \nINFO[0000] Starting new tools node...                   \nINFO[0001] Pulling image 'ghcr.io/k3d-io/k3d-tools:5.8.3' \nINFO[0001] Creating node 'k3d-lago-p5-alternativa-server-0' \nINFO[0002] Pulling image 'rancher/k3s:v1.35.8-k3s1'     \nINFO[0002] Starting node 'k3d-lago-p5-alternativa-tools' \nINFO[0010] Creating node 'k3d-lago-p5-alternativa-agent-0' \nINFO[0011] Creating node 'k3d-lago-p5-alternativa-agent-1' \nINFO[0014] Using the k3d-tools node to gather environment information \nINFO[0014] HostIP: using network gateway 172.19.0.1 address \nINFO[0014] Starting cluster 'lago-p5-alternativa'       \nINFO[0014] Starting servers...                          \nINFO[0014] Starting node 'k3d-lago-p5-alternativa-server-0' \nERRO[0014] Failed Cluster Start: Failed to start server k3d-lago-p5-alternativa-server-0: Node k3d-lago-p5-alternativa-server-0 failed to get ready: error waiting for log line `k3s is up and running` from node 'k3d-lago-p5-alternativa-server-0': stopped returning log lines: node k3d-lago-p5-alternativa-server-0 is running=true in status=restarting \nFATA[0014] Cluster creation FAILED, rollback deactivated. \n"
+  },
+  "nodos_docker": {
+    "comando": [
+      "docker",
+      "ps",
+      "-a",
+      "--filter",
+      "label=k3d.cluster=lago-p5-alternativa",
+      "--format",
+      "{{.Names}} {{.Status}}"
+    ],
+    "rc": 0,
+    "salida": "k3d-lago-p5-alternativa-agent-1 Created\nk3d-lago-p5-alternativa-agent-0 Created\nk3d-lago-p5-alternativa-server-0 Restarting (1) Less than a second ago\n"
+  },
+  "registro_servidor": {
+    "comando": [
+      "docker",
+      "logs",
+      "--tail",
+      "28",
+      "k3d-lago-p5-alternativa-server-0"
+    ],
+    "rc": 0,
+    "salida": ""
+  },
+  "fin_utc": "2026-11-26T15:37:46.446379+00:00"
+}
