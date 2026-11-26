@@ -21,7 +21,7 @@ Se leyó la guía completa de ocho páginas, incluidas las figuras de arquitectu
 | Elemento | Evidencia que debe examinar el evaluador |
 |------------------|---------------------------------------------------|
 | Proxmox y Ubuntu | Plan de ocho VM, inventario, plantillas de inicialización y registro de pruebas de aprovisionamiento. Las VM encendidas deben comprobarse en el hipervisor. |
-| MinIO y su balanceador | Registros del laboratorio S3 y procedimientos para las tres VM. El alcance de cada medición figura en las evidencias del componente. |
+| MinIO y su balanceador | Tres contenedores, seis volúmenes de datos y HAProxy verificados. P3 conservó lectura y escritura con cuatro discos. P4 recuperó los seis discos y verificó los objetos desde cada nodo. [Acta](../../evidence/moment-01/minio/validacion/result.json) |
 | RKE2 y su balanceador | Configuración, validación de manifiestos y comprobaciones de los puertos. El registro identifica los procesos que participaron. |
 | Acceso a la entrega | Informe en PDF, fuentes editables, portal estático y descargas. El índice vincula cada evidencia con el requisito correspondiente. |
 

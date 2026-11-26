@@ -35,15 +35,15 @@ El comando `apply` se ejecuta en el host destinado al proyecto con los permisos 
 
 En cada VM MinIO compruebe los montajes mediante `findmnt /srv/minio/disk1` y `findmnt /srv/minio/disk2`. Verifique por número de serie los discos de datos asignados en Proxmox. Cuando falte un montaje, resuelva la asociación del dispositivo antes de iniciar el servicio.
 
-Utilice el binario fijado y el archivo de variables restringido de `docs/moment-01/minio.md`. Los tres nodos deben compartir la configuración distribuida y recibir los secretos por un canal autorizado. Instale el servicio de cada nodo y, en `lb-minio`, despliegue el balanceador.
+Utilice el binario fijado y un directorio restringido que contenga los archivos de credenciales. Los tres nodos deben compartir la configuración distribuida y recibir los secretos por un canal autorizado. Instale el servicio de cada nodo y, en `lb-minio`, despliegue el balanceador.
 
 ```bash
-sudo infrastructure/minio/install-node.sh "$ARCHIVO_ENV" "$BINARIO_MINIO"
+sudo infrastructure/minio/install-node.sh "$DIRECTORIO_SECRETOS" "$BINARIO_MINIO"
 # En la VM lb-minio
 sudo infrastructure/load-balancers/minio/install.sh
 ```
 
-Compruebe la salud del clúster vía `10.42.10.10:9000` y la consola por el puerto 9001 de la red administrativa. Cree los buckets `bronze`, `silver` y `gold`. Ejecute la carga y descarga con una identidad destinada a la aplicación y verifique la coincidencia de los hashes. El anexo MinIO detalla la política y el procedimiento de prueba.
+Compruebe la salud del clúster vía `10.42.10.10:9000` y la consola por el puerto 9001 de la red administrativa. Cree los buckets `bronze`, `silver` y `gold`. Ejecute la carga y descarga con una identidad destinada a la aplicación y verifique la coincidencia de los hashes. El anexo reúne el procedimiento de instalación, las comprobaciones IAM y las pruebas de caída y recuperación. [Manual de MinIO y HAProxy](minio.md)
 
 ## Instalar RKE2 y validar la ruta de control
 

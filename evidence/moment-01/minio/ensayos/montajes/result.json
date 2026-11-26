@@ -1,0 +1,12 @@
+{
+  "inicio_utc": "2026-11-26T13:14:13.478+00:00",
+  "entorno": "Docker Compose, tres contenedores MinIO, seis volúmenes en un host y HAProxy",
+  "comando": "python3 tests/minio/lab.py",
+  "estado": "Ejecutada y fallida",
+  "funcional": "Ejecutada y fallida",
+  "capturas": "Pendientes",
+  "eventos": [],
+  "error": "Montajes inesperados para minio-1",
+  "fin_utc": "2026-11-26T13:14:39.285+00:00",
+  "duracion_segundos": 25.81
+}

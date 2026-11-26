@@ -1,0 +1,312 @@
+{
+  "inicio_utc": "2026-11-26T13:18:24.293+00:00",
+  "entorno": "Docker Compose, tres contenedores MinIO, seis volúmenes en un host y HAProxy",
+  "comando": "python3 tests/minio/lab.py",
+  "estado": "Ejecutada y fallida",
+  "funcional": "Ejecutada y fallida",
+  "capturas": "Incompletas",
+  "eventos": [
+    {
+      "fecha_utc": "2026-11-26T13:18:45.371+00:00",
+      "paso": "Despliegue",
+      "proyecto": "lago-prueba-5ef8317364",
+      "api_efimera": "http://127.0.0.1:32774",
+      "consola_efimera": "http://127.0.0.1:32775",
+      "nodos": [
+        {
+          "servicio": "minio-1",
+          "id_contenedor": "859aaa4bc865cf6685fc1f9aeb927c8fd3fabf9f8f1b590cf095bd1e06657ed5",
+          "estado": "running",
+          "volumenes": {
+            "/srv/minio/disk1": "lago-prueba-5ef8317364_d11",
+            "/srv/minio/disk2": "lago-prueba-5ef8317364_d12"
+          }
+        },
+        {
+          "servicio": "minio-2",
+          "id_contenedor": "1b2fcb37251f7245f9da5a05d68da0a63f8baccf2b722765f2aafd4bd995d8e7",
+          "estado": "running",
+          "volumenes": {
+            "/srv/minio/disk1": "lago-prueba-5ef8317364_d21",
+            "/srv/minio/disk2": "lago-prueba-5ef8317364_d22"
+          }
+        },
+        {
+          "servicio": "minio-3",
+          "id_contenedor": "6cd5201c04d16cadb6b36126c353fe28dbf4d564fb70684f7a4f256b81d68cae",
+          "estado": "running",
+          "volumenes": {
+            "/srv/minio/disk1": "lago-prueba-5ef8317364_d31",
+            "/srv/minio/disk2": "lago-prueba-5ef8317364_d32"
+          }
+        }
+      ],
+      "minio": "minio version DEVELOPMENT.2025-04-22T22-12-26Z (commit-id=0d7408fc9969caf07de6a8c3a84f9fbb10a6739e)",
+      "mc": "mc version DEVELOPMENT.2025-04-16T18-13-26Z (commit-id=b00526b153a31b36767991a4f5ce2cced435ee8e)",
+      "haproxy": "HAProxy version 3.0.11-9e587df 2025/06/02 - https://haproxy.org/"
+    },
+    {
+      "fecha_utc": "2026-11-26T13:18:49.863+00:00",
+      "paso": "Creación de buckets",
+      "antes": [],
+      "despues": [
+        "bronze",
+        "gold",
+        "silver"
+      ],
+      "salida": [
+        "Bucket created successfully `admin/bronze`.",
+        "Bucket created successfully `admin/silver`.",
+        "Bucket created successfully `admin/gold`.",
+        "Created policy `ingesta-bronze` successfully.",
+        "Added user `ingesta-lab` successfully.",
+        "Attached Policies: [ingesta-bronze]",
+        "To User: ingesta-lab"
+      ]
+    },
+    {
+      "fecha_utc": "2026-11-26T13:18:50.067+00:00",
+      "paso": "Estado nominal",
+      "backend": {
+        "backendType": "Erasure",
+        "onlineDisks": 6,
+        "offlineDisks": 0,
+        "standardSCParity": 2,
+        "rrSCParity": 1,
+        "totalSets": [
+          1
+        ],
+        "totalDrivesPerSet": [
+          6
+        ]
+      },
+      "deployment_id": "01060378-a899-4bcf-ad22-9fb925e808f8",
+      "servidores": [
+        {
+          "endpoint": "minio-1:9000",
+          "estado": "online",
+          "discos": [
+            {
+              "endpoint": "http://minio-1:9000/srv/minio/disk1",
+              "estado": "ok"
+            },
+            {
+              "endpoint": "http://minio-1:9000/srv/minio/disk2",
+              "estado": "ok"
+            }
+          ]
+        },
+        {
+          "endpoint": "minio-2:9000",
+          "estado": "online",
+          "discos": [
+            {
+              "endpoint": "http://minio-2:9000/srv/minio/disk1",
+              "estado": "ok"
+            },
+            {
+              "endpoint": "http://minio-2:9000/srv/minio/disk2",
+              "estado": "ok"
+            }
+          ]
+        },
+        {
+          "endpoint": "minio-3:9000",
+          "estado": "online",
+          "discos": [
+            {
+              "endpoint": "http://minio-3:9000/srv/minio/disk1",
+              "estado": "ok"
+            },
+            {
+              "endpoint": "http://minio-3:9000/srv/minio/disk2",
+              "estado": "ok"
+            }
+          ]
+        }
+      ],
+      "lectura": {
+        "http": 200,
+        "x-minio-read-quorum": "4"
+      },
+      "escritura": {
+        "http": 200,
+        "x-minio-write-quorum": "4"
+      }
+    },
+    {
+      "fecha_utc": "2026-11-26T13:18:50.477+00:00",
+      "paso": "Lectura y escritura Bronze",
+      "identidad": "ingesta-lab",
+      "fuente": "datasets/source/ventas.csv",
+      "objeto": "ingesta/bronze/ventas.csv",
+      "bytes": 6573,
+      "sha256_origen": "93fcbd243fc069c94145a573a828bd5971169fa63cd0d98b59c303b5c1dbfde4",
+      "sha256_descarga": "93fcbd243fc069c94145a573a828bd5971169fa63cd0d98b59c303b5c1dbfde4"
+    },
+    {
+      "fecha_utc": "2026-11-26T13:18:50.868+00:00",
+      "paso": "Identidad de ingesta",
+      "alias": "ingesta",
+      "endpoint": "http://lb-minio:9000",
+      "usuario": "ingesta-lab",
+      "politica": "ingesta-bronze",
+      "estado": "enabled"
+    },
+    {
+      "fecha_utc": "2026-11-26T13:18:51.074+00:00",
+      "paso": "Escritura restringida",
+      "bucket": "gold",
+      "comando": "mc pipe ingesta/gold/prohibido",
+      "retorno_mc": 1,
+      "stdout_mc": "\r 0 B / ?",
+      "stderr_mc": "mc: <ERROR> Unable to write to one or more targets. Insufficient permissions to access this path `http://lb-minio:9000/gold/prohibido`.",
+      "escritura": {
+        "metodo": "PUT",
+        "objeto": "gold/prohibido",
+        "identidad": "ingesta-lab",
+        "http": 403,
+        "codigo_s3": "AccessDenied",
+        "mensaje_s3": "Access Denied.",
+        "request_id": "18EB9AD87E353D47"
+      },
+      "verificacion_administrativa": {
+        "metodo": "GET",
+        "objeto": "gold/prohibido",
+        "identidad": "administrador",
+        "http": 404,
+        "codigo_s3": "NoSuchKey",
+        "mensaje_s3": "The specified key does not exist.",
+        "request_id": "18EB9AD87F028BED"
+      }
+    },
+    {
+      "fecha_utc": "2026-11-26T13:18:51.313+00:00",
+      "paso": "Escritura restringida",
+      "bucket": "silver",
+      "comando": "mc pipe ingesta/silver/prohibido",
+      "retorno_mc": 1,
+      "stdout_mc": "\r 0 B / ?",
+      "stderr_mc": "mc: <ERROR> Unable to write to one or more targets. Insufficient permissions to access this path `http://lb-minio:9000/silver/prohibido`.",
+      "escritura": {
+        "metodo": "PUT",
+        "objeto": "silver/prohibido",
+        "identidad": "ingesta-lab",
+        "http": 403,
+        "codigo_s3": "AccessDenied",
+        "mensaje_s3": "Access Denied.",
+        "request_id": "18EB9AD88C5E47EE"
+      },
+      "verificacion_administrativa": {
+        "metodo": "GET",
+        "objeto": "silver/prohibido",
+        "identidad": "administrador",
+        "http": 404,
+        "codigo_s3": "NoSuchKey",
+        "mensaje_s3": "The specified key does not exist.",
+        "request_id": "18EB9AD88D328281"
+      }
+    },
+    {
+      "fecha_utc": "2026-11-26T13:18:51.933+00:00",
+      "paso": "Comunicación entre nodos",
+      "origen": "minio-1",
+      "destinos": [
+        {
+          "destino": "minio-2",
+          "http": 200
+        },
+        {
+          "destino": "minio-3",
+          "http": 200
+        }
+      ],
+      "lectura_directa": {
+        "servidor": "minio-1",
+        "objeto": "bronze/ventas.csv",
+        "bytes": 6573,
+        "sha256_origen": "93fcbd243fc069c94145a573a828bd5971169fa63cd0d98b59c303b5c1dbfde4",
+        "sha256_descarga": "93fcbd243fc069c94145a573a828bd5971169fa63cd0d98b59c303b5c1dbfde4"
+      }
+    },
+    {
+      "fecha_utc": "2026-11-26T13:18:52.543+00:00",
+      "paso": "Comunicación entre nodos",
+      "origen": "minio-2",
+      "destinos": [
+        {
+          "destino": "minio-1",
+          "http": 200
+        },
+        {
+          "destino": "minio-3",
+          "http": 200
+        }
+      ],
+      "lectura_directa": {
+        "servidor": "minio-2",
+        "objeto": "bronze/ventas.csv",
+        "bytes": 6573,
+        "sha256_origen": "93fcbd243fc069c94145a573a828bd5971169fa63cd0d98b59c303b5c1dbfde4",
+        "sha256_descarga": "93fcbd243fc069c94145a573a828bd5971169fa63cd0d98b59c303b5c1dbfde4"
+      }
+    },
+    {
+      "fecha_utc": "2026-11-26T13:18:53.246+00:00",
+      "paso": "Comunicación entre nodos",
+      "origen": "minio-3",
+      "destinos": [
+        {
+          "destino": "minio-1",
+          "http": 200
+        },
+        {
+          "destino": "minio-2",
+          "http": 200
+        }
+      ],
+      "lectura_directa": {
+        "servidor": "minio-3",
+        "objeto": "bronze/ventas.csv",
+        "bytes": 6573,
+        "sha256_origen": "93fcbd243fc069c94145a573a828bd5971169fa63cd0d98b59c303b5c1dbfde4",
+        "sha256_descarga": "93fcbd243fc069c94145a573a828bd5971169fa63cd0d98b59c303b5c1dbfde4"
+      }
+    },
+    {
+      "fecha_utc": "2026-11-26T13:18:53.494+00:00",
+      "paso": "Distribución HAProxy",
+      "fase": "nominal",
+      "serie": 1,
+      "http": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "solicitudes_por_backend": {
+        "minio-1": 2,
+        "minio-2": 2,
+        "minio-3": 2
+      },
+      "registros": [
+        "172.19.0.1:48506 [26/Nov/2026:13:18:53.251] s3 minio_api/minio-1 0/0/0/1/1 200 345 - - ---- 1/1/0/0/0 0/0 \"HEAD /minio/health/live?muestra=nominal-1-0 HTTP/1.1\"",
+        "172.19.0.1:48508 [26/Nov/2026:13:18:53.255] s3 minio_api/minio-2 0/0/0/0/0 200 345 - - ---- 1/1/0/0/0 0/0 \"HEAD /minio/health/live?muestra=nominal-1-1 HTTP/1.1\"",
+        "172.19.0.1:48520 [26/Nov/2026:13:18:53.261] s3 minio_api/minio-3 0/0/0/0/0 200 345 - - ---- 1/1/0/0/0 0/0 \"HEAD /minio/health/live?muestra=nominal-1-2 HTTP/1.1\"",
+        "172.19.0.1:48534 [26/Nov/2026:13:18:53.263] s3 minio_api/minio-1 0/0/0/1/1 200 345 - - ---- 1/1/0/0/0 0/0 \"HEAD /minio/health/live?muestra=nominal-1-3 HTTP/1.1\"",
+        "172.19.0.1:48542 [26/Nov/2026:13:18:53.267] s3 minio_api/minio-2 0/0/0/0/0 200 345 - - ---- 1/1/0/0/0 0/0 \"HEAD /minio/health/live?muestra=nominal-1-4 HTTP/1.1\"",
+        "172.19.0.1:48548 [26/Nov/2026:13:18:53.270] s3 minio_api/minio-3 0/0/0/0/0 200 345 - - ---- 1/1/0/0/0 0/0 \"HEAD /minio/health/live?muestra=nominal-1-5 HTTP/1.1\""
+      ]
+    },
+    {
+      "fecha_utc": "2026-11-26T13:19:28.114+00:00",
+      "paso": "Incidencia de captura",
+      "error": "Locator.wait_for: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"Object Browser\", exact=True).first to be visible\n"
+    }
+  ],
+  "error": "Command '['docker', 'compose', '-p', 'lago-prueba-5ef8317364', '-f', '/workspace/lagos_datos_distribuido/infrastructure/minio/compose.yaml', 'exec', '-T', 'cliente', 'mc', 'admin', 'info', '--json', 'admin']' timed out after 20 seconds",
+  "fin_utc": "2026-11-26T13:19:33.688+00:00",
+  "duracion_segundos": 69.39
+}

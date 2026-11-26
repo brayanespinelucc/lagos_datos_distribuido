@@ -1,0 +1,31 @@
+[Unit]
+Description=MinIO distribuido del lago de datos
+Wants=network-online.target
+After=network-online.target
+RequiresMountsFor=/srv/minio/disk1 /srv/minio/disk2
+AssertPathIsMountPoint=/srv/minio/disk1
+AssertPathIsMountPoint=/srv/minio/disk2
+
+[Service]
+User=minio
+Group=minio
+StateDirectory=lago-minio
+WorkingDirectory=/var/lib/lago-minio
+Environment=HOME=/var/lib/lago-minio
+Environment=MINIO_STORAGE_CLASS_STANDARD=EC:2
+Environment=MINIO_UPDATE=off
+LoadCredential=root_user:/etc/lago/minio/root_user
+LoadCredential=root_password:/etc/lago/minio/root_password
+ExecStart=/usr/local/libexec/lago-minio
+Restart=on-failure
+RestartSec=3
+LimitNOFILE=65536
+UMask=0027
+PrivateTmp=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/srv/minio/disk1 /srv/minio/disk2
+
+[Install]
+WantedBy=multi-user.target
