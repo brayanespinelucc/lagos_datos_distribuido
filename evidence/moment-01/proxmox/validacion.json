@@ -1,0 +1,126 @@
+{
+  "fecha_utc": "2026-11-26T09:37:11+00:00",
+  "entorno": "Debian GNU/Linux 13 (trixie)",
+  "python": "3.12.14",
+  "jsonschema": "4.26.0",
+  "comando": "python3 tests/infra/verify.py --schema <copia de cloud-init 24.1.3>",
+  "esquema": {
+    "url": "https://raw.githubusercontent.com/canonical/cloud-init/24.1.3/cloudinit/config/schemas/schema-cloud-config-v1.json",
+    "sha256": "555f432090c19553dab5d03a2f643444f95bf418f2dd0ec3ceb9bf1c18f071ce"
+  },
+  "resultado_portatil": "aprobado",
+  "pruebas": {
+    "total": 11,
+    "fallos": 0,
+    "errores": 0,
+    "omitidas": 0,
+    "salida": [
+      "test_cloud_config_covers_hosts_ssh_ntp_disks (test_provision.InfrastructureTests.test_cloud_config_covers_hosts_ssh_ntp_disks) ... ok",
+      "test_does_not_adopt_an_existing_foreign_id (test_provision.InfrastructureTests.test_does_not_adopt_an_existing_foreign_id) ... ok",
+      "test_eight_vms_six_data_volumes_56_directed_peers (test_provision.InfrastructureTests.test_eight_vms_six_data_volumes_56_directed_peers) ... ok",
+      "test_fstab_reuse_and_conflict (test_provision.InfrastructureTests.test_fstab_reuse_and_conflict) ... ok",
+      "test_guest_disk_must_be_unique_unmounted_expected_size_and_signature (test_provision.InfrastructureTests.test_guest_disk_must_be_unique_unmounted_expected_size_and_signature) ... ok",
+      "test_inbound_rules_keep_console_and_overlay_scoped (test_provision.InfrastructureTests.test_inbound_rules_keep_console_and_overlay_scoped) ... ok",
+      "test_qm_network_and_diagram_agree_for_each_guest (test_provision.InfrastructureTests.test_qm_network_and_diagram_agree_for_each_guest) ... ok",
+      "test_reject_network_and_broadcast_as_infrastructure_hosts (test_provision.InfrastructureTests.test_reject_network_and_broadcast_as_infrastructure_hosts) ... ok",
+      "test_reject_overlapping_network_or_duplicate_vm (test_provision.InfrastructureTests.test_reject_overlapping_network_or_duplicate_vm) ... ok",
+      "test_ssh_public_key_render_repeat_and_preserve_foreign_firewall (test_provision.InfrastructureTests.test_ssh_public_key_render_repeat_and_preserve_foreign_firewall) ... ok",
+      "test_vm_command_maps_exact_disks_without_destroy (test_provision.InfrastructureTests.test_vm_command_maps_exact_disks_without_destroy) ... ok",
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 11 tests in 0.212s",
+      "",
+      "OK"
+    ]
+  },
+  "recursos_propuestos": {
+    "vms": 8,
+    "vcpus": 26,
+    "memory_mib": 51200,
+    "os_disk_gib": 260,
+    "data_disk_gib": 120
+  },
+  "configuraciones": [
+    {
+      "id": 110,
+      "hostname": "lb-minio",
+      "ip_propuesta": "10.42.10.10",
+      "cloud_init": "esquema aprobado",
+      "reglas_entrada": 15,
+      "sha256_firewall": "241ea28cc88252c317d21c7a62998296f888a6dfe9a2263898058cee031eed57"
+    },
+    {
+      "id": 111,
+      "hostname": "lb-k8s",
+      "ip_propuesta": "10.42.10.11",
+      "cloud_init": "esquema aprobado",
+      "reglas_entrada": 19,
+      "sha256_firewall": "67acf05b6bad1348e6fdc1440e0434c71d53cb536c92b327d0ee5a078430ab45"
+    },
+    {
+      "id": 121,
+      "hostname": "minio-1",
+      "ip_propuesta": "10.42.10.21",
+      "cloud_init": "esquema aprobado",
+      "reglas_entrada": 15,
+      "sha256_firewall": "9e8d3d8dcbc3d416850faa77d10b46b035563b6c3f7cdd3823a84def218bbb45"
+    },
+    {
+      "id": 122,
+      "hostname": "minio-2",
+      "ip_propuesta": "10.42.10.22",
+      "cloud_init": "esquema aprobado",
+      "reglas_entrada": 15,
+      "sha256_firewall": "9e8d3d8dcbc3d416850faa77d10b46b035563b6c3f7cdd3823a84def218bbb45"
+    },
+    {
+      "id": 123,
+      "hostname": "minio-3",
+      "ip_propuesta": "10.42.10.23",
+      "cloud_init": "esquema aprobado",
+      "reglas_entrada": 15,
+      "sha256_firewall": "9e8d3d8dcbc3d416850faa77d10b46b035563b6c3f7cdd3823a84def218bbb45"
+    },
+    {
+      "id": 131,
+      "hostname": "rke2-server",
+      "ip_propuesta": "10.42.10.31",
+      "cloud_init": "esquema aprobado",
+      "reglas_entrada": 27,
+      "sha256_firewall": "f34157d885c458b70835ca6e349682231a20ea753d2d25b028c272877ca4bf58"
+    },
+    {
+      "id": 132,
+      "hostname": "rke2-worker-1",
+      "ip_propuesta": "10.42.10.32",
+      "cloud_init": "esquema aprobado",
+      "reglas_entrada": 21,
+      "sha256_firewall": "4b7fe39e6db0e9be07d731f2233495886deec0b63289f4e3252b5a72ff2528c7"
+    },
+    {
+      "id": 133,
+      "hostname": "rke2-worker-2",
+      "ip_propuesta": "10.42.10.33",
+      "cloud_init": "esquema aprobado",
+      "reglas_entrada": 21,
+      "sha256_firewall": "4b7fe39e6db0e9be07d731f2233495886deec0b63289f4e3252b5a72ff2528c7"
+    }
+  ],
+  "hipervisor": {
+    "comprobacion_local": "Este modo requiere un host Proxmox VE con KVM, /etc/pve y root; herramientas ausentes: pveversion, qm, pvesh, pvesm, qemu-img",
+    "vm_desplegadas_en_esta_prueba": 0,
+    "pares_icmp_ejecutados": 0,
+    "pares_previstos": 56
+  },
+  "sha256_entradas": {
+    "infrastructure/proxmox/inventory.json": "17200a4c07901bfaf2271e55914079e4a7acd9364f6db3e65f8d05c3d24c5362",
+    "infrastructure/proxmox/provision.py": "c009e8e719bdb745fba68a3372695b7b5db6b9241e1f81635779327a45ecc01f",
+    "infrastructure/proxmox/check_mesh.py": "4ec8ec4026eb1f65833127a9f861b794ef391c0c8959425fa93ef174d64b244f",
+    "infrastructure/ubuntu/base-cloud-config.json": "8d51199574bed127aa4a2c68554c2f8a5c8531b81dff8ee9e1f04380b262d47b",
+    "infrastructure/ubuntu/prepare_volumes.py": "49809620a3a1d374bfe0cc69c9d570ecf7230e6ae560df7cb14947bf3709d09e",
+    "architecture/network/communication.csv": "bec477d7b0a3dbe29eccae227de2901f93e9243406c2daf978c494a28b21a60e",
+    "architecture/diagrams/red.svg": "1bdf2332f7b2197cac6c7d9decdb53f33412a6c8517b7bab244d4ea72eeb7bfd",
+    "tests/infra/test_provision.py": "1186f90c74b42d68b0418af228ea28fe7e45da51d40d0fe4a2ed71054f671e64",
+    "tests/infra/verify.py": "27714bb393699714d3c473b099c88d62bce045a9767fe2e67204c4a676d12f8e"
+  }
+}

@@ -1,11 +1,17 @@
 # Estado del proyecto
 
-Corte en construcción: Bloque 0 y Momento 1. Base del checkout `e2afb4656f4ea04e355d34de125fb48fec96c310` de `origin/main`. El PDF consta de ocho páginas. El prompt maestro se conservó byte por byte. El estado de cada producto y de las seis pruebas se registra en `REQUIREMENTS_MATRIX.csv`.
+## Próxima actividad
 
-Se está configurando la red objetivo 10.42.10.0/24 con ocho VM. El laboratorio dispone de Python 3.12 y Docker. La instalación de Proxmox necesita un anfitrión con virtualización. La evidencia de portabilidad se separará del despliegue de las VM. GitLab sigue como destino académico. El estudiante autorizó publicar por enlace el portal de este avance.
+**Momento 1 · MinIO.** Resolver la prueba de permisos que figura como fallida en `evidence/moment-01/minio/result.json`. El ensayo esperaba que la identidad de ingesta recibiera una denegación al escribir en Gold. Revisar la identidad y la operación que usa `tests/minio/lab.py` y contrastarlas con la política de ingesta. Guardar el resultado de esa prueba antes de avanzar a caída y recuperación.
 
-Próxima actividad: integrar pruebas de los tres componentes del Momento 1, verificar los documentos y empaquetar el corte.
+## Último componente terminado en este entorno
 
-## Reanudación tras la primera interrupción
+**Validación portátil del aprovisionamiento Proxmox VE y Ubuntu Server 24.04.** Se reutilizaron el inventario, el aprovisionador y la suite del componente. El generador produjo ocho definiciones cloud-init y ocho archivos de firewall. La regla `sudo` de la plantilla se corrigió al contrastarla con el esquema de Canonical 24.1.3. El inventario rechaza ahora direcciones de red y de difusión para gateway, DNS e hipervisor. Pasaron las 11 pruebas, incluidas la concordancia entre inventario, figura y configuración de red, la repetición del render y las salvaguardas de discos.
 
-Se recuperaron 55 archivos sin registrar y se verificaron la sintaxis de las fuentes Python, JSON, YAML, shell y JavaScript y los hashes del PDF y del encargo. El inventario contiene ocho VM y la matriz 83 filas. El laboratorio Docker existente conservaba tres contenedores MinIO saludables. La evidencia archivada al reanudar era el diagnóstico del Bloque 0. Se retoman las pruebas contra servicios para registrar los resultados. El estudiante solicitó completar ahora los momentos 1, 2 y 3 y preparar su entrega integral.
+El plan asigna 26 vCPU, 50 GiB de RAM y 380 GiB de discos virtuales. Las VM desplegadas en esta prueba y los pares medidos fueron cero. El ejecutor carece de KVM y Proxmox. El manifiesto de la imagen de Ubuntu respondió HTTP 403 desde el entorno. En un host compatible quedan pendientes la verificación de la imagen firmada, el arranque de las ocho VM y la medición de los 56 trayectos. El despliegue está preparado y su comprobación operativa permanece abierta. [Acta](evidence/moment-01/proxmox/validacion.json) · [Manual](docs/moment-01/proxmox-ubuntu.md)
+
+## Continuidad
+
+- El commit `dbc27f4` conserva el primer avance de Bloque 0 y Momento 1 sobre `e2afb46` de `main`. El PDF tiene ocho páginas y el prompt adjunto se conserva íntegro en `PROJECT_MASTER_PROMPT.md`.
+- El commit `019deed` guarda los archivos que ya existían al reanudar esta ejecución, incluidas configuraciones, datasets, resultados, portal, documentos y guion. La matriz conserva sus 83 requisitos. Para el alcance de cada evidencia consulte el acta del componente.
+- El objetivo completo incluye los tres momentos, las seis pruebas y la entrega académica final. GitHub sigue siendo el repositorio de trabajo y GitLab el destino académico. El alumno autorizó el acceso público por enlace al portal. Las siguientes ejecuciones se realizan por componente y reutilizan las dependencias y los resultados disponibles.

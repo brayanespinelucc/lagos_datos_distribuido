@@ -23,9 +23,7 @@
       ],
       "shell": "/bin/bash",
       "lock_passwd": true,
-      "sudo": [
-        "ALL=(ALL) NOPASSWD:ALL"
-      ]
+      "sudo": "ALL=(ALL) NOPASSWD:ALL"
     }
   ],
   "write_files": [

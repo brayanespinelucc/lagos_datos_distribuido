@@ -1,6 +1,8 @@
 # Instrucciones de trabajo
 
-Este repositorio sostiene una entrega universitaria remota. Lee el PDF original, `PROJECT_STATE.md` y `REQUIREMENTS_MATRIX.csv` antes de modificar el laboratorio. `PROJECT_MASTER_PROMPT.md` conserva literalmente el encargo adjunto. La instrucción posterior del estudiante fija el punto de partida en el GitHub conectado, con `main` como base como rama principal. Al reanudar, el estudiante amplió el alcance a los tres momentos, la auditoría y los entregables finales. El PDF del profesor prevalece en los requisitos académicos.
+Este repositorio sostiene una entrega universitaria remota. Empieza por la próxima actividad de `PROJECT_STATE.md`. Consulta las filas correspondientes en `REQUIREMENTS_MATRIX.csv` y las páginas del PDF que sean necesarias para ese componente. `PROJECT_MASTER_PROMPT.md` conserva literalmente el encargo adjunto. La instrucción posterior del estudiante fija el punto de partida en el GitHub conectado, con `main` como rama principal. Al reanudar, el estudiante amplió el alcance a los tres momentos, la auditoría y los entregables finales. El PDF del profesor prevalece en los requisitos académicos.
+
+Trabaja en un solo componente por ejecución. Reutiliza archivos validados y dependencias instaladas. Prueba únicamente el componente actual, registra el resultado y la próxima actividad en el estado, y guarda los cambios en un commit.
 
 ## Arquitectura y convenciones
 

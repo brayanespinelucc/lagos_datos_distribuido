@@ -35,7 +35,10 @@ def validate_inventory(data):
     admin = ipaddress.IPv4Network(net["admin_cidr"])
     gateway = ipaddress.IPv4Address(net["gateway"])
     host = ipaddress.IPv4Address(net["proxmox_ip"])
-    ipaddress.IPv4Address(net["dns"])
+    dns = ipaddress.IPv4Address(net["dns"])
+    reserved = {lan.network_address, lan.broadcast_address}
+    if {gateway, host, dns} & reserved:
+        raise ValueError("El gateway, Proxmox y el DNS requieren direcciones de host utilizables")
     if gateway not in lan or host not in lan or host == gateway or admin.prefixlen == 0:
         raise ValueError("Revisar el gateway, host de Proxmox y la red de gestión")
     machines = data["vms"]

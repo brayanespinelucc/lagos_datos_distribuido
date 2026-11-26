@@ -7,6 +7,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parents[2]
 PROXMOX = ROOT / "infrastructure/proxmox"
@@ -43,6 +44,29 @@ class InfrastructureTests(unittest.TestCase):
         self.vms[1]["id"] = self.vms[0]["id"]
         with self.assertRaises(ValueError):
             provision.validate_inventory(self.data)
+
+    def test_reject_network_and_broadcast_as_infrastructure_hosts(self):
+        for field in ("gateway", "proxmox_ip", "dns"):
+            for address in ("10.42.10.0", "10.42.10.255"):
+                with self.subTest(field=field, address=address):
+                    invalid = copy.deepcopy(self.data)
+                    invalid["network"][field] = address
+                    with self.assertRaises(ValueError):
+                        provision.validate_inventory(invalid)
+
+    def test_qm_network_and_diagram_agree_for_each_guest(self):
+        net = self.data["network"]
+        svg = ElementTree.parse(ROOT / "architecture/diagrams/red.svg")
+        labels = [node.text.split() for node in svg.iter("{http://www.w3.org/2000/svg}text") if node.text]
+        self.assertTrue(any(net["bridge"] in label and net["cidr"] in label for label in labels))
+        self.assertTrue(any(net["gateway"] in label and net["proxmox_ip"] in label for label in labels))
+        for vm in self.vms:
+            with self.subTest(guest=vm["hostname"]):
+                args = provision.vm_args(self.data, vm, "/tmp/noble.img", "local-lvm", "local:snippets/prueba.yaml", "prueba")
+                self.assertEqual(args[args.index("--ipconfig0") + 1], f"ip={vm['ip']}/24,gw={net['gateway']}")
+                self.assertEqual(args[args.index("--net0") + 1], f"virtio,bridge={net['bridge']},firewall=1")
+                self.assertEqual(args[args.index("--nameserver") + 1], net["dns"])
+                self.assertIn([vm["hostname"], vm["ip"]], labels)
 
     def test_cloud_config_covers_hosts_ssh_ntp_disks(self):
         for vm in self.vms:
