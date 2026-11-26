@@ -1,0 +1,812 @@
+{
+  "batch_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774",
+  "validated_at": "2026-11-26T02:05:21+00:00",
+  "s3_verified_by_pipeline": true,
+  "platform": "MinIO (S3)",
+  "environment": "DEV",
+  "datasets": [
+    {
+      "id": "bronze.clientes",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.clientes,DEV)",
+      "name": "clientes",
+      "layer": "bronze",
+      "format": "CSV",
+      "description": "Clientes sintéticos y su segmento comercial.",
+      "grain": "Cliente",
+      "business_keys": [
+        "cliente_id"
+      ],
+      "classification": "Restringido",
+      "domain_id": "comercial",
+      "domain": "Ventas y clientes",
+      "owner_id": "operaciones",
+      "owner": "Operaciones comerciales",
+      "tags": [
+        "bronze",
+        "sintetico",
+        "restringido"
+      ],
+      "rows": 52,
+      "physical_path": "s3://bronze/clientes.csv",
+      "repository_file": "datasets/bronze/clientes.csv",
+      "sha256": "ceea3fa0779abb30959543f808e1a8018cf8a6152df70e95c4ea4a03312863b1",
+      "upstream": [],
+      "columns": [
+        {
+          "name": "cliente_id",
+          "type": "string",
+          "description": "Identificador sintético del cliente en el maestro comercial.",
+          "domain": "Texto alfanumérico, prefijo CL en el generador.",
+          "key": true
+        },
+        {
+          "name": "segmento",
+          "type": "string",
+          "description": "Segmento comercial asignado al cliente.",
+          "domain": "Ocasional, Frecuente o Empresa.",
+          "key": false
+        }
+      ]
+    },
+    {
+      "id": "bronze.categorias",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.categorias,DEV)",
+      "name": "categorias",
+      "layer": "bronze",
+      "format": "CSV",
+      "description": "Catálogo de las categorías de mercancías.",
+      "grain": "Categoría",
+      "business_keys": [
+        "categoria_id"
+      ],
+      "classification": "Interno",
+      "domain_id": "abastecimiento",
+      "domain": "Abastecimiento",
+      "owner_id": "inventarios",
+      "owner": "Control de inventarios",
+      "tags": [
+        "bronze",
+        "sintetico",
+        "interno"
+      ],
+      "rows": 4,
+      "physical_path": "s3://bronze/categorias.csv",
+      "repository_file": "datasets/bronze/categorias.csv",
+      "sha256": "96defe27e8c296c337a0cf85429df0b4c80d7b668a0c157f77f2072de25b5feb",
+      "upstream": [],
+      "columns": [
+        {
+          "name": "categoria_id",
+          "type": "string",
+          "description": "Identificador estable de una categoría de productos.",
+          "domain": "Código de la dimensión categorias.",
+          "key": true
+        },
+        {
+          "name": "categoria",
+          "type": "string",
+          "description": "Nombre comercial de la categoría.",
+          "domain": "Alimentos, Hogar, Papelería o Cuidado.",
+          "key": false
+        }
+      ]
+    },
+    {
+      "id": "bronze.productos",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.productos,DEV)",
+      "name": "productos",
+      "layer": "bronze",
+      "format": "CSV",
+      "description": "Maestro de productos, categoría y precio unitario de lista.",
+      "grain": "Producto",
+      "business_keys": [
+        "producto_id"
+      ],
+      "classification": "Interno",
+      "domain_id": "abastecimiento",
+      "domain": "Abastecimiento",
+      "owner_id": "inventarios",
+      "owner": "Control de inventarios",
+      "tags": [
+        "bronze",
+        "sintetico",
+        "interno"
+      ],
+      "rows": 24,
+      "physical_path": "s3://bronze/productos.csv",
+      "repository_file": "datasets/bronze/productos.csv",
+      "sha256": "20f020f955638bd10b4f11f626e262959df29cd50da5bec977d787d975439c18",
+      "upstream": [],
+      "columns": [
+        {
+          "name": "producto_id",
+          "type": "string",
+          "description": "Identificador del producto o SKU utilizado en el maestro, la venta o las existencias.",
+          "domain": "Código del maestro productos. En Bronze puede faltar o no existir.",
+          "key": true
+        },
+        {
+          "name": "categoria_id",
+          "type": "string",
+          "description": "Identificador estable de una categoría de productos.",
+          "domain": "Código de la dimensión categorias.",
+          "key": false
+        },
+        {
+          "name": "precio_unitario_cop",
+          "type": "string",
+          "description": "Precio de una unidad del producto, expresado en pesos colombianos.",
+          "domain": "Importe entero en COP, mayor o igual a cero en líneas aceptadas.",
+          "key": false
+        }
+      ]
+    },
+    {
+      "id": "bronze.sucursales",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.sucursales,DEV)",
+      "name": "sucursales",
+      "layer": "bronze",
+      "format": "CSV",
+      "description": "Sucursales de la cadena y su región comercial.",
+      "grain": "Sucursal",
+      "business_keys": [
+        "sucursal_id"
+      ],
+      "classification": "Interno",
+      "domain_id": "comercial",
+      "domain": "Ventas y clientes",
+      "owner_id": "operaciones",
+      "owner": "Operaciones comerciales",
+      "tags": [
+        "bronze",
+        "sintetico",
+        "interno"
+      ],
+      "rows": 3,
+      "physical_path": "s3://bronze/sucursales.csv",
+      "repository_file": "datasets/bronze/sucursales.csv",
+      "sha256": "7d0036b6660d4c15b4e8f1064bda043519ed2a7f2c75b17b258bd10134089673",
+      "upstream": [],
+      "columns": [
+        {
+          "name": "sucursal_id",
+          "type": "string",
+          "description": "Identificador de la tienda donde se registró la operación.",
+          "domain": "Código de la dimensión sucursales.",
+          "key": true
+        },
+        {
+          "name": "region",
+          "type": "string",
+          "description": "Región comercial de la sucursal.",
+          "domain": "Centro, Norte u Occidente.",
+          "key": false
+        }
+      ]
+    },
+    {
+      "id": "bronze.transacciones",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.transacciones,DEV)",
+      "name": "transacciones",
+      "layer": "bronze",
+      "format": "CSV",
+      "description": "Cabeceras de transacciones con fecha, cliente y sucursal.",
+      "grain": "Tiquete",
+      "business_keys": [
+        "transaccion_id"
+      ],
+      "classification": "Restringido",
+      "domain_id": "comercial",
+      "domain": "Ventas y clientes",
+      "owner_id": "operaciones",
+      "owner": "Operaciones comerciales",
+      "tags": [
+        "bronze",
+        "sintetico",
+        "restringido"
+      ],
+      "rows": 120,
+      "physical_path": "s3://bronze/transacciones.csv",
+      "repository_file": "datasets/bronze/transacciones.csv",
+      "sha256": "3776fbc8959ffc4424250da629419b39902183a425ed5e556d85e063f0a9dd79",
+      "upstream": [],
+      "columns": [
+        {
+          "name": "transaccion_id",
+          "type": "string",
+          "description": "Identificador del tiquete que agrupa una o más líneas de venta.",
+          "domain": "Código de la cabecera transacciones.",
+          "key": true
+        },
+        {
+          "name": "fecha",
+          "type": "string",
+          "description": "Fecha de la transacción o del corte de existencias, según el conjunto.",
+          "domain": "Fecha civil ISO 8601. Gold diario agrupa por esta fecha.",
+          "key": false
+        },
+        {
+          "name": "cliente_id",
+          "type": "string",
+          "description": "Identificador sintético del cliente en el maestro comercial.",
+          "domain": "Texto alfanumérico, prefijo CL en el generador.",
+          "key": false
+        },
+        {
+          "name": "sucursal_id",
+          "type": "string",
+          "description": "Identificador de la tienda donde se registró la operación.",
+          "domain": "Código de la dimensión sucursales.",
+          "key": false
+        }
+      ]
+    },
+    {
+      "id": "bronze.ventas",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.ventas,DEV)",
+      "name": "ventas",
+      "layer": "bronze",
+      "format": "CSV",
+      "description": "Líneas de venta originales, con las anomalías deliberadas del lote de prueba.",
+      "grain": "Línea recibida",
+      "business_keys": [
+        "venta_id"
+      ],
+      "classification": "Interno",
+      "domain_id": "comercial",
+      "domain": "Ventas y clientes",
+      "owner_id": "operaciones",
+      "owner": "Operaciones comerciales",
+      "tags": [
+        "bronze",
+        "sintetico",
+        "interno"
+      ],
+      "rows": 251,
+      "physical_path": "s3://bronze/ventas.csv",
+      "repository_file": "datasets/bronze/ventas.csv",
+      "sha256": "93fcbd243fc069c94145a573a828bd5971169fa63cd0d98b59c303b5c1dbfde4",
+      "upstream": [],
+      "columns": [
+        {
+          "name": "venta_id",
+          "type": "string",
+          "description": "Identificador de una línea individual de venta.",
+          "domain": "Clave lógica en Bronze, donde puede repetirse. Única en Silver ventas.",
+          "key": true
+        },
+        {
+          "name": "transaccion_id",
+          "type": "string",
+          "description": "Identificador del tiquete que agrupa una o más líneas de venta.",
+          "domain": "Código de la cabecera transacciones.",
+          "key": false
+        },
+        {
+          "name": "producto_id",
+          "type": "string",
+          "description": "Identificador del producto o SKU utilizado en el maestro, la venta o las existencias.",
+          "domain": "Código del maestro productos. En Bronze puede faltar o no existir.",
+          "key": false
+        },
+        {
+          "name": "cantidad",
+          "type": "string",
+          "description": "Número de unidades del producto en una línea de venta.",
+          "domain": "Entero estrictamente positivo para las líneas aceptadas.",
+          "key": false
+        }
+      ]
+    },
+    {
+      "id": "bronze.inventario",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.inventario,DEV)",
+      "name": "inventario",
+      "layer": "bronze",
+      "format": "CSV",
+      "description": "Existencias originales por sucursal, producto y fecha de corte.",
+      "grain": "Producto en una sucursal y fecha",
+      "business_keys": [
+        "fecha",
+        "sucursal_id",
+        "producto_id"
+      ],
+      "classification": "Interno",
+      "domain_id": "abastecimiento",
+      "domain": "Abastecimiento",
+      "owner_id": "inventarios",
+      "owner": "Control de inventarios",
+      "tags": [
+        "bronze",
+        "sintetico",
+        "interno"
+      ],
+      "rows": 72,
+      "physical_path": "s3://bronze/inventario.csv",
+      "repository_file": "datasets/bronze/inventario.csv",
+      "sha256": "dd0f7be68dacdcb044e170c25664aed383db7ebe2104a643a75ef425508f2301",
+      "upstream": [],
+      "columns": [
+        {
+          "name": "fecha",
+          "type": "string",
+          "description": "Fecha de la transacción o del corte de existencias, según el conjunto.",
+          "domain": "Fecha civil ISO 8601. Gold diario agrupa por esta fecha.",
+          "key": true
+        },
+        {
+          "name": "sucursal_id",
+          "type": "string",
+          "description": "Identificador de la tienda donde se registró la operación.",
+          "domain": "Código de la dimensión sucursales.",
+          "key": true
+        },
+        {
+          "name": "producto_id",
+          "type": "string",
+          "description": "Identificador del producto o SKU utilizado en el maestro, la venta o las existencias.",
+          "domain": "Código del maestro productos. En Bronze puede faltar o no existir.",
+          "key": true
+        },
+        {
+          "name": "existencias",
+          "type": "string",
+          "description": "Unidades de un producto disponibles en una sucursal al cierre del inventario.",
+          "domain": "Conteo entero sintético.",
+          "key": false
+        }
+      ]
+    },
+    {
+      "id": "silver.ventas",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.ventas,DEV)",
+      "name": "ventas",
+      "layer": "silver",
+      "format": "Parquet",
+      "description": "Líneas únicas aceptadas después de comprobar claves, cantidades, precios y dimensiones.",
+      "grain": "Línea aceptada",
+      "business_keys": [
+        "venta_id"
+      ],
+      "classification": "Restringido",
+      "domain_id": "comercial",
+      "domain": "Ventas y clientes",
+      "owner_id": "calidad",
+      "owner": "Equipo de calidad de datos",
+      "tags": [
+        "silver",
+        "sintetico",
+        "restringido"
+      ],
+      "rows": 247,
+      "physical_path": "s3://silver/ventas/part-00000.parquet",
+      "repository_file": "datasets/silver/ventas/part-00000.parquet",
+      "sha256": "09d9cfda128a4fb710e659ac3b9ac1ecc3dd5470ac73187886330a06bec81795",
+      "upstream": [
+        "bronze.ventas",
+        "bronze.transacciones",
+        "bronze.productos",
+        "bronze.categorias",
+        "bronze.clientes",
+        "bronze.sucursales"
+      ],
+      "columns": [
+        {
+          "name": "venta_id",
+          "type": "string",
+          "description": "Identificador de una línea individual de venta.",
+          "domain": "Clave lógica en Bronze, donde puede repetirse. Única en Silver ventas.",
+          "key": true
+        },
+        {
+          "name": "transaccion_id",
+          "type": "string",
+          "description": "Identificador del tiquete que agrupa una o más líneas de venta.",
+          "domain": "Código de la cabecera transacciones.",
+          "key": false
+        },
+        {
+          "name": "fecha",
+          "type": "date32[day]",
+          "description": "Fecha de la transacción o del corte de existencias, según el conjunto.",
+          "domain": "Fecha civil ISO 8601. Gold diario agrupa por esta fecha.",
+          "key": false
+        },
+        {
+          "name": "cliente_id",
+          "type": "string",
+          "description": "Identificador sintético del cliente en el maestro comercial.",
+          "domain": "Texto alfanumérico, prefijo CL en el generador.",
+          "key": false
+        },
+        {
+          "name": "sucursal_id",
+          "type": "string",
+          "description": "Identificador de la tienda donde se registró la operación.",
+          "domain": "Código de la dimensión sucursales.",
+          "key": false
+        },
+        {
+          "name": "producto_id",
+          "type": "string",
+          "description": "Identificador del producto o SKU utilizado en el maestro, la venta o las existencias.",
+          "domain": "Código del maestro productos. En Bronze puede faltar o no existir.",
+          "key": false
+        },
+        {
+          "name": "categoria",
+          "type": "string",
+          "description": "Nombre comercial de la categoría.",
+          "domain": "Alimentos, Hogar, Papelería o Cuidado.",
+          "key": false
+        },
+        {
+          "name": "cantidad",
+          "type": "int32",
+          "description": "Número de unidades del producto en una línea de venta.",
+          "domain": "Entero estrictamente positivo para las líneas aceptadas.",
+          "key": false
+        },
+        {
+          "name": "precio_unitario_cop",
+          "type": "int64",
+          "description": "Precio de una unidad del producto, expresado en pesos colombianos.",
+          "domain": "Importe entero en COP, mayor o igual a cero en líneas aceptadas.",
+          "key": false
+        },
+        {
+          "name": "importe_cop",
+          "type": "int64",
+          "description": "Importe de la línea en pesos colombianos.",
+          "domain": "cantidad multiplicada por precio_unitario_cop.",
+          "key": false
+        }
+      ]
+    },
+    {
+      "id": "silver.inventario",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.inventario,DEV)",
+      "name": "inventario",
+      "layer": "silver",
+      "format": "Parquet",
+      "description": "Existencias con fechas y cantidades tipadas.",
+      "grain": "Producto en una sucursal y fecha",
+      "business_keys": [
+        "fecha",
+        "sucursal_id",
+        "producto_id"
+      ],
+      "classification": "Interno",
+      "domain_id": "abastecimiento",
+      "domain": "Abastecimiento",
+      "owner_id": "inventarios",
+      "owner": "Control de inventarios",
+      "tags": [
+        "silver",
+        "sintetico",
+        "interno"
+      ],
+      "rows": 72,
+      "physical_path": "s3://silver/inventario/part-00000.parquet",
+      "repository_file": "datasets/silver/inventario/part-00000.parquet",
+      "sha256": "7858cf29eaeea43ca3b7caed14500ed2f1a6ac89978511a487c0f73c1f3ee2ea",
+      "upstream": [
+        "bronze.inventario"
+      ],
+      "columns": [
+        {
+          "name": "fecha",
+          "type": "date32[day]",
+          "description": "Fecha de la transacción o del corte de existencias, según el conjunto.",
+          "domain": "Fecha civil ISO 8601. Gold diario agrupa por esta fecha.",
+          "key": true
+        },
+        {
+          "name": "sucursal_id",
+          "type": "string",
+          "description": "Identificador de la tienda donde se registró la operación.",
+          "domain": "Código de la dimensión sucursales.",
+          "key": true
+        },
+        {
+          "name": "producto_id",
+          "type": "string",
+          "description": "Identificador del producto o SKU utilizado en el maestro, la venta o las existencias.",
+          "domain": "Código del maestro productos. En Bronze puede faltar o no existir.",
+          "key": true
+        },
+        {
+          "name": "existencias",
+          "type": "int32",
+          "description": "Unidades de un producto disponibles en una sucursal al cierre del inventario.",
+          "domain": "Conteo entero sintético.",
+          "key": false
+        }
+      ]
+    },
+    {
+      "id": "silver.rechazos",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.rechazos,DEV)",
+      "name": "rechazos",
+      "layer": "silver",
+      "format": "Parquet",
+      "description": "Líneas excluidas de los indicadores y motivo de su rechazo.",
+      "grain": "Línea rechazada",
+      "business_keys": [],
+      "classification": "Restringido",
+      "domain_id": "calidad",
+      "domain": "Calidad de datos",
+      "owner_id": "calidad",
+      "owner": "Equipo de calidad de datos",
+      "tags": [
+        "silver",
+        "sintetico",
+        "restringido"
+      ],
+      "rows": 3,
+      "physical_path": "s3://silver/rechazos/part-00000.parquet",
+      "repository_file": "datasets/silver/rechazos/part-00000.parquet",
+      "sha256": "7c73afa153b57741309a935e4524e437b40f01cb0afb17097ce3a136cede61b6",
+      "upstream": [
+        "bronze.ventas",
+        "bronze.transacciones",
+        "bronze.productos",
+        "bronze.categorias",
+        "bronze.clientes",
+        "bronze.sucursales"
+      ],
+      "columns": [
+        {
+          "name": "venta_id",
+          "type": "string",
+          "description": "Identificador de una línea individual de venta.",
+          "domain": "Clave lógica en Bronze, donde puede repetirse. Única en Silver ventas.",
+          "key": false
+        },
+        {
+          "name": "transaccion_id",
+          "type": "string",
+          "description": "Identificador del tiquete que agrupa una o más líneas de venta.",
+          "domain": "Código de la cabecera transacciones.",
+          "key": false
+        },
+        {
+          "name": "producto_id",
+          "type": "string",
+          "description": "Identificador del producto o SKU utilizado en el maestro, la venta o las existencias.",
+          "domain": "Código del maestro productos. En Bronze puede faltar o no existir.",
+          "key": false
+        },
+        {
+          "name": "motivo",
+          "type": "string",
+          "description": "Primera regla incumplida durante la clasificación de la venta.",
+          "domain": "id_nulo, id_con_conflicto, producto_nulo, producto_desconocido, cantidad_no_positiva, transaccion_invalida, dimension_incompleta o precio_invalido.",
+          "key": false
+        }
+      ]
+    },
+    {
+      "id": "gold.ventas_diarias",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.ventas_diarias,DEV)",
+      "name": "ventas_diarias",
+      "layer": "gold",
+      "format": "Parquet",
+      "description": "Ingresos en COP, unidades y tiquetes distintos por fecha y sucursal.",
+      "grain": "Sucursal y día",
+      "business_keys": [
+        "fecha",
+        "sucursal_id"
+      ],
+      "classification": "Interno",
+      "domain_id": "analitica",
+      "domain": "Analítica comercial",
+      "owner_id": "analitica",
+      "owner": "Equipo de analítica comercial",
+      "tags": [
+        "gold",
+        "sintetico",
+        "interno"
+      ],
+      "rows": 107,
+      "physical_path": "s3://gold/ventas_diarias/part-00000.parquet",
+      "repository_file": "datasets/gold/ventas_diarias/part-00000.parquet",
+      "sha256": "99308bef07b50f157e0f141c181e37d511856fbd8eb5b45a7f91ad3189468387",
+      "upstream": [
+        "silver.ventas"
+      ],
+      "columns": [
+        {
+          "name": "fecha",
+          "type": "date32[day]",
+          "description": "Fecha de la transacción o del corte de existencias, según el conjunto.",
+          "domain": "Fecha civil ISO 8601. Gold diario agrupa por esta fecha.",
+          "key": true
+        },
+        {
+          "name": "sucursal_id",
+          "type": "string",
+          "description": "Identificador de la tienda donde se registró la operación.",
+          "domain": "Código de la dimensión sucursales.",
+          "key": true
+        },
+        {
+          "name": "ventas_cop",
+          "type": "int64",
+          "description": "Suma de los importes de líneas válidas del grupo, en pesos colombianos.",
+          "domain": "Suma de importe_cop.",
+          "key": false
+        },
+        {
+          "name": "unidades",
+          "type": "int64",
+          "description": "Suma de las cantidades de las líneas válidas del grupo.",
+          "domain": "Conteo entero de unidades vendidas.",
+          "key": false
+        },
+        {
+          "name": "transacciones",
+          "type": "int64",
+          "description": "Cantidad de tiquetes distintos incluidos en el grupo.",
+          "domain": "COUNT DISTINCT de transaccion_id por día y sucursal.",
+          "key": false
+        }
+      ]
+    },
+    {
+      "id": "gold.productos",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.productos,DEV)",
+      "name": "productos",
+      "layer": "gold",
+      "format": "Parquet",
+      "description": "Ingresos y unidades vendidas por producto y categoría.",
+      "grain": "Producto y categoría",
+      "business_keys": [
+        "producto_id",
+        "categoria"
+      ],
+      "classification": "Interno",
+      "domain_id": "analitica",
+      "domain": "Analítica comercial",
+      "owner_id": "analitica",
+      "owner": "Equipo de analítica comercial",
+      "tags": [
+        "gold",
+        "sintetico",
+        "interno"
+      ],
+      "rows": 24,
+      "physical_path": "s3://gold/productos/part-00000.parquet",
+      "repository_file": "datasets/gold/productos/part-00000.parquet",
+      "sha256": "c17167d9aae3777563257f5fd58e95891aabf933f36c9b7f47cd91147d07d3ee",
+      "upstream": [
+        "silver.ventas"
+      ],
+      "columns": [
+        {
+          "name": "producto_id",
+          "type": "string",
+          "description": "Identificador del producto o SKU utilizado en el maestro, la venta o las existencias.",
+          "domain": "Código del maestro productos. En Bronze puede faltar o no existir.",
+          "key": true
+        },
+        {
+          "name": "categoria",
+          "type": "string",
+          "description": "Nombre comercial de la categoría.",
+          "domain": "Alimentos, Hogar, Papelería o Cuidado.",
+          "key": true
+        },
+        {
+          "name": "ventas_cop",
+          "type": "int64",
+          "description": "Suma de los importes de líneas válidas del grupo, en pesos colombianos.",
+          "domain": "Suma de importe_cop.",
+          "key": false
+        },
+        {
+          "name": "unidades",
+          "type": "int64",
+          "description": "Suma de las cantidades de las líneas válidas del grupo.",
+          "domain": "Conteo entero de unidades vendidas.",
+          "key": false
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "bronze.ventas",
+      "target": "silver.ventas",
+      "provenance": "SQL de services/spark/transform.py"
+    },
+    {
+      "source": "bronze.transacciones",
+      "target": "silver.ventas",
+      "provenance": "SQL de services/spark/transform.py"
+    },
+    {
+      "source": "bronze.productos",
+      "target": "silver.ventas",
+      "provenance": "SQL de services/spark/transform.py"
+    },
+    {
+      "source": "bronze.categorias",
+      "target": "silver.ventas",
+      "provenance": "SQL de services/spark/transform.py"
+    },
+    {
+      "source": "bronze.clientes",
+      "target": "silver.ventas",
+      "provenance": "SQL de services/spark/transform.py"
+    },
+    {
+      "source": "bronze.sucursales",
+      "target": "silver.ventas",
+      "provenance": "SQL de services/spark/transform.py"
+    },
+    {
+      "source": "bronze.inventario",
+      "target": "silver.inventario",
+      "provenance": "SQL de services/spark/transform.py"
+    },
+    {
+      "source": "bronze.ventas",
+      "target": "silver.rechazos",
+      "provenance": "SQL de services/spark/transform.py"
+    },
+    {
+      "source": "bronze.transacciones",
+      "target": "silver.rechazos",
+      "provenance": "SQL de services/spark/transform.py"
+    },
+    {
+      "source": "bronze.productos",
+      "target": "silver.rechazos",
+      "provenance": "SQL de services/spark/transform.py"
+    },
+    {
+      "source": "bronze.categorias",
+      "target": "silver.rechazos",
+      "provenance": "SQL de services/spark/transform.py"
+    },
+    {
+      "source": "bronze.clientes",
+      "target": "silver.rechazos",
+      "provenance": "SQL de services/spark/transform.py"
+    },
+    {
+      "source": "bronze.sucursales",
+      "target": "silver.rechazos",
+      "provenance": "SQL de services/spark/transform.py"
+    },
+    {
+      "source": "silver.ventas",
+      "target": "gold.ventas_diarias",
+      "provenance": "Vista lógica Spark validas, compartida por Silver y Gold"
+    },
+    {
+      "source": "silver.ventas",
+      "target": "gold.productos",
+      "provenance": "Vista lógica Spark validas, compartida por Silver y Gold"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Tiquete",
+      "definition": "Transacción que reúne una o más líneas de venta."
+    },
+    {
+      "term": "SKU",
+      "definition": "Unidad identificable del catálogo de productos. Su código es producto_id."
+    },
+    {
+      "term": "Venta aceptada",
+      "definition": "Línea única con dimensiones válidas, cantidad positiva y precio válido."
+    },
+    {
+      "term": "COP",
+      "definition": "Peso colombiano, unidad monetaria de los precios e importes del lote."
+    }
+  ]
+}

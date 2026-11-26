@@ -1,0 +1,49 @@
+dataset,campo,tipo_fisico,parte_de_clave,definicion,dominio_o_regla
+bronze.clientes,cliente_id,string,sí,Identificador sintético del cliente en el maestro comercial.,"Texto alfanumérico, prefijo CL en el generador."
+bronze.clientes,segmento,string,no,Segmento comercial asignado al cliente.,"Ocasional, Frecuente o Empresa."
+bronze.categorias,categoria_id,string,sí,Identificador estable de una categoría de productos.,Código de la dimensión categorias.
+bronze.categorias,categoria,string,no,Nombre comercial de la categoría.,"Alimentos, Hogar, Papelería o Cuidado."
+bronze.productos,producto_id,string,sí,"Identificador del producto o SKU utilizado en el maestro, la venta o las existencias.",Código del maestro productos. En Bronze puede faltar o no existir.
+bronze.productos,categoria_id,string,no,Identificador estable de una categoría de productos.,Código de la dimensión categorias.
+bronze.productos,precio_unitario_cop,string,no,"Precio de una unidad del producto, expresado en pesos colombianos.","Importe entero en COP, mayor o igual a cero en líneas aceptadas."
+bronze.sucursales,sucursal_id,string,sí,Identificador de la tienda donde se registró la operación.,Código de la dimensión sucursales.
+bronze.sucursales,region,string,no,Región comercial de la sucursal.,"Centro, Norte u Occidente."
+bronze.transacciones,transaccion_id,string,sí,Identificador del tiquete que agrupa una o más líneas de venta.,Código de la cabecera transacciones.
+bronze.transacciones,fecha,string,no,"Fecha de la transacción o del corte de existencias, según el conjunto.",Fecha civil ISO 8601. Gold diario agrupa por esta fecha.
+bronze.transacciones,cliente_id,string,no,Identificador sintético del cliente en el maestro comercial.,"Texto alfanumérico, prefijo CL en el generador."
+bronze.transacciones,sucursal_id,string,no,Identificador de la tienda donde se registró la operación.,Código de la dimensión sucursales.
+bronze.ventas,venta_id,string,sí,Identificador de una línea individual de venta.,"Clave lógica en Bronze, donde puede repetirse. Única en Silver ventas."
+bronze.ventas,transaccion_id,string,no,Identificador del tiquete que agrupa una o más líneas de venta.,Código de la cabecera transacciones.
+bronze.ventas,producto_id,string,no,"Identificador del producto o SKU utilizado en el maestro, la venta o las existencias.",Código del maestro productos. En Bronze puede faltar o no existir.
+bronze.ventas,cantidad,string,no,Número de unidades del producto en una línea de venta.,Entero estrictamente positivo para las líneas aceptadas.
+bronze.inventario,fecha,string,sí,"Fecha de la transacción o del corte de existencias, según el conjunto.",Fecha civil ISO 8601. Gold diario agrupa por esta fecha.
+bronze.inventario,sucursal_id,string,sí,Identificador de la tienda donde se registró la operación.,Código de la dimensión sucursales.
+bronze.inventario,producto_id,string,sí,"Identificador del producto o SKU utilizado en el maestro, la venta o las existencias.",Código del maestro productos. En Bronze puede faltar o no existir.
+bronze.inventario,existencias,string,no,Unidades de un producto disponibles en una sucursal al cierre del inventario.,Conteo entero sintético.
+silver.ventas,venta_id,string,sí,Identificador de una línea individual de venta.,"Clave lógica en Bronze, donde puede repetirse. Única en Silver ventas."
+silver.ventas,transaccion_id,string,no,Identificador del tiquete que agrupa una o más líneas de venta.,Código de la cabecera transacciones.
+silver.ventas,fecha,date32[day],no,"Fecha de la transacción o del corte de existencias, según el conjunto.",Fecha civil ISO 8601. Gold diario agrupa por esta fecha.
+silver.ventas,cliente_id,string,no,Identificador sintético del cliente en el maestro comercial.,"Texto alfanumérico, prefijo CL en el generador."
+silver.ventas,sucursal_id,string,no,Identificador de la tienda donde se registró la operación.,Código de la dimensión sucursales.
+silver.ventas,producto_id,string,no,"Identificador del producto o SKU utilizado en el maestro, la venta o las existencias.",Código del maestro productos. En Bronze puede faltar o no existir.
+silver.ventas,categoria,string,no,Nombre comercial de la categoría.,"Alimentos, Hogar, Papelería o Cuidado."
+silver.ventas,cantidad,int32,no,Número de unidades del producto en una línea de venta.,Entero estrictamente positivo para las líneas aceptadas.
+silver.ventas,precio_unitario_cop,int64,no,"Precio de una unidad del producto, expresado en pesos colombianos.","Importe entero en COP, mayor o igual a cero en líneas aceptadas."
+silver.ventas,importe_cop,int64,no,Importe de la línea en pesos colombianos.,cantidad multiplicada por precio_unitario_cop.
+silver.inventario,fecha,date32[day],sí,"Fecha de la transacción o del corte de existencias, según el conjunto.",Fecha civil ISO 8601. Gold diario agrupa por esta fecha.
+silver.inventario,sucursal_id,string,sí,Identificador de la tienda donde se registró la operación.,Código de la dimensión sucursales.
+silver.inventario,producto_id,string,sí,"Identificador del producto o SKU utilizado en el maestro, la venta o las existencias.",Código del maestro productos. En Bronze puede faltar o no existir.
+silver.inventario,existencias,int32,no,Unidades de un producto disponibles en una sucursal al cierre del inventario.,Conteo entero sintético.
+silver.rechazos,venta_id,string,no,Identificador de una línea individual de venta.,"Clave lógica en Bronze, donde puede repetirse. Única en Silver ventas."
+silver.rechazos,transaccion_id,string,no,Identificador del tiquete que agrupa una o más líneas de venta.,Código de la cabecera transacciones.
+silver.rechazos,producto_id,string,no,"Identificador del producto o SKU utilizado en el maestro, la venta o las existencias.",Código del maestro productos. En Bronze puede faltar o no existir.
+silver.rechazos,motivo,string,no,Primera regla incumplida durante la clasificación de la venta.,"id_nulo, id_con_conflicto, producto_nulo, producto_desconocido, cantidad_no_positiva, transaccion_invalida, dimension_incompleta o precio_invalido."
+gold.ventas_diarias,fecha,date32[day],sí,"Fecha de la transacción o del corte de existencias, según el conjunto.",Fecha civil ISO 8601. Gold diario agrupa por esta fecha.
+gold.ventas_diarias,sucursal_id,string,sí,Identificador de la tienda donde se registró la operación.,Código de la dimensión sucursales.
+gold.ventas_diarias,ventas_cop,int64,no,"Suma de los importes de líneas válidas del grupo, en pesos colombianos.",Suma de importe_cop.
+gold.ventas_diarias,unidades,int64,no,Suma de las cantidades de las líneas válidas del grupo.,Conteo entero de unidades vendidas.
+gold.ventas_diarias,transacciones,int64,no,Cantidad de tiquetes distintos incluidos en el grupo.,COUNT DISTINCT de transaccion_id por día y sucursal.
+gold.productos,producto_id,string,sí,"Identificador del producto o SKU utilizado en el maestro, la venta o las existencias.",Código del maestro productos. En Bronze puede faltar o no existir.
+gold.productos,categoria,string,sí,Nombre comercial de la categoría.,"Alimentos, Hogar, Papelería o Cuidado."
+gold.productos,ventas_cop,int64,no,"Suma de los importes de líneas válidas del grupo, en pesos colombianos.",Suma de importe_cop.
+gold.productos,unidades,int64,no,Suma de las cantidades de las líneas válidas del grupo.,Conteo entero de unidades vendidas.
