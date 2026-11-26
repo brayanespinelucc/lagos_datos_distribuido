@@ -8,6 +8,8 @@
 
 El primer runner público levantó RKE2 v1.35.8+rke2r1 con un control plane y dos workers Ready. El supervisor y la API respondieron por HAProxy, y el Deployment presentó dos pods Running en workers distintos. La conexión directa entre las IP de pod agotó su tiempo antes de ordenar el apagado. La repetición prepara Canal con rutas host-gw en el puente L2 dedicado. [Acta del ensayo inicial](evidence/moment-01/kubernetes/p5/ensayos/45851500040/p5.json)
 
+El segundo pipeline conservó tres nodos Ready, dos pods y dos endpoints. Canal figuró 0/3 en la consulta del DaemonSet y el balanceador presentó backends inestables. Se prepara un último ensayo acotado con propagación de montajes dentro de los nodos desechables y captura de los registros del CNI. La entrega urgente continúa en paralelo con las evidencias de los momentos 2 y 3. [Segundo ensayo](evidence/moment-01/kubernetes/p5/ensayos/45852407871/p5.json)
+
 ## Último componente terminado en este entorno
 
 **MinIO y HAProxy.** Se corrigió el falso fallo de IAM. La versión ensayada de `mc` devolvió código 1 y el mensaje `Insufficient permissions to access this path`. La política autoriza operaciones en Bronze. Con la misma identidad, `ingesta-lab`, se cargó y descargó el CSV en Bronze, y los PUT firmados en Silver y Gold devolvieron `403 AccessDenied`. El administrador recibió `404 NoSuchKey` al consultar las dos claves. Se preservó el acta del fallo inicial. [Acta aprobada](evidence/moment-01/minio/validacion/result.json) · [Acta histórica](evidence/moment-01/minio/result.json)

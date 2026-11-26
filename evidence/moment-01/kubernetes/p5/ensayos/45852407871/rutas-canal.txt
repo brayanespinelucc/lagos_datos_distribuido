@@ -1,0 +1,15 @@
+rke2-server
+default via 10.42.10.1 dev eth0 
+10.42.10.0/24 dev eth0 proto kernel scope link src 10.42.10.31 
+10.52.0.2 dev caliaa393222fea scope link metric 1024 
+10.52.0.3 dev cali4d40be46e14 scope link metric 1024 
+rke2-worker-1
+default via 10.42.10.1 dev eth0 
+10.42.10.0/24 dev eth0 proto kernel scope link src 10.42.10.32 
+10.52.2.2 dev cali11753a70a91 scope link metric 1024 
+rke2-worker-2
+default via 10.42.10.1 dev eth0 
+10.42.10.0/24 dev eth0 proto kernel scope link src 10.42.10.33 
+10.52.1.2 dev cali3cbddadd0cc scope link metric 1024 
+NAME         DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE   CONTAINERS                 IMAGES                                                                                         SELECTOR
+rke2-canal   3         3         0       3            0           kubernetes.io/os=linux   44s   calico-node,kube-flannel   rancher/hardened-calico:v3.32.1-build20260827,rancher/hardened-flannel:v0.28.9-build20260819   k8s-app=canal

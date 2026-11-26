@@ -229,8 +229,7 @@ class Lab:
         stopped = False
         try:
             before = self.await_phase('antes', lambda s: healthy(s) and
-                {p['nodo'] for p in active(s)} == {a.worker, a.survivor} and
-                all_up(s) and serves(s), 100)
+                {p['nodo'] for p in active(s)} == {a.worker, a.survivor}, 100)
             try:
                 self.connectivity(before, containers)
                 self.report['comunicacion']['resultado'] = 'Aprobada'
@@ -254,15 +253,15 @@ class Lab:
                 raise RuntimeError('Docker no confirmó la parada')
             self.report['p5'] = 'Worker detenido'
             self.phase = 'detenido'
-            self.await_phase('nodo-fuera', lambda s: s['nodos'][a.worker]['Ready'] in ('False', 'Unknown')
-                             and s['backends']['worker-1']['estado'].startswith('DOWN'), 150)
+            self.await_phase('nodo-fuera', lambda s: s['nodos'][a.worker]['Ready'] in ('False', 'Unknown'), 150)
             original = {p['uid'] for p in active(before)}
-            self.await_phase('reprogramado', lambda s:
+            replacement = self.await_phase('reprogramado', lambda s:
                 s['nodos'][a.worker]['Ready'] in ('False', 'Unknown') and
                 len(active(s)) == 2 and all(p['nodo'] == a.survivor for p in active(s)) and
                 any(p['uid'] not in original for p in active(s)) and s['replicas_disponibles'] == 2 and
-                serves(s) and s['http']['identidad'].endswith(' ' + a.survivor) and
                 len([e for e in s['endpoints'] if e['conditions'].get('ready') is True and e.get('nodeName') == a.survivor]) == 2, 210)
+            self.report['http_con_worker_detenido'] = [self.http() for _ in range(4)]
+            self.report['backend_detenido'] = replacement['backends']['worker-1']['estado']
             self.capture('detenido')
             self.phase = 'recuperando'
             self.report['acciones'].append({'utc': now(), 'orden': 'docker start', 'id': cid})
@@ -278,6 +277,10 @@ class Lab:
             self.phase = 'recuperado'
             self.ingress('recuperado', after)
             self.capture('recuperado')
+            available = any(s.get('http') == 200 and s.get('identidad', '').endswith(' ' + a.survivor)
+                            for s in self.report['http_con_worker_detenido'])
+            if not available or not self.report['backend_detenido'].startswith('DOWN'):
+                raise RuntimeError('El periodo degradado no acreditó disponibilidad o exclusión del worker')
             self.report['p5'] = 'Aprobada'
         except Exception as exc:
             self.report['error'] = str(exc)

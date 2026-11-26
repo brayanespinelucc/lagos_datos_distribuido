@@ -1,0 +1,85 @@
+{"utc": "2026-11-26T15:48:38.024935+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 2}
+{"utc": "2026-11-26T15:48:39.027477+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:48:40.028369+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:48:41.029154+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:48:42.030076+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:48:43.031120+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:48:44.031939+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:48:45.032808+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:48:46.033681+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:48:47.034408+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:48:48.035350+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:48:49.036481+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:48:50.037323+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:48:51.038093+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:48:52.039027+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:48:53.039865+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T15:48:56.042738+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T15:48:59.044986+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-6jzg9 rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T15:49:00.046318+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-6jzg9 rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T15:49:01.048312+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T15:49:04.050938+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-6jzg9 rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T15:49:05.052476+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T15:49:08.054934+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:09.055698+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:10.056541+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:11.057437+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:12.058222+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:13.059091+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:14.059915+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:15.060694+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:16.061494+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:17.062398+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:18.063265+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:19.064078+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:20.064908+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:21.065841+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:22.066669+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:23.067676+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:24.068510+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:25.069380+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:26.070221+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:27.071016+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:28.071866+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:29.072698+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:30.073549+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:31.074383+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-2qbmq rke2-worker-1", "ms": 1}
+{"utc": "2026-11-26T15:49:32.075839+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T15:49:35.078464+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-2qbmq rke2-worker-1", "ms": 1}
+{"utc": "2026-11-26T15:49:36.079821+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T15:49:39.081963+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-6jzg9 rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T15:49:40.083428+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T15:49:43.085927+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-6jzg9 rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T15:49:44.087343+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T15:49:47.089980+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:48.090781+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:49.091555+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:50.092303+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:51.093109+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:52.093922+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:53.094692+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:54.095458+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:55.096230+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:56.097006+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:57.097725+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:58.098516+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:49:59.099465+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:00.100824+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:01.101682+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:02.102525+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:03.103809+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:04.104598+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:05.105408+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:06.106230+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:07.107054+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:08.107996+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:09.108768+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:10.109579+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:11.110435+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:12.111214+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:13.112124+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:14.112977+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:15.113831+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:16.114771+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:50:17.115633+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-6jzg9 rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T15:50:18.117150+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}

@@ -93,6 +93,7 @@ attempt_rke2() (
     name=${names[i]}
     host=${hosts[i]}
     docker run -dt --privileged --cgroupns=private --tmpfs /run --tmpfs /run/lock \
+      --sysctl net.ipv4.ip_forward=1 --sysctl net.ipv4.conf.all.rp_filter=1 --sysctl net.ipv4.conf.default.rp_filter=1 \
       --network "$net" --ip "10.42.10.$((31+i))" --hostname "$host" --name "$name" \
       --label "lago.p5=$id" -e SYSTEMD_LOG_TARGET=console -v /var/lib/rancher/rke2 \
       -v /var/lib/kubelet "${extra[@]}" "$image" /usr/lib/systemd/systemd --unit=noop.target >/dev/null
@@ -105,6 +106,12 @@ attempt_rke2() (
     docker exec "$name" install -d -m 700 /etc/rancher/rke2
     docker exec -i "$name" tar xzf - -C /usr/local < "$archive"
     docker cp "infrastructure/kubernetes/nodes/$host.yaml" "$name:/etc/rancher/rke2/config.yaml"
+    local unit=rke2-agent
+    if [[ $i == 0 ]]; then unit=rke2-server; fi
+    docker cp tests/kubernetes/p5-preparar-nodo.sh "$name:/usr/local/bin/preparar-nodo-p5"
+    docker exec "$name" mkdir -p "/etc/systemd/system/$unit.service.d"
+    printf '[Service]\nExecStartPre=/bin/sh /usr/local/bin/preparar-nodo-p5\n' |
+      docker exec -i "$name" tee "/etc/systemd/system/$unit.service.d/red-p5.conf" >/dev/null
     docker exec "$name" systemctl daemon-reload
   done
   docker exec "$server" sh -ec 'umask 077; openssl rand -hex 32 > /etc/rancher/rke2/agent-secret; mkdir -p /var/lib/rancher/rke2/server/manifests'
@@ -181,6 +188,15 @@ kubectl version -o json > "$out/version-api.json"
 kubectl apply -f tests/kubernetes/aplicacion-p5.yaml > "$out/aplicar.txt"
 kubectl -n lago-p5 rollout status deploy/testigo --timeout=180s >> "$out/aplicar.txt"
 if [[ $mode == rke2 ]]; then
+  # Esperar a la red además del Ready de kubelet. Conservar el diagnóstico incluso si el CNI sigue degradado.
+  kubectl -n kube-system rollout status ds/rke2-canal --timeout=70s > "$out/canal-rollout.txt" 2>&1 || true
+  kubectl -n kube-system get pods -o wide > "$out/pods-sistema.txt"
+  kubectl -n kube-system describe pods -l k8s-app=canal > "$tmp/canal-describe"
+  sed -n '/^Events:/,/^$/p' "$tmp/canal-describe" | tail -80 > "$out/eventos-canal.txt"
+  for part in kube-flannel calico-node; do
+    kubectl -n kube-system logs -l k8s-app=canal -c "$part" --prefix --tail=55 2>&1 |
+      grep -Evi 'token|bearer|password|secret|BEGIN .*KEY' > "$out/canal-$part.txt" || true
+  done
   for name in "$server" "$w1" "$w2"; do
     { docker exec "$name" hostname; docker exec "$name" ip -4 route; } >> "$out/rutas-canal.txt"
   done

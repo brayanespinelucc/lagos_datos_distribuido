@@ -1,0 +1,1 @@
+28.0.4 ["name=apparmor","name=seccomp,profile=builtin","name=cgroupns"] cgroup=systemd/2

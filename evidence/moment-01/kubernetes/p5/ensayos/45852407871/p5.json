@@ -1,0 +1,124 @@
+{
+  "inicio_utc": "2026-11-26T15:48:37.937949+00:00",
+  "tecnologia": "rke2",
+  "laboratorio": "p5-d00cb4a3",
+  "worker_objetivo": "rke2-worker-1",
+  "worker_superviviente": "rke2-worker-2",
+  "commit_fuente": "73c6a7693f666c6dba2662506264af559d4de8ef",
+  "run_id": "45852407871",
+  "fases": {
+    "antes-al-vencer": {
+      "utc": "2026-11-26T15:50:15.131004+00:00",
+      "nodos": {
+        "rke2-server": {
+          "Ready": "True",
+          "uid": "9e1defbb-68a4-4c10-8a5a-526cf8721187",
+          "ip": "10.42.10.31",
+          "rol": "control-plane",
+          "kubelet": "v1.35.8+rke2r1"
+        },
+        "rke2-worker-1": {
+          "Ready": "True",
+          "uid": "9405b789-0835-4986-ae52-74c04b70a143",
+          "ip": "10.42.10.32",
+          "rol": "worker",
+          "kubelet": "v1.35.8+rke2r1"
+        },
+        "rke2-worker-2": {
+          "Ready": "True",
+          "uid": "ecf9c301-c62e-4093-bf64-205db97d3e05",
+          "ip": "10.42.10.33",
+          "rol": "worker",
+          "kubelet": "v1.35.8+rke2r1"
+        }
+      },
+      "pods": [
+        {
+          "nombre": "testigo-6cbb9c8f95-2qbmq",
+          "uid": "5b196b16-bb65-46ef-a1df-a00bf505dda0",
+          "nodo": "rke2-worker-1",
+          "ip": "10.52.2.2",
+          "fase": "Running",
+          "Ready": "True",
+          "borrado": null
+        },
+        {
+          "nombre": "testigo-6cbb9c8f95-6jzg9",
+          "uid": "8bea8f1d-60c0-4bf9-9ed8-77f5a79c80f1",
+          "nodo": "rke2-worker-2",
+          "ip": "10.52.1.2",
+          "fase": "Running",
+          "Ready": "True",
+          "borrado": null
+        }
+      ],
+      "endpoints": [
+        {
+          "addresses": [
+            "10.52.1.2"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "rke2-worker-2",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "testigo-6cbb9c8f95-6jzg9",
+            "namespace": "lago-p5",
+            "uid": "8bea8f1d-60c0-4bf9-9ed8-77f5a79c80f1"
+          }
+        },
+        {
+          "addresses": [
+            "10.52.2.2"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "rke2-worker-1",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "testigo-6cbb9c8f95-2qbmq",
+            "namespace": "lago-p5",
+            "uid": "5b196b16-bb65-46ef-a1df-a00bf505dda0"
+          }
+        }
+      ],
+      "backends": {
+        "worker-1": {
+          "estado": "DOWN",
+          "sesiones": 15
+        },
+        "worker-2": {
+          "estado": "DOWN 1/2",
+          "sesiones": 28
+        }
+      },
+      "replicas_deseadas": 2,
+      "replicas_disponibles": 2,
+      "http": {
+        "utc": "2026-11-26T15:50:15.132182+00:00",
+        "fase": "antes",
+        "http": null,
+        "error": "Remote end closed connection without response",
+        "ms": 0
+      }
+    }
+  },
+  "acciones": [],
+  "capturas": {},
+  "p5": "Sin ejecutar",
+  "id_contenedor_detenido": "d3968e23062eeb15ec5bec4362b6e6604e584f9ef7b9720701803ef85eb75259",
+  "error": "antes: condición ausente tras 100 s",
+  "muestras_http": {
+    "antes": {
+      "total": 85,
+      "http_200": 8
+    }
+  },
+  "fin_utc": "2026-11-26T15:50:20.119841+00:00"
+}

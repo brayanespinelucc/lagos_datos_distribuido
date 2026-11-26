@@ -1,0 +1,16 @@
+LAST SEEN   TYPE      REASON                   OBJECT                          MESSAGE
+108s        Normal    Scheduled                pod/testigo-6cbb9c8f95-2qbmq    Successfully assigned lago-p5/testigo-6cbb9c8f95-2qbmq to rke2-worker-1
+109s        Normal    ScalingReplicaSet        deployment/testigo              Scaled up replica set testigo-6cbb9c8f95 from 0 to 2
+109s        Normal    SuccessfulCreate         replicaset/testigo-6cbb9c8f95   Created pod: testigo-6cbb9c8f95-6jzg9
+109s        Normal    SuccessfulCreate         replicaset/testigo-6cbb9c8f95   Created pod: testigo-6cbb9c8f95-2qbmq
+108s        Normal    Scheduled                pod/testigo-6cbb9c8f95-6jzg9    Successfully assigned lago-p5/testigo-6cbb9c8f95-6jzg9 to rke2-worker-2
+108s        Warning   FailedCreatePodSandBox   pod/testigo-6cbb9c8f95-2qbmq    Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "90cadb5af005503a4f531052159a4f692c9e4f3910d805f52dfde4697f346080": plugin type="calico" failed (add): stat /var/lib/calico/nodename: no such file or directory: check that the calico/node container is running and has mounted /var/lib/calico/
+108s        Normal    Pulling                  pod/testigo-6cbb9c8f95-6jzg9    Pulling image "docker.io/library/busybox:1.37.0@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec"
+107s        Normal    Pulling                  pod/testigo-6cbb9c8f95-2qbmq    Pulling image "docker.io/library/busybox:1.37.0@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec"
+106s        Normal    TaintManagerEviction     pod/testigo-6cbb9c8f95-2qbmq    Cancelling deletion of Pod lago-p5/testigo-6cbb9c8f95-2qbmq
+105s        Normal    Pulled                   pod/testigo-6cbb9c8f95-6jzg9    Successfully pulled image "docker.io/library/busybox:1.37.0@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec" in 3.007s (3.007s including waiting). Image size: 2222118 bytes.
+104s        Normal    Created                  pod/testigo-6cbb9c8f95-6jzg9    Container created
+104s        Normal    Started                  pod/testigo-6cbb9c8f95-6jzg9    Container started
+104s        Normal    Started                  pod/testigo-6cbb9c8f95-2qbmq    Container started
+104s        Normal    Created                  pod/testigo-6cbb9c8f95-2qbmq    Container created
+104s        Normal    Pulled                   pod/testigo-6cbb9c8f95-2qbmq    Successfully pulled image "docker.io/library/busybox:1.37.0@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec" in 3.067s (3.067s including waiting). Image size: 2222118 bytes.
