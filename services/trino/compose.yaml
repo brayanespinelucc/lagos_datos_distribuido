@@ -1,0 +1,26 @@
+services:
+  trino:
+    image: trinodb/trino:477@sha256:ada485e4bffb90f859b401dc04c393d147b5840846ef66b27110662eb2675854
+    hostname: trino
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:?credencial MinIO de lectura}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:?secreto MinIO}
+      AWS_REGION: ${AWS_DEFAULT_REGION:-us-east-1}
+      S3_ENDPOINT: ${S3_ENDPOINT:?endpoint MinIO en la red de laboratorio}
+      NO_PROXY: localhost,127.0.0.1,lb-minio,trino,minio-1,minio-2,minio-3
+      no_proxy: localhost,127.0.0.1,lb-minio,trino,minio-1,minio-2,minio-3
+    mem_limit: 1152m
+    ports: ["127.0.0.1::8080"]
+    volumes:
+      - ./catalog:/etc/trino/catalog:ro
+      - ./config.properties:/etc/trino/config.properties:ro
+      - ./jvm.config:/etc/trino/jvm.config:ro
+      - catalogo:/data/trino
+    networks: [lago]
+    security_opt: ["no-new-privileges:true"]
+volumes:
+  catalogo: {}
+networks:
+  lago:
+    external: true
+    name: ${LAKE_DOCKER_NETWORK:?red existente de MinIO}

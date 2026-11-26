@@ -6,11 +6,17 @@
     main.textContent = "Faltan los datos del portal. Descomprima el paquete completo y abra index.html.";
     return;
   }
-  const pages = {resumen:"Resumen", infraestructura:"Infraestructura", trazabilidad:"Trazabilidad", evidencias:"Evidencias", documentos:"Documentos"};
+  const pages = {lago:"Explorador del lago",flujo:"Flujo de datos",consultas:"Consultas SQL",gobierno:"Gobierno de datos",monitoreo:"Monitoreo",laboratorio:"Laboratorio",sustentacion:"Sustentación",resumen:"Resumen", infraestructura:"Infraestructura", trazabilidad:"Trazabilidad", evidencias:"Evidencias", documentos:"Documentos"};
   const moments = {1:"Infraestructura base", 2:"Lago y gobierno de datos", 3:"Monitoreo y operación"};
   const weights = {1:30, 2:35, 3:35};
   const roles = {"minio-lb":"Balanceador MinIO", "rke2-lb":"Balanceador RKE2", minio:"Nodo MinIO", "rke2-server":"Control plane", "rke2-worker":"Worker RKE2"};
   const shapes = {
+    layers:'<path d="m2 7 10-5 10 5-10 5zM2 12l10 5 10-5M2 17l10 5 10-5"/>',
+    flow:'<circle cx="5" cy="5" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="5" cy="19" r="2"/><path d="M7 5h4v14H7m4-7h6"/>',
+    code:'<path d="m7 7-5 5 5 5m10-10 5 5-5 5m-3-14-4 18"/>',
+    pulse:'<path d="M2 12h4l3-8 5 16 3-8h5"/>',
+    experiment:'<path d="M8 3h8m-6 0v6L4 19a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2L14 9V3M7 16h10"/>',
+    play:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m10 8 5 4-5 4z"/>',
     overview:'<rect x="3" y="3" width="7" height="7" rx="1.4"/><rect x="14" y="3" width="7" height="7" rx="1.4"/><rect x="3" y="14" width="7" height="7" rx="1.4"/><rect x="14" y="14" width="7" height="7" rx="1.4"/>',
     network:'<rect x="8.5" y="2.5" width="7" height="5" rx="1"/><rect x="2.5" y="16" width="7" height="5" rx="1"/><rect x="14.5" y="16" width="7" height="5" rx="1"/><path d="M12 7.5v4.5m-6 4v-4h12v4"/>',
     rows:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18m-12-5v11"/>',
@@ -95,7 +101,7 @@
       : '<a class="qdoc" href="'+escape(fileUrl(file))+'" download>'+contents+'</a>';
   }
   function home() {
-    const quick = [bySuffix("/entrega/informe.pdf"),fileMap.get("REQUIREMENTS_MATRIX.csv"),bySuffix("architecture/diagrams/arquitectura.svg"),fileMap.get("EVIDENCE_INDEX.md")].filter(Boolean).slice(0,3);
+    const quick = [bySuffix("/entrega/informe-final.pdf") || bySuffix("/entrega/informe.pdf"),fileMap.get("REQUIREMENTS_MATRIX.csv"),bySuffix("architecture/diagrams/arquitectura.svg"),fileMap.get("EVIDENCE_INDEX.md")].filter(Boolean).slice(0,3);
     const stages = Object.entries(moments).map(([num,name]) =>
       '<a class="stage" href="'+escape(routeLink("trazabilidad",{momento:num}))+'"><span class="stage-mark">M'+num+'</span><span><strong>'+escape(name)+'</strong><small>'+weights[num]+' % de la evaluación · '+momentStatus(num)+'</small></span>'+icon("chevron")+'</a>'
     ).join("");
@@ -175,6 +181,9 @@
     return file.kind;
   }
   function fileMoment(file) {
+    if(file.path.includes("/moment-02/") || ["Datos","SQL","Gobierno","Procesamiento"].includes(file.kind)) return "2";
+    if(file.path.includes("/moment-03/") || file.kind==="Monitoreo") return "3";
+    if(file.path.includes("/final/") || file.kind==="Sustentación") return "Final";
     if(file.path.includes("/moment-01/") || file.kind==="Infraestructura" || file.kind==="Diagrama") return "1";
     if(file.path.includes("/block-00/") || file.kind==="Bloque 0") return "0";
     return "Transversal";
@@ -206,7 +215,7 @@
       "Abra los informes y diagramas o descargue sus archivos originales para revisarlos sin conexión.")+
       '<div class="tools" data-filters>'+searchField("Buscar archivo",evidence?"Nombre, componente o requisito":"Título, nombre o formato")+
       selectField(evidence?"Componente":"Formato","tipo",choices.map(v=>[v,v]))+
-      selectField("Momento","momento",[["0","Bloque 0"],["1","Momento 1"],["Transversal","Transversal"]])+'</div><div id="results">'+assetRows()+'</div>'+testsSummary;
+      selectField("Momento","momento",[["0","Bloque 0"],["1","Momento 1"],["2","Momento 2"],["3","Momento 3"],["Final","Final"],["Transversal","Transversal"]])+'</div><div id="results">'+assetRows()+'</div>'+testsSummary;
   }
   function showFile(path, trigger) {
     const file=fileMap.get(path);
@@ -231,7 +240,8 @@
     viewer.showModal();
     viewer.querySelector("[data-close]").focus();
   }
-  const renderers={resumen:home,infraestructura:infra,trazabilidad:matrix,evidencias:()=>assets(true),documentos:()=>assets(false)};
+  const extras=window.createLakeViews({data,icon,esc:escape,norm,fmt,sizeName,fileUrl,fileMap,bySuffix,reqs,pageHead,linkButton,fileList,definition,chip,routeLink,buttonView,download,getParams:()=>params});
+  const renderers={...extras.renderers,resumen:home,infraestructura:infra,trazabilidad:matrix,evidencias:()=>assets(true),documentos:()=>assets(false)};
   function menu(open) {
     document.querySelector("#rail").classList.toggle("open",open);
     document.querySelector(".mobile-open").setAttribute("aria-expanded",String(open));
@@ -249,11 +259,13 @@
     }
     document.querySelector("#section-name").textContent=pages[section];
     document.title=pages[section]+" · Lago de Datos Distribuido — Portal de Demostración del Proyecto";
+    extras.stop();
     main.innerHTML=renderers[section]();
     if(moveFocus) { main.focus({preventScroll:true}); window.scrollTo(0,0); }
   }
   function filter(event) {
     const target=event.target;
+    if(extras.change(section,event)) return;
     if(!target.closest("[data-filters]") || !target.name) return;
     if(target.value) params.set(target.name,target.value); else params.delete(target.name);
     history.replaceState(null,"",routeLink(section,Object.fromEntries(params)));
@@ -262,6 +274,7 @@
   }
   main.addEventListener("input",filter);
   document.addEventListener("click",event=>{
+    if(extras.click(section,event)) return;
     const view=event.target.closest("[data-view]");
     const toggle=event.target.closest("[data-menu]");
     if(view) showFile(view.dataset.view,view);

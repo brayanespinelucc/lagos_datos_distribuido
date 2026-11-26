@@ -6,24 +6,57 @@
   "ssh_deletekeys": true,
   "timezone": "Etc/UTC",
   "package_update": true,
-  "packages": ["ca-certificates", "curl", "openssh-server", "iputils-ping", "qemu-guest-agent", "systemd-timesyncd"],
-  "users": [{
-    "name": "operador",
-    "groups": ["adm", "sudo"],
-    "shell": "/bin/bash",
-    "lock_passwd": true,
-    "sudo": ["ALL=(ALL) NOPASSWD:ALL"]
-  }],
-  "write_files": [{
-    "path": "/etc/ssh/sshd_config.d/00-lago-access.conf",
-    "owner": "root:root",
-    "permissions": "0644",
-    "content": "PermitRootLogin no\nPubkeyAuthentication yes\nPasswordAuthentication no\nKbdInteractiveAuthentication no\n"
-  }],
+  "packages": [
+    "ca-certificates",
+    "curl",
+    "openssh-server",
+    "iputils-ping",
+    "qemu-guest-agent",
+    "systemd-timesyncd"
+  ],
+  "users": [
+    {
+      "name": "operador",
+      "groups": [
+        "adm",
+        "sudo"
+      ],
+      "shell": "/bin/bash",
+      "lock_passwd": true,
+      "sudo": [
+        "ALL=(ALL) NOPASSWD:ALL"
+      ]
+    }
+  ],
+  "write_files": [
+    {
+      "path": "/etc/ssh/sshd_config.d/00-lago-access.conf",
+      "owner": "root:root",
+      "permissions": "0644",
+      "content": "PermitRootLogin no\nPubkeyAuthentication yes\nPasswordAuthentication no\nKbdInteractiveAuthentication no\n"
+    }
+  ],
   "runcmd": [
-    ["sshd", "-t"],
-    ["systemctl", "reload", "ssh"],
-    ["systemctl", "start", "qemu-guest-agent"],
-    ["systemctl", "enable", "--now", "systemd-timesyncd"]
+    "set -eu",
+    [
+      "sshd",
+      "-t"
+    ],
+    [
+      "systemctl",
+      "reload",
+      "ssh"
+    ],
+    [
+      "systemctl",
+      "start",
+      "qemu-guest-agent"
+    ],
+    [
+      "systemctl",
+      "enable",
+      "--now",
+      "systemd-timesyncd"
+    ]
   ]
 }

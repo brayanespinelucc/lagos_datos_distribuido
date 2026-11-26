@@ -1,0 +1,21 @@
+{
+  "inicio_utc": "2026-11-26T02:03:57.965+00:00",
+  "entorno": "Docker Compose, tres contenedores y seis volúmenes sobre un host compartido",
+  "comando": "python tests/minio/lab.py",
+  "eventos": [
+    {
+      "fecha_utc": "2026-11-26T02:04:29.900+00:00",
+      "paso": "Despliegue",
+      "proyecto": "lago-prueba-caa0cbde69",
+      "api_efimera": "http://127.0.0.1:32773",
+      "consola_efimera": "http://127.0.0.1:32774",
+      "minio": "minio version DEVELOPMENT.2025-04-22T22-12-26Z (commit-id=0d7408fc9969caf07de6a8c3a84f9fbb10a6739e)",
+      "mc": "mc version DEVELOPMENT.2025-04-16T18-13-26Z (commit-id=b00526b153a31b36767991a4f5ce2cced435ee8e)",
+      "haproxy": "HAProxy version 3.0.11-9e587df 2025/06/02 - https://haproxy.org/"
+    }
+  ],
+  "estado": "Ejecutada y fallida",
+  "error": "La escritura en Gold debía ser denegada por IAM",
+  "fin_utc": "2026-11-26T02:04:41.870+00:00",
+  "duracion_segundos": 43.91
+}

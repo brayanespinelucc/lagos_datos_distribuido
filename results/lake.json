@@ -1,0 +1,827 @@
+{
+  "fecha_utc": "2026-11-26T02:05:21+00:00",
+  "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774",
+  "s3_verificado": true,
+  "motor": {
+    "motor": "Apache Spark",
+    "version": "4.0.1",
+    "master": "local[2]",
+    "application_id": "local-1795658695800",
+    "fecha_utc": "2026-11-26T02:05:20+00:00",
+    "s3": true,
+    "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774"
+  },
+  "quality": {
+    "ventas_entrada": 251,
+    "ventas_aceptadas": 247,
+    "duplicados": 1,
+    "rechazados": 3,
+    "ventas_cop": 33589000,
+    "unidades": 875,
+    "causas": {
+      "producto_nulo": 1,
+      "producto_desconocido": 1,
+      "cantidad_no_positiva": 1
+    }
+  },
+  "checks": {
+    "ventas": true,
+    "inventario": true,
+    "rechazos": true,
+    "ventas_diarias": true,
+    "productos": true,
+    "conciliacion": true
+  },
+  "tables": [
+    {
+      "layer": "bronze",
+      "name": "clientes",
+      "format": "CSV",
+      "rows": 52,
+      "columns": [
+        {
+          "name": "cliente_id",
+          "type": "string"
+        },
+        {
+          "name": "segmento",
+          "type": "string"
+        }
+      ],
+      "preview": [
+        {
+          "cliente_id": "CL0001",
+          "segmento": "Frecuente"
+        },
+        {
+          "cliente_id": "CL0002",
+          "segmento": "Empresa"
+        },
+        {
+          "cliente_id": "CL0003",
+          "segmento": "Ocasional"
+        },
+        {
+          "cliente_id": "CL0004",
+          "segmento": "Frecuente"
+        },
+        {
+          "cliente_id": "CL0005",
+          "segmento": "Empresa"
+        },
+        {
+          "cliente_id": "CL0006",
+          "segmento": "Ocasional"
+        }
+      ],
+      "files": [
+        {
+          "path": "datasets/bronze/clientes.csv",
+          "bytes": 870,
+          "sha256": "ceea3fa0779abb30959543f808e1a8018cf8a6152df70e95c4ea4a03312863b1"
+        }
+      ]
+    },
+    {
+      "layer": "bronze",
+      "name": "categorias",
+      "format": "CSV",
+      "rows": 4,
+      "columns": [
+        {
+          "name": "categoria_id",
+          "type": "string"
+        },
+        {
+          "name": "categoria",
+          "type": "string"
+        }
+      ],
+      "preview": [
+        {
+          "categoria_id": "C01",
+          "categoria": "Alimentos"
+        },
+        {
+          "categoria_id": "C02",
+          "categoria": "Hogar"
+        },
+        {
+          "categoria_id": "C03",
+          "categoria": "Papelería"
+        },
+        {
+          "categoria_id": "C04",
+          "categoria": "Cuidado"
+        }
+      ],
+      "files": [
+        {
+          "path": "datasets/bronze/categorias.csv",
+          "bytes": 74,
+          "sha256": "96defe27e8c296c337a0cf85429df0b4c80d7b668a0c157f77f2072de25b5feb"
+        }
+      ]
+    },
+    {
+      "layer": "bronze",
+      "name": "productos",
+      "format": "CSV",
+      "rows": 24,
+      "columns": [
+        {
+          "name": "producto_id",
+          "type": "string"
+        },
+        {
+          "name": "categoria_id",
+          "type": "string"
+        },
+        {
+          "name": "precio_unitario_cop",
+          "type": "string"
+        }
+      ],
+      "preview": [
+        {
+          "producto_id": "P001",
+          "categoria_id": "C01",
+          "precio_unitario_cop": "18000"
+        },
+        {
+          "producto_id": "P002",
+          "categoria_id": "C02",
+          "precio_unitario_cop": "7000"
+        },
+        {
+          "producto_id": "P003",
+          "categoria_id": "C03",
+          "precio_unitario_cop": "39000"
+        },
+        {
+          "producto_id": "P004",
+          "categoria_id": "C04",
+          "precio_unitario_cop": "35000"
+        },
+        {
+          "producto_id": "P005",
+          "categoria_id": "C01",
+          "precio_unitario_cop": "32500"
+        },
+        {
+          "producto_id": "P006",
+          "categoria_id": "C02",
+          "precio_unitario_cop": "21500"
+        }
+      ],
+      "files": [
+        {
+          "path": "datasets/bronze/productos.csv",
+          "bytes": 401,
+          "sha256": "20f020f955638bd10b4f11f626e262959df29cd50da5bec977d787d975439c18"
+        }
+      ]
+    },
+    {
+      "layer": "bronze",
+      "name": "sucursales",
+      "format": "CSV",
+      "rows": 3,
+      "columns": [
+        {
+          "name": "sucursal_id",
+          "type": "string"
+        },
+        {
+          "name": "region",
+          "type": "string"
+        }
+      ],
+      "preview": [
+        {
+          "sucursal_id": "S01",
+          "region": "Centro"
+        },
+        {
+          "sucursal_id": "S02",
+          "region": "Norte"
+        },
+        {
+          "sucursal_id": "S03",
+          "region": "Occidente"
+        }
+      ],
+      "files": [
+        {
+          "path": "datasets/bronze/sucursales.csv",
+          "bytes": 54,
+          "sha256": "7d0036b6660d4c15b4e8f1064bda043519ed2a7f2c75b17b258bd10134089673"
+        }
+      ]
+    },
+    {
+      "layer": "bronze",
+      "name": "transacciones",
+      "format": "CSV",
+      "rows": 120,
+      "columns": [
+        {
+          "name": "transaccion_id",
+          "type": "string"
+        },
+        {
+          "name": "fecha",
+          "type": "string"
+        },
+        {
+          "name": "cliente_id",
+          "type": "string"
+        },
+        {
+          "name": "sucursal_id",
+          "type": "string"
+        }
+      ],
+      "preview": [
+        {
+          "transaccion_id": "T0000001",
+          "fecha": "2025-01-01",
+          "cliente_id": "CL0038",
+          "sucursal_id": "S02"
+        },
+        {
+          "transaccion_id": "T0000002",
+          "fecha": "2025-01-02",
+          "cliente_id": "CL0028",
+          "sucursal_id": "S02"
+        },
+        {
+          "transaccion_id": "T0000003",
+          "fecha": "2025-01-03",
+          "cliente_id": "CL0006",
+          "sucursal_id": "S02"
+        },
+        {
+          "transaccion_id": "T0000004",
+          "fecha": "2025-01-04",
+          "cliente_id": "CL0039",
+          "sucursal_id": "S02"
+        },
+        {
+          "transaccion_id": "T0000005",
+          "fecha": "2025-01-05",
+          "cliente_id": "CL0035",
+          "sucursal_id": "S01"
+        },
+        {
+          "transaccion_id": "T0000006",
+          "fecha": "2025-01-06",
+          "cliente_id": "CL0040",
+          "sucursal_id": "S02"
+        }
+      ],
+      "files": [
+        {
+          "path": "datasets/bronze/transacciones.csv",
+          "bytes": 3764,
+          "sha256": "3776fbc8959ffc4424250da629419b39902183a425ed5e556d85e063f0a9dd79"
+        }
+      ]
+    },
+    {
+      "layer": "bronze",
+      "name": "ventas",
+      "format": "CSV",
+      "rows": 251,
+      "columns": [
+        {
+          "name": "venta_id",
+          "type": "string"
+        },
+        {
+          "name": "transaccion_id",
+          "type": "string"
+        },
+        {
+          "name": "producto_id",
+          "type": "string"
+        },
+        {
+          "name": "cantidad",
+          "type": "string"
+        }
+      ],
+      "preview": [
+        {
+          "venta_id": "V00000001",
+          "transaccion_id": "T0000001",
+          "producto_id": "P006",
+          "cantidad": "6"
+        },
+        {
+          "venta_id": "V00000002",
+          "transaccion_id": "T0000002",
+          "producto_id": "P005",
+          "cantidad": "2"
+        },
+        {
+          "venta_id": "V00000003",
+          "transaccion_id": "T0000002",
+          "producto_id": "P011",
+          "cantidad": "1"
+        },
+        {
+          "venta_id": "V00000004",
+          "transaccion_id": "T0000003",
+          "producto_id": "P012",
+          "cantidad": "3"
+        },
+        {
+          "venta_id": "V00000005",
+          "transaccion_id": "T0000004",
+          "producto_id": "P024",
+          "cantidad": "4"
+        },
+        {
+          "venta_id": "V00000006",
+          "transaccion_id": "T0000005",
+          "producto_id": "P003",
+          "cantidad": "5"
+        }
+      ],
+      "files": [
+        {
+          "path": "datasets/bronze/ventas.csv",
+          "bytes": 6573,
+          "sha256": "93fcbd243fc069c94145a573a828bd5971169fa63cd0d98b59c303b5c1dbfde4"
+        }
+      ]
+    },
+    {
+      "layer": "bronze",
+      "name": "inventario",
+      "format": "CSV",
+      "rows": 72,
+      "columns": [
+        {
+          "name": "fecha",
+          "type": "string"
+        },
+        {
+          "name": "sucursal_id",
+          "type": "string"
+        },
+        {
+          "name": "producto_id",
+          "type": "string"
+        },
+        {
+          "name": "existencias",
+          "type": "string"
+        }
+      ],
+      "preview": [
+        {
+          "fecha": "2025-04-01",
+          "sucursal_id": "S01",
+          "producto_id": "P001",
+          "existencias": "172"
+        },
+        {
+          "fecha": "2025-04-01",
+          "sucursal_id": "S01",
+          "producto_id": "P002",
+          "existencias": "14"
+        },
+        {
+          "fecha": "2025-04-01",
+          "sucursal_id": "S01",
+          "producto_id": "P003",
+          "existencias": "253"
+        },
+        {
+          "fecha": "2025-04-01",
+          "sucursal_id": "S01",
+          "producto_id": "P004",
+          "existencias": "166"
+        },
+        {
+          "fecha": "2025-04-01",
+          "sucursal_id": "S01",
+          "producto_id": "P005",
+          "existencias": "93"
+        },
+        {
+          "fecha": "2025-04-01",
+          "sucursal_id": "S01",
+          "producto_id": "P006",
+          "existencias": "249"
+        }
+      ],
+      "files": [
+        {
+          "path": "datasets/bronze/inventario.csv",
+          "bytes": 1748,
+          "sha256": "dd0f7be68dacdcb044e170c25664aed383db7ebe2104a643a75ef425508f2301"
+        }
+      ]
+    },
+    {
+      "layer": "silver",
+      "name": "ventas",
+      "format": "Parquet",
+      "rows": 247,
+      "columns": [
+        {
+          "name": "venta_id",
+          "type": "string"
+        },
+        {
+          "name": "transaccion_id",
+          "type": "string"
+        },
+        {
+          "name": "fecha",
+          "type": "date32[day]"
+        },
+        {
+          "name": "cliente_id",
+          "type": "string"
+        },
+        {
+          "name": "sucursal_id",
+          "type": "string"
+        },
+        {
+          "name": "producto_id",
+          "type": "string"
+        },
+        {
+          "name": "categoria",
+          "type": "string"
+        },
+        {
+          "name": "cantidad",
+          "type": "int32"
+        },
+        {
+          "name": "precio_unitario_cop",
+          "type": "int64"
+        },
+        {
+          "name": "importe_cop",
+          "type": "int64"
+        }
+      ],
+      "preview": [
+        {
+          "venta_id": "V00000001",
+          "transaccion_id": "T0000001",
+          "fecha": "2025-01-01",
+          "cliente_id": "CL0038",
+          "sucursal_id": "S02",
+          "producto_id": "P006",
+          "categoria": "Hogar",
+          "cantidad": 6,
+          "precio_unitario_cop": 21500,
+          "importe_cop": 129000
+        },
+        {
+          "venta_id": "V00000002",
+          "transaccion_id": "T0000002",
+          "fecha": "2025-01-02",
+          "cliente_id": "CL0028",
+          "sucursal_id": "S02",
+          "producto_id": "P005",
+          "categoria": "Alimentos",
+          "cantidad": 2,
+          "precio_unitario_cop": 32500,
+          "importe_cop": 65000
+        },
+        {
+          "venta_id": "V00000003",
+          "transaccion_id": "T0000002",
+          "fecha": "2025-01-02",
+          "cliente_id": "CL0028",
+          "sucursal_id": "S02",
+          "producto_id": "P011",
+          "categoria": "Papelería",
+          "cantidad": 1,
+          "precio_unitario_cop": 58000,
+          "importe_cop": 58000
+        },
+        {
+          "venta_id": "V00000004",
+          "transaccion_id": "T0000003",
+          "fecha": "2025-01-03",
+          "cliente_id": "CL0006",
+          "sucursal_id": "S02",
+          "producto_id": "P012",
+          "categoria": "Cuidado",
+          "cantidad": 3,
+          "precio_unitario_cop": 8000,
+          "importe_cop": 24000
+        },
+        {
+          "venta_id": "V00000005",
+          "transaccion_id": "T0000004",
+          "fecha": "2025-01-04",
+          "cliente_id": "CL0039",
+          "sucursal_id": "S02",
+          "producto_id": "P024",
+          "categoria": "Cuidado",
+          "cantidad": 4,
+          "precio_unitario_cop": 61000,
+          "importe_cop": 244000
+        },
+        {
+          "venta_id": "V00000006",
+          "transaccion_id": "T0000005",
+          "fecha": "2025-01-05",
+          "cliente_id": "CL0035",
+          "sucursal_id": "S01",
+          "producto_id": "P003",
+          "categoria": "Papelería",
+          "cantidad": 5,
+          "precio_unitario_cop": 39000,
+          "importe_cop": 195000
+        }
+      ],
+      "files": [
+        {
+          "path": "datasets/silver/ventas/part-00000.parquet",
+          "bytes": 7867,
+          "sha256": "09d9cfda128a4fb710e659ac3b9ac1ecc3dd5470ac73187886330a06bec81795"
+        }
+      ]
+    },
+    {
+      "layer": "silver",
+      "name": "inventario",
+      "format": "Parquet",
+      "rows": 72,
+      "columns": [
+        {
+          "name": "fecha",
+          "type": "date32[day]"
+        },
+        {
+          "name": "sucursal_id",
+          "type": "string"
+        },
+        {
+          "name": "producto_id",
+          "type": "string"
+        },
+        {
+          "name": "existencias",
+          "type": "int32"
+        }
+      ],
+      "preview": [
+        {
+          "fecha": "2025-04-01",
+          "sucursal_id": "S01",
+          "producto_id": "P001",
+          "existencias": 172
+        },
+        {
+          "fecha": "2025-04-01",
+          "sucursal_id": "S01",
+          "producto_id": "P002",
+          "existencias": 14
+        },
+        {
+          "fecha": "2025-04-01",
+          "sucursal_id": "S01",
+          "producto_id": "P003",
+          "existencias": 253
+        },
+        {
+          "fecha": "2025-04-01",
+          "sucursal_id": "S01",
+          "producto_id": "P004",
+          "existencias": 166
+        },
+        {
+          "fecha": "2025-04-01",
+          "sucursal_id": "S01",
+          "producto_id": "P005",
+          "existencias": 93
+        },
+        {
+          "fecha": "2025-04-01",
+          "sucursal_id": "S01",
+          "producto_id": "P006",
+          "existencias": 249
+        }
+      ],
+      "files": [
+        {
+          "path": "datasets/silver/inventario/part-00000.parquet",
+          "bytes": 1829,
+          "sha256": "7858cf29eaeea43ca3b7caed14500ed2f1a6ac89978511a487c0f73c1f3ee2ea"
+        }
+      ]
+    },
+    {
+      "layer": "silver",
+      "name": "rechazos",
+      "format": "Parquet",
+      "rows": 3,
+      "columns": [
+        {
+          "name": "venta_id",
+          "type": "string"
+        },
+        {
+          "name": "transaccion_id",
+          "type": "string"
+        },
+        {
+          "name": "producto_id",
+          "type": "string"
+        },
+        {
+          "name": "motivo",
+          "type": "string"
+        }
+      ],
+      "preview": [
+        {
+          "venta_id": "ERROR-CANTIDAD",
+          "transaccion_id": "T0000003",
+          "producto_id": "P001",
+          "motivo": "cantidad_no_positiva"
+        },
+        {
+          "venta_id": "ERROR-FK",
+          "transaccion_id": "T0000002",
+          "producto_id": "P999",
+          "motivo": "producto_desconocido"
+        },
+        {
+          "venta_id": "ERROR-NULO",
+          "transaccion_id": "T0000001",
+          "producto_id": null,
+          "motivo": "producto_nulo"
+        }
+      ],
+      "files": [
+        {
+          "path": "datasets/silver/rechazos/part-00000.parquet",
+          "bytes": 1493,
+          "sha256": "7c73afa153b57741309a935e4524e437b40f01cb0afb17097ce3a136cede61b6"
+        }
+      ]
+    },
+    {
+      "layer": "gold",
+      "name": "ventas_diarias",
+      "format": "Parquet",
+      "rows": 107,
+      "columns": [
+        {
+          "name": "fecha",
+          "type": "date32[day]"
+        },
+        {
+          "name": "sucursal_id",
+          "type": "string"
+        },
+        {
+          "name": "ventas_cop",
+          "type": "int64"
+        },
+        {
+          "name": "unidades",
+          "type": "int64"
+        },
+        {
+          "name": "transacciones",
+          "type": "int64"
+        }
+      ],
+      "preview": [
+        {
+          "fecha": "2025-01-01",
+          "sucursal_id": "S02",
+          "ventas_cop": 574500,
+          "unidades": 18,
+          "transacciones": 2
+        },
+        {
+          "fecha": "2025-01-02",
+          "sucursal_id": "S02",
+          "ventas_cop": 373500,
+          "unidades": 8,
+          "transacciones": 2
+        },
+        {
+          "fecha": "2025-01-03",
+          "sucursal_id": "S02",
+          "ventas_cop": 24000,
+          "unidades": 3,
+          "transacciones": 1
+        },
+        {
+          "fecha": "2025-01-03",
+          "sucursal_id": "S03",
+          "ventas_cop": 207000,
+          "unidades": 6,
+          "transacciones": 1
+        },
+        {
+          "fecha": "2025-01-04",
+          "sucursal_id": "S02",
+          "ventas_cop": 244000,
+          "unidades": 4,
+          "transacciones": 1
+        },
+        {
+          "fecha": "2025-01-04",
+          "sucursal_id": "S03",
+          "ventas_cop": 394500,
+          "unidades": 6,
+          "transacciones": 1
+        }
+      ],
+      "files": [
+        {
+          "path": "datasets/gold/ventas_diarias/part-00000.parquet",
+          "bytes": 2858,
+          "sha256": "99308bef07b50f157e0f141c181e37d511856fbd8eb5b45a7f91ad3189468387"
+        }
+      ]
+    },
+    {
+      "layer": "gold",
+      "name": "productos",
+      "format": "Parquet",
+      "rows": 24,
+      "columns": [
+        {
+          "name": "producto_id",
+          "type": "string"
+        },
+        {
+          "name": "categoria",
+          "type": "string"
+        },
+        {
+          "name": "ventas_cop",
+          "type": "int64"
+        },
+        {
+          "name": "unidades",
+          "type": "int64"
+        }
+      ],
+      "preview": [
+        {
+          "producto_id": "P001",
+          "categoria": "Alimentos",
+          "ventas_cop": 774000,
+          "unidades": 43
+        },
+        {
+          "producto_id": "P002",
+          "categoria": "Hogar",
+          "ventas_cop": 203000,
+          "unidades": 29
+        },
+        {
+          "producto_id": "P003",
+          "categoria": "Papelería",
+          "ventas_cop": 2730000,
+          "unidades": 70
+        },
+        {
+          "producto_id": "P004",
+          "categoria": "Cuidado",
+          "ventas_cop": 1120000,
+          "unidades": 32
+        },
+        {
+          "producto_id": "P005",
+          "categoria": "Alimentos",
+          "ventas_cop": 1365000,
+          "unidades": 42
+        },
+        {
+          "producto_id": "P006",
+          "categoria": "Hogar",
+          "ventas_cop": 946000,
+          "unidades": 44
+        }
+      ],
+      "files": [
+        {
+          "path": "datasets/gold/productos/part-00000.parquet",
+          "bytes": 1803,
+          "sha256": "c17167d9aae3777563257f5fd58e95891aabf933f36c9b7f47cd91147d07d3ee"
+        }
+      ]
+    }
+  ]
+}

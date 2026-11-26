@@ -24,6 +24,11 @@ from docx.shared import Inches, Pt, RGBColor
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "docs/moment-01"
+SOURCE_DIRECTORIES = {"informe":"moment-01", "arquitectura":"moment-01", "instalacion":"moment-01",
+    "administracion":"moment-01", "sustentacion":"moment-01", "informe-m2":"moment-02", "lago":"moment-02",
+    "gobierno":"moment-02", "diccionario":"moment-02", "catalogo":"moment-02", "dag":"moment-02",
+    "informe-m3":"moment-03", "operacion":"moment-03", "monitoreo":"moment-03", "recuperacion":"moment-03",
+    "buenas-practicas":"moment-03", "pruebas":"moment-03", "informe-final":"final", "preguntas":"final"}
 PROJECT = "Diseño e Implementación de una Plataforma Empresarial para un Lago de Datos Distribuido"
 META = {
     "informe": ("Informe del Momento 1", "Resultados y alcance de la infraestructura base"),
@@ -31,6 +36,20 @@ META = {
     "instalacion": ("Manual de instalación", "Preparación de las máquinas virtuales y puesta en servicio"),
     "administracion": ("Manual de administración", "Controles operativos, diagnóstico y recuperación"),
     "sustentacion": ("Guía de sustentación", "Recorrido para presentar y verificar el primer momento"),
+    "informe-m2": ("Informe del Momento 2", "Ingesta, transformación, consulta y gobierno"),
+    "lago": ("Manual del lago de datos", "Del primer archivo de ventas a los indicadores"),
+    "gobierno": ("Manual de gobierno de datos", "Catálogo, responsables, clasificación y linaje"),
+    "diccionario": ("Diccionario de datos", "Definición de campos y reglas por conjunto"),
+    "catalogo": ("Catálogo de datos", "Localización y responsabilidades de los conjuntos"),
+    "dag": ("Documentación del DAG", "Orquestación, dependencias y diagnóstico de la carga"),
+    "informe-m3": ("Informe del Momento 3", "Monitoreo, operación y pruebas de recuperación"),
+    "operacion": ("Manual de operación", "Secuencia de trabajo y conservación de evidencias"),
+    "monitoreo": ("Manual de monitoreo", "Indicadores, dashboards y lectura de incidentes"),
+    "recuperacion": ("Manual de recuperación", "Pérdida de nodos y verificación de los datos"),
+    "buenas-practicas": ("Manual de buenas prácticas", "Controles de operación y calidad de la entrega"),
+    "pruebas": ("Informe de las seis pruebas", "Resultados, precondiciones y procedimientos de repetición"),
+    "informe-final": ("Informe técnico consolidado", "Diseño, implementación, resultados y límites de los tres momentos"),
+    "preguntas": ("Banco de sustentación", "Sesenta preguntas con respuestas aplicadas al laboratorio"),
 }
 NAVY, TEAL, SLATE, DARK, LINE = "132D4C", "006D77", "4E6475", "1F3445", "C9D7DE"
 PAPER_WIDTH = 6.8
@@ -73,6 +92,8 @@ def style_doc(document):
         style.paragraph_format.line_spacing = 1.14
         style.paragraph_format.space_after = Pt(6 if name != "Compact" else 3)
     for level in range(1, 5):
+        if f"Heading {level}" not in document.styles:
+            continue
         h = document.styles[f"Heading {level}"]
         set_font(h, {1: 21, 2: 17, 3: 12, 4: 11}[level], NAVY if level < 3 else TEAL, True)
         h.paragraph_format.space_before = Pt(12)
@@ -119,13 +140,13 @@ def style_doc(document):
                         set_font(run, 9.1, "FFFFFF" if row_number == 0 else DARK, bold=row_number == 0)
 
 
-def band(document, title):
+def band(document, title, context):
     section = document.sections[0]
     header = section.header.paragraphs[0]
     header.alignment = WD_ALIGN_PARAGRAPH.LEFT
     header.paragraph_format.tab_stops.add_tab_stop(Inches(PAPER_WIDTH), WD_TAB_ALIGNMENT.RIGHT)
     set_font(header.add_run("LAGO DE DATOS DISTRIBUIDO"), 8.5, NAVY, True)
-    set_font(header.add_run("\tINFRAESTRUCTURA BASE"), 8.5, TEAL, True)
+    set_font(header.add_run("\t" + context), 8.5, TEAL, True)
     borders = xml_tag("pBdr")
     borders.append(xml_tag("bottom", val="single", color=LINE, sz="7", space="6"))
     header._p.get_or_add_pPr().append(borders)
@@ -138,7 +159,7 @@ def band(document, title):
     footer._p.append(field)
 
 
-def add_cover(document, title, subtitle, sections, page_numbers):
+def add_cover(document, title, subtitle, context, sections, page_numbers):
     first = document.element.body[0]
     contents = [p for p in document.paragraphs if p.text.strip()]
     if not contents:
@@ -153,13 +174,13 @@ def add_cover(document, title, subtitle, sections, page_numbers):
         set_font(p.add_run(value), size, shade, bold)
         return p
 
-    insert("PROYECTO DE AULA   /   MOMENTO 1", 10, TEAL, True, before=17, after=10)
+    insert("PROYECTO DE AULA   /   " + context, 10, TEAL, True, before=17, after=10)
     insert(title, 31, NAVY, True, after=6)
     insert(subtitle, 14.3, TEAL, after=16)
     insert(PROJECT + ".", 11.4, DARK, after=13)
     insert("Estudiante y código   [por diligenciar]", 9.5, SLATE, after=4)
     insert("Asignatura y docente   [por diligenciar]", 9.5, SLATE, after=4)
-    insert("Versión documental   0.1  ·  Avance de infraestructura", 9.5, SLATE, after=17)
+    insert("Versión documental   0.1  ·  Entrega académica", 9.5, SLATE, after=17)
     insert("Contenido", 13, NAVY, True, after=6)
     for heading in sections:
         number = str(page_numbers.get(heading, ""))
@@ -202,8 +223,10 @@ def make_doc(source, target, stage, page_numbers=None):
     if not headings or len(set(headings)) != len(headings):
         raise ValueError(f"Revise los encabezados ## de {source}")
     style_doc(document)
-    band(document, title)
-    add_cover(document, title, subtitle, headings, page_numbers or {})
+    context = {"moment-01":"MOMENTO 1", "moment-02":"MOMENTO 2", "moment-03":"MOMENTO 3",
+               "final":"SUSTENTACIÓN Y ENTREGA"}[SOURCE_DIRECTORIES[source.stem]]
+    band(document, title, context)
+    add_cover(document, title, subtitle, context, headings, page_numbers or {})
     properties = document.core_properties
     properties.title, properties.subject = title, PROJECT
     properties.author, properties.keywords = "Proyecto de aula", "Lago de datos, infraestructura, Momento 1"
@@ -244,30 +267,31 @@ def validate(directory, stems):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("documentos", nargs="*", help="Nombres sin extensión. Por omisión se generan los cinco documentos.")
-    parser.add_argument("--output", type=Path, default=SOURCE / "entrega")
+    parser.add_argument("documentos", nargs="*", help="Nombres sin extensión. Por omisión se generan todos.")
+    parser.add_argument("--output", type=Path, help="Reúne todos los documentos en esta ruta; por omisión se clasifican en la carpeta de cada momento.")
     parser.add_argument("--report", type=Path, help="Guarda un registro JSON de las verificaciones.")
     args = parser.parse_args()
     keys = list(dict.fromkeys(args.documentos or META))
     if any(key not in META for key in keys):
         parser.error("Documentos válidos: " + ", ".join(META))
-    output = args.output.resolve()
-    output.mkdir(parents=True, exist_ok=True)
+    sources = {name: ROOT / "docs" / SOURCE_DIRECTORIES[name] / (name + ".md") for name in keys}
     with tempfile.TemporaryDirectory(prefix="lago-documentos-") as temp:
         tmp = Path(temp)
         headings = {}
         for stem in keys:
-            headings[stem] = make_doc(SOURCE / (stem + ".md"), tmp / (stem + ".docx"), tmp / "base.docx")
+            headings[stem] = make_doc(sources[stem], tmp / (stem + ".docx"), tmp / "base.docx")
         profile = (tmp / "profile").resolve()
         export_pdfs(keys, tmp, profile)
         page_map = {stem: heading_pages(tmp / (stem + ".pdf"), headings[stem]) for stem in keys}
         for stem in keys:
-            make_doc(SOURCE / (stem + ".md"), tmp / (stem + ".docx"), tmp / "base.docx", page_map[stem])
+            make_doc(sources[stem], tmp / (stem + ".docx"), tmp / "base.docx", page_map[stem])
         export_pdfs(keys, tmp, profile)
         records = validate(tmp, keys)
         for stem in keys:
             if heading_pages(tmp / (stem + ".pdf"), headings[stem]) != page_map[stem]:
                 raise ValueError(f"El índice de {stem} cambió al paginar")
+            output = args.output.resolve() if args.output else sources[stem].parent / "entrega"
+            output.mkdir(parents=True, exist_ok=True)
             for ext in (".pdf", ".docx"):
                 shutil.copyfile(tmp / (stem + ext), output / (stem + ext))
             records[stem]["secciones_con_indice"] = len(headings[stem])

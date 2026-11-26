@@ -1,0 +1,13 @@
+{
+  "ventas_entrada": 251,
+  "ventas_aceptadas": 247,
+  "duplicados": 1,
+  "rechazados": 3,
+  "ventas_cop": 33589000,
+  "unidades": 875,
+  "causas": {
+    "producto_nulo": 1,
+    "producto_desconocido": 1,
+    "cantidad_no_positiva": 1
+  }
+}

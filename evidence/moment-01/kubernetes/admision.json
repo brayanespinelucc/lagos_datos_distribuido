@@ -1,0 +1,77 @@
+{
+  "inicio_utc": "2026-11-26T02:01:20.935730+00:00",
+  "fin_utc": "2026-11-26T02:01:27.045903+00:00",
+  "alcance": "etcd y kube-apiserver reales en loopback, sin kubelet, scheduler, RKE2 ni tráfico de Pods",
+  "version_api": "v1.35.0",
+  "version_etcd": "etcd Version: 3.6.6",
+  "readyz": "ok",
+  "nodos_observados": 0,
+  "primera_aplicacion": [
+    "namespace/lago-m1 serverside-applied",
+    "secret/m1-ingress-tls serverside-applied",
+    "storageclass.storage.k8s.io/lago-m1-local serverside-applied",
+    "persistentvolume/lago-m1-registro serverside-applied",
+    "persistentvolumeclaim/registro serverside-applied",
+    "configmap/portada serverside-applied",
+    "service/portada serverside-applied",
+    "service/registro serverside-applied",
+    "ingress.networking.k8s.io/portada serverside-applied",
+    "deployment.apps/portada serverside-applied",
+    "statefulset.apps/registro serverside-applied",
+    "networkpolicy.networking.k8s.io/bloquear-por-defecto serverside-applied",
+    "networkpolicy.networking.k8s.io/portada-desde-ingress serverside-applied"
+  ],
+  "segunda_aplicacion": [
+    "namespace/lago-m1 serverside-applied",
+    "storageclass.storage.k8s.io/lago-m1-local serverside-applied",
+    "persistentvolume/lago-m1-registro serverside-applied",
+    "persistentvolumeclaim/registro serverside-applied",
+    "configmap/portada serverside-applied",
+    "service/portada serverside-applied",
+    "service/registro serverside-applied",
+    "ingress.networking.k8s.io/portada serverside-applied",
+    "deployment.apps/portada serverside-applied",
+    "statefulset.apps/registro serverside-applied",
+    "networkpolicy.networking.k8s.io/bloquear-por-defecto serverside-applied",
+    "networkpolicy.networking.k8s.io/portada-desde-ingress serverside-applied"
+  ],
+  "certificado_preservado": true,
+  "objetos_leidos_del_api": {
+    "Namespace": [
+      "lago-m1"
+    ],
+    "StorageClass": [
+      "lago-m1-local"
+    ],
+    "PersistentVolume": [
+      "lago-m1-registro"
+    ],
+    "Deployment": [
+      "portada"
+    ],
+    "StatefulSet": [
+      "registro"
+    ],
+    "Service": [
+      "portada",
+      "registro"
+    ],
+    "Ingress": [
+      "portada"
+    ],
+    "PersistentVolumeClaim": [
+      "registro"
+    ],
+    "ConfigMap": [
+      "portada"
+    ],
+    "NetworkPolicy": [
+      "bloquear-por-defecto",
+      "portada-desde-ingress"
+    ],
+    "Secret": [
+      "m1-ingress-tls"
+    ]
+  },
+  "rechazo_control_negativo": "Error from server: failed to create typed patch object (lago-m1/invalido; /v1, Kind=ConfigMap): .campoDesconocido: field not declared in schema"
+}

@@ -1,0 +1,9 @@
+{
+  "motor": "Apache Spark",
+  "version": "4.0.1",
+  "master": "local[2]",
+  "application_id": "local-1795658695800",
+  "fecha_utc": "2026-11-26T02:05:20+00:00",
+  "s3": true,
+  "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774"
+}

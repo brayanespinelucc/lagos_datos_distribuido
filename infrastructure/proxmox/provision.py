@@ -271,10 +271,10 @@ def apply(data, args, key):
         return
     for vm, exists, path, cloud, fwpath, fw, command in deployments:
         write_new_or_equal(path, cloud)
-        write_new_or_equal(fwpath, fw)
         vmid = str(vm["id"])
         if not exists:
             subprocess.run(command, check=True)
+        write_new_or_equal(fwpath, fw)
         config = pve_get(f"{root}/qemu/{vmid}/config")
         if size_gib(config["scsi0"]) < vm["os_disk_gib"]:
             subprocess.run(["qm", "resize", vmid, "scsi0", f"{vm['os_disk_gib']}G"], check=True)

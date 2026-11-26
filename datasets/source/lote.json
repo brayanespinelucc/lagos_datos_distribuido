@@ -1,0 +1,43 @@
+{
+  "origen": "Sintético",
+  "semilla": 42,
+  "tamano": "pequeno",
+  "moneda": "COP",
+  "ventas_validas_previstas": 247,
+  "defectos": {
+    "duplicado_exacto": 1,
+    "producto_nulo": 1,
+    "producto_desconocido": 1,
+    "cantidad_no_positiva": 1
+  },
+  "archivos": {
+    "clientes.csv": {
+      "filas": 52,
+      "sha256": "ceea3fa0779abb30959543f808e1a8018cf8a6152df70e95c4ea4a03312863b1"
+    },
+    "categorias.csv": {
+      "filas": 4,
+      "sha256": "96defe27e8c296c337a0cf85429df0b4c80d7b668a0c157f77f2072de25b5feb"
+    },
+    "productos.csv": {
+      "filas": 24,
+      "sha256": "20f020f955638bd10b4f11f626e262959df29cd50da5bec977d787d975439c18"
+    },
+    "sucursales.csv": {
+      "filas": 3,
+      "sha256": "7d0036b6660d4c15b4e8f1064bda043519ed2a7f2c75b17b258bd10134089673"
+    },
+    "transacciones.csv": {
+      "filas": 120,
+      "sha256": "3776fbc8959ffc4424250da629419b39902183a425ed5e556d85e063f0a9dd79"
+    },
+    "ventas.csv": {
+      "filas": 251,
+      "sha256": "93fcbd243fc069c94145a573a828bd5971169fa63cd0d98b59c303b5c1dbfde4"
+    },
+    "inventario.csv": {
+      "filas": 72,
+      "sha256": "dd0f7be68dacdcb044e170c25664aed383db7ebe2104a643a75ef425508f2301"
+    }
+  }
+}

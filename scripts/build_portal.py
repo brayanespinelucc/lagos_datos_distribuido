@@ -3,12 +3,12 @@
 import argparse
 import csv
 import hashlib
-import io
 import json
 from pathlib import Path
 import shutil
 import tempfile
 import zipfile
+from urllib.parse import urlparse
 
 REPO = Path(__file__).resolve().parents[1]
 MATRIX = "REQUIREMENTS_MATRIX.csv"
@@ -20,10 +20,16 @@ MATRIX_COLUMNS = {
     "metodo_implementacion", "criterio_aceptacion", "archivo_asociado",
     "evidencia_asociada", "estado", "limitaciones", "observaciones",
 }
-PUBLIC_ROOTS = ("docs/block-00", "docs/moment-01", "architecture", "evidence")
+PUBLIC_ROOTS = (
+    "docs/block-00", "docs/moment-01", "docs/moment-02", "docs/moment-03", "docs/final",
+    "architecture", "evidence", "presentation", "video", "monitoring", "sql/queries",
+    "results/sql", "results/catalog", "services/airflow/dags",
+)
+MEDIA_LIMIT = 24 * 1024 * 1024
 EXTENSIONS = {
     ".md", ".txt", ".csv", ".tsv", ".json", ".log", ".svg", ".png", ".jpg",
     ".dot", ".mmd", ".conf", ".cfg", ".yml", ".yaml", ".pdf", ".docx", ".sha256",
+    ".sql", ".srt", ".vtt", ".pptx", ".mp4", ".py",
 }
 CODE_EXT = EXTENSIONS | {".py", ".sh", ".service", ".template", ".tmpl", ".rules", ".ini", ".toml", ".j2"}
 TITLES = {
@@ -35,8 +41,14 @@ TITLES = {
     "flujo": "Flujo del lago de datos", "informe": "Informe del Momento 1",
     "administracion": "Manual de administración", "instalacion": "Manual de instalación",
     "sustentacion": "Guía de sustentación",
+    "docs/final/entrega/informe-final.pdf": "Informe técnico consolidado",
+    "presentation/sustentacion.pdf": "Presentación de sustentación",
+    "presentation/sustentacion.pptx": "Presentación editable",
+    "video/sustentacion.mp4": "Video de sustentación",
+    "video/guion.md": "Guion de la sustentación", "video/storyboard.csv": "Secuencia de escenas",
+    "video/subtitulos.srt": "Subtítulos en español",
 }
-TEXT_PREVIEW = {".md", ".txt", ".sha256", ".csv", ".tsv", ".json", ".log", ".cfg", ".yaml", ".yml", ".conf", ".dot", ".mmd"}
+TEXT_PREVIEW = {".md", ".txt", ".sha256", ".csv", ".tsv", ".json", ".log", ".cfg", ".yaml", ".yml", ".conf", ".dot", ".mmd", ".sql", ".py", ".srt", ".vtt"}
 
 
 def files_in(root, folder, extensions):
@@ -64,6 +76,18 @@ def title(path, text):
 
 
 def classify(path):
+    if path.parts[0] == "datasets":
+        return "Datos"
+    if path.parts[0] in {"presentation", "video"}:
+        return "Sustentación"
+    if path.parts[0] == "monitoring":
+        return "Monitoreo"
+    if path.parts[0] == "sql" or path.parts[:2] == ("results", "sql"):
+        return "SQL"
+    if path.parts[:2] == ("results", "catalog"):
+        return "Gobierno"
+    if path.parts[0] == "services":
+        return "Procesamiento"
     if path.parts[0] == "evidence":
         return "Evidencia"
     if path.parts[:2] == ("architecture", "diagrams"):
@@ -104,7 +128,45 @@ def configuration_archive(root, out):
     return True
 
 
-def build(root, staging):
+def read_json(root, path, fallback):
+    target = root / path
+    return json.loads(target.read_text(encoding="utf-8")) if target.is_file() else fallback
+
+
+def lake_files(root, lake):
+    for table in lake.get("tables", []):
+        for item in table.get("files", []):
+            rel = Path(item["path"])
+            if rel.is_absolute() or ".." in rel.parts or rel.parts[:1] != ("datasets",):
+                raise ValueError(f"Ruta de dataset no válida: {rel}")
+            file = root / rel
+            if not file.is_file() or file.is_symlink() or not file.resolve().is_relative_to(root):
+                raise ValueError(f"Falta archivo físico del lago: {rel}")
+            if item.get("sha256") and hashlib.sha256(file.read_bytes()).hexdigest() != item["sha256"]:
+                raise ValueError(f"Huella de dataset distinta del manifiesto: {rel}")
+            yield file
+
+
+def sql_index(root):
+    index = read_json(root, "results/sql/index.json", {})
+    for query in index.get("queries", []):
+        rel = Path(query["csv"])
+        if rel.is_absolute() or ".." in rel.parts or rel.parts[:2] != ("results", "sql"):
+            raise ValueError(f"Ruta de resultado SQL no válida: {rel}")
+        if not (root / rel).is_file():
+            continue
+        with (root / rel).open(encoding="utf-8-sig", newline="") as stream:
+            table = csv.DictReader(stream)
+            query["columns"] = table.fieldnames or []
+            query["preview"] = []
+            for row in table:
+                query["preview"].append(row)
+                if len(query["preview"]) >= 40:
+                    break
+    return index
+
+
+def build(root, staging, video_url=None):
     with (root / MATRIX).open(encoding="utf-8-sig", newline="") as handle:
         rows = csv.DictReader(handle)
         if set(rows.fieldnames or ()) != MATRIX_COLUMNS:
@@ -125,8 +187,14 @@ def build(root, staging):
             files.add(root / named)
     for base in PUBLIC_ROOTS:
         files.update(files_in(root, base, EXTENSIONS))
+    lake = read_json(root, "results/lake.json", {"tables":[]})
+    files.update(lake_files(root, lake))
     catalog = []
     for file in sorted(files):
+        if file.stat().st_size > MEDIA_LIMIT:
+            if file.suffix.lower() == ".mp4":
+                continue
+            raise ValueError(f"Archivo superior al límite de publicación: {file.relative_to(root)}")
         rel = file.relative_to(root)
         target = staging / "archivos" / rel
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -138,7 +206,11 @@ def build(root, staging):
         asset = record(staging, bundle, "Infraestructura")
         asset["title"] = "Configuración y pruebas del Momento 1"
         catalog.append(asset)
-    model = {"requirements": requirements, "inventory": inventory, "files": catalog}
+    model = {
+        "requirements": requirements, "inventory": inventory, "files": catalog, "lake": lake,
+        "sql": sql_index(root), "catalog": read_json(root, "results/catalog/catalog.json", {}),
+        "videoUrl": video_url,
+    }
     # Se usa un script externo clásico para que la consulta por file:// no necesite fetch ni CORS.
     (staging / "assets/data.js").write_text(
         "window.LAGO = " + json.dumps(model, ensure_ascii=False, separators=(",", ":")) + ";\n",
@@ -151,7 +223,10 @@ def build(root, staging):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("destino", type=Path, help="Directorio para la salida estática")
+    parser.add_argument("--video-url", help="URL HTTPS de una copia del video ya publicada y verificada")
     args = parser.parse_args()
+    if args.video_url and (urlparse(args.video_url).scheme != "https" or not urlparse(args.video_url).hostname):
+        parser.error("El enlace al video debe ser una URL HTTPS válida.")
     dest = args.destino.resolve()
     if args.destino.is_symlink() or dest == REPO or dest in REPO.parents:
         parser.error("Ruta de salida incompatible con el repositorio.")
@@ -166,7 +241,7 @@ def main():
         parser.error("La salida debe estar vacía o ser una copia generada por este comando.")
     with tempfile.TemporaryDirectory(prefix=".portal-build-", dir=dest.parent) as tmp:
         staging = Path(tmp)
-        count = build(REPO, staging)
+        count = build(REPO, staging, args.video_url)
         dest.mkdir(exist_ok=True)
         for name in GENERATED:
             target = dest / name
