@@ -1,0 +1,32 @@
+image: python:3.12-slim
+
+stages:
+  - verificar
+  - publicar
+
+verificar:
+  stage: verificar
+  script:
+    - python -m compileall -q scripts services tests
+    - python -c "import csv; rows=list(csv.DictReader(open('REQUIREMENTS_MATRIX.csv', encoding='utf-8'))); ids=[r['id'] for r in rows]; assert len(ids)==len(set(ids)) and all(ids); print(len(rows), 'requisitos únicos')"
+    - sha256sum -c evidence/moment-01/minio/SHA256SUMS
+    - python scripts/build_portal.py public
+    - test -s public/index.html
+  artifacts:
+    paths:
+      - public/
+    expire_in: 7 days
+
+pages:
+  stage: publicar
+  needs:
+    - job: verificar
+      artifacts: true
+  script:
+    - test -s public/index.html
+  pages:
+    publish: public
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+      when: manual
+      allow_failure: true
