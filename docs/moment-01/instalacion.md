@@ -74,4 +74,4 @@ python3 infrastructure/proxmox/check_mesh.py \
 3. Conserve el estado de los nodos y las respuestas de los dos balanceadores. Acompañe cada salida de la hora, el entorno y los puertos probados.
 4. Registre los bloqueos de ejecución por componente y vincule cada resultado al requisito correspondiente en la matriz.
 
-El procedimiento detallado de Ubuntu está en `docs/moment-01/proxmox-ubuntu.md`. Para reproducir el ensayo S3, un runner remoto puede ejecutar `python tests/minio/lab.py` con Docker Compose y acceso a las imágenes fijadas. La validación portátil de Kubernetes se inicia con `python tests/kubernetes/validate.py`. Consulte las condiciones de cada anexo antes de interpretar los resultados.
+El procedimiento detallado de Ubuntu está en `docs/moment-01/proxmox-ubuntu.md`. Para reproducir el ensayo S3, un runner remoto puede ejecutar `python tests/minio/lab.py` con Docker Compose y acceso a las imágenes fijadas. El laboratorio remoto de Kubernetes y P5 se inicia con `tests/kubernetes/p5-lab.sh`, usando un directorio nuevo en `P5_OUTPUT`. [Manual de RKE2 y P5](rke2.md) Consulte las condiciones de cada anexo antes de interpretar los resultados.

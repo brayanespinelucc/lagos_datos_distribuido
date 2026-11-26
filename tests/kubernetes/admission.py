@@ -28,6 +28,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("assets", type=Path, help="Directorio con kube-apiserver, etcd y kubectl")
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--haproxy", type=Path, help="Ensayar el frontend API y la carga P5 en un directorio de salida")
     args = parser.parse_args()
     bin_dir = args.assets.resolve()
     started = dt.datetime.now(dt.timezone.utc)
@@ -92,6 +93,10 @@ def main():
             time.sleep(.2)
         else:
             raise RuntimeError("El API no pasó /readyz")
+        if args.haproxy:
+            from api_proxy import validate
+            validate(args.haproxy.resolve(), args.output, tmp, kubeconf, env, bin_dir/"kubectl", secure, free_ports(2), ROOT)
+            return
         script = ROOT/"infrastructure/kubernetes/deploy.sh"
         first = cmd(script, env=env).stdout.splitlines()
         def fingerprint():
