@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata: {name: testigo, namespace: lago-p5}
+spec:
+  ingressClassName: traefik
+  tls:
+    - {hosts: [p5.lago.internal], secretName: p5-tls}
+  rules:
+    - host: p5.lago.internal
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service: {name: testigo, port: {name: http}}

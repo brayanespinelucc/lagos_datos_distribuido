@@ -157,6 +157,7 @@ class Lab:
 
     def connectivity(self, state, containers):
         result = {'kubelets': {}, 'tcp_entre_nodos': [], 'http_entre_pods': []}
+        self.report['comunicacion'] = result
         for origin, node in state['nodos'].items():
             health = k('get', f'--raw=/api/v1/nodes/{origin}/proxy/healthz')
             if health != 'ok':
@@ -172,10 +173,20 @@ class Lab:
             for dst in active(state):
                 if src['nodo'] == dst['nodo']:
                     continue
-                body = k('exec', '-n', 'lago-p5', src['nombre'], '--', 'wget', '-qO-', '-T', '5',
-                         f"http://{dst['ip']}:8080/identidad")
-                if body != f"{dst['nombre']} {dst['nodo']}":
-                    raise RuntimeError(f"El pod remoto respondió {body!r}")
+                for attempt in range(4):
+                    try:
+                        body = k('exec', '-n', 'lago-p5', src['nombre'], '--', 'wget', '-qO-', '-T', '4',
+                                 f"http://{dst['ip']}:8080/identidad")
+                        if body != f"{dst['nombre']} {dst['nodo']}":
+                            raise RuntimeError(f"El pod remoto respondió {body!r}")
+                        break
+                    except RuntimeError as exc:
+                        result.setdefault('reintentos', []).append({'utc': now(), 'origen': src['nombre'],
+                            'destino': dst['nombre'], 'error': str(exc)})
+                        self.save()
+                        if attempt == 3:
+                            raise
+                        time.sleep(2)
                 result['http_entre_pods'].append({'origen': src['nombre'], 'destino': dst['nombre'], 'respuesta': body})
         probe = active(state)[0]['nombre']
         result['dns_y_service'] = k('exec', '-n', 'lago-p5', probe, '--', 'wget', '-qO-', '-T', '5',
@@ -183,6 +194,30 @@ class Lab:
         if result['dns_y_service'] not in [f"{p['nombre']} {p['nodo']}" for p in active(state)]:
             raise RuntimeError('La respuesta por DNS no pertenece al Deployment')
         return result
+
+    def ingress(self, phase, state):
+        if self.args.mode != 'rke2':
+            return
+        observed = {}
+        self.report.setdefault('ingress', {})[phase] = observed
+        expected = {f"{p['nombre']} {p['nodo']}" for p in active(state)}
+        for scheme, env in [('http', 'P5_INGRESS_HTTP'), ('https', 'P5_INGRESS_TLS')]:
+            port = os.environ[env]
+            args = ['curl', '--noproxy', '*', '-fsS', '--max-time', '3',
+                    '--resolve', f'p5.lago.internal:{port}:127.0.0.1']
+            if scheme == 'https':
+                args.extend(['--cacert', os.environ['P5_INGRESS_CA']])
+            for _ in range(10):
+                try:
+                    value = run(*args, f'{scheme}://p5.lago.internal:{port}/identidad')
+                    if value not in expected:
+                        raise RuntimeError(f'Respuesta inesperada: {value[:120]}')
+                    observed[scheme] = {'utc': now(), 'identidad': value, 'resultado': 'Aprobada'}
+                    break
+                except RuntimeError as exc:
+                    observed[scheme] = {'utc': now(), 'error': str(exc), 'resultado': 'Fallida'}
+                    time.sleep(2)
+        self.save()
 
     def execute(self):
         a = self.args
@@ -196,14 +231,19 @@ class Lab:
             before = self.await_phase('antes', lambda s: healthy(s) and
                 {p['nodo'] for p in active(s)} == {a.worker, a.survivor} and
                 all_up(s) and serves(s), 100)
-            self.report['comunicacion'] = self.connectivity(before, containers)
+            try:
+                self.connectivity(before, containers)
+                self.report['comunicacion']['resultado'] = 'Aprobada'
+            except RuntimeError as exc:
+                self.report['comunicacion'].update(resultado='Fallida', error=str(exc))
+            self.ingress('antes', before)
             stats_before = self.backends()
             probes = [self.http() for _ in range(12)]
             stats_after = self.backends()
             self.report['balanceo'] = {'antes': stats_before, 'despues': stats_after, 'respuestas': probes}
-            if not all(x.get('http') == 200 for x in probes) or not all(
-                stats_after[b]['sesiones'] > stats_before[b]['sesiones'] for b in ('worker-1', 'worker-2')):
-                raise RuntimeError('La serie HTTP no acreditó tráfico en ambos backends')
+            balanced = all(x.get('http') == 200 for x in probes) and all(
+                stats_after[b]['sesiones'] > stats_before[b]['sesiones'] for b in ('worker-1', 'worker-2'))
+            self.report['balanceo']['resultado'] = 'Aprobada' if balanced else 'Fallida'
             self.capture('antes')
             self.phase = 'apagando'
             self.report['acciones'].append({'utc': now(), 'orden': 'docker stop', 'id': cid})
@@ -236,6 +276,7 @@ class Lab:
             if self.report['kubelet_recuperado'] != 'ok':
                 raise RuntimeError('Sin respuesta del kubelet recuperado')
             self.phase = 'recuperado'
+            self.ingress('recuperado', after)
             self.capture('recuperado')
             self.report['p5'] = 'Aprobada'
         except Exception as exc:
@@ -257,6 +298,11 @@ class Lab:
             self.report['fin_utc'] = now()
             self.save()
             (self.out / 'eventos.txt').write_text(k('get', 'events', '-n', 'lago-p5', '--sort-by=.metadata.creationTimestamp') + '\n')
+        ancillary = [self.report[key]['resultado'] for key in ('comunicacion', 'balanceo')]
+        ancillary.extend(t['resultado'] for phase in self.report.get('ingress', {}).values() for t in phase.values())
+        if 'Fallida' in ancillary:
+            raise RuntimeError('Se completó P5 con comprobaciones de red adicionales fallidas. Consulte p5.json.')
+
 
 
 def active(state):

@@ -9,6 +9,8 @@ on:
       - 'tests/kubernetes/p5*.sh'
       - 'tests/kubernetes/kind-p5.yaml'
       - 'tests/kubernetes/aplicacion-p5.yaml'
+      - 'tests/kubernetes/canal-p5.yaml'
+      - 'tests/kubernetes/ingress-p5.yaml'
 permissions:
   contents: read
 concurrency:

@@ -1,0 +1,6 @@
+namespace/lago-p5 created
+deployment.apps/testigo created
+service/testigo created
+Waiting for deployment "testigo" rollout to finish: 0 of 2 updated replicas are available...
+Waiting for deployment "testigo" rollout to finish: 1 of 2 updated replicas are available...
+deployment "testigo" successfully rolled out

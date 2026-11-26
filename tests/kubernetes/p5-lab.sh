@@ -72,7 +72,7 @@ PY
   # El UID de la imagen debe poder leer este archivo público de rutas.
   chmod 644 "$tmp/haproxy.cfg"
   local opts=()
-  if [[ $mode == rke2 ]]; then opts+=(--ip 10.42.10.11 -p 127.0.0.1::9345 -p 127.0.0.1::443); fi
+  if [[ $mode == rke2 ]]; then opts+=(--ip 10.42.10.11 -p 127.0.0.1::9345 -p 127.0.0.1::80 -p 127.0.0.1::443); fi
   docker run -d --name "$lb" --label "lago.p5=$id" --network "$net" "${opts[@]}" \
     -p 127.0.0.1::6443 -p 127.0.0.1::18080 -p 127.0.0.1::18404 \
     -v "$tmp/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro" "$proxy" >/dev/null
@@ -109,6 +109,7 @@ attempt_rke2() (
   done
   docker exec "$server" sh -ec 'umask 077; openssl rand -hex 32 > /etc/rancher/rke2/agent-secret; mkdir -p /var/lib/rancher/rke2/server/manifests'
   docker cp infrastructure/kubernetes/traefik-values.yaml "$server:/var/lib/rancher/rke2/server/manifests/lago-traefik.yaml"
+  docker cp tests/kubernetes/canal-p5.yaml "$server:/var/lib/rancher/rke2/server/manifests/lago-canal-p5.yaml"
   docker exec "$server" systemctl start --no-block rke2-server
   for unused in {1..72}; do
     if docker exec "$server" sh -c 'test -s /var/lib/rancher/rke2/server/agent-token && test -s /etc/rancher/rke2/rke2.yaml'; then break; fi
@@ -118,6 +119,7 @@ attempt_rke2() (
   kubectl config set-cluster default --server="https://127.0.0.1:$(port_of 6443)" --tls-server-name=lb-k8s >/dev/null
   for name in "$w1" "$w2"; do
     docker exec "$server" cat /var/lib/rancher/rke2/server/agent-token | docker exec -i "$name" sh -ec 'umask 077; cat > /etc/rancher/rke2/join-token'
+    docker exec "$name" systemctl add-wants noop.target rke2-agent
     docker exec "$name" systemctl start --no-block rke2-agent
   done
   for unused in {1..70}; do
@@ -178,5 +180,16 @@ kubectl version -o json > "$out/version-api.json"
 # Los backends de NodePort entran en servicio después de desplegar la aplicación testigo.
 kubectl apply -f tests/kubernetes/aplicacion-p5.yaml > "$out/aplicar.txt"
 kubectl -n lago-p5 rollout status deploy/testigo --timeout=180s >> "$out/aplicar.txt"
+if [[ $mode == rke2 ]]; then
+  for name in "$server" "$w1" "$w2"; do
+    { docker exec "$name" hostname; docker exec "$name" ip -4 route; } >> "$out/rutas-canal.txt"
+  done
+  kubectl -n kube-system get ds/rke2-canal -o wide >> "$out/rutas-canal.txt"
+  openssl req -x509 -newkey rsa:2048 -nodes -days 1 -keyout "$tmp/ingress.key" -out "$tmp/ingress.crt" \
+    -subj /CN=p5.lago.internal -addext 'subjectAltName=DNS:p5.lago.internal' 2>"$tmp/openssl.log"
+  kubectl -n lago-p5 create secret tls p5-tls --cert="$tmp/ingress.crt" --key="$tmp/ingress.key" > /dev/null
+  kubectl apply -f tests/kubernetes/ingress-p5.yaml >> "$out/aplicar.txt"
+  export P5_INGRESS_HTTP=$(port_of 80) P5_INGRESS_TLS=$(port_of 443) P5_INGRESS_CA="$tmp/ingress.crt"
+fi
 python3 tests/kubernetes/p5.py --output "$out" --mode "$mode" --lab "$id" --container "$w1" \
   --worker "$target" --survivor "$survivor" --http-port "$(port_of 18080)" --stats-port "$(port_of 18404)"

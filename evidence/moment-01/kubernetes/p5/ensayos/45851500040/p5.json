@@ -1,0 +1,124 @@
+{
+  "inicio_utc": "2026-11-26T15:42:42.684735+00:00",
+  "tecnologia": "rke2",
+  "laboratorio": "p5-f9ab37c9",
+  "worker_objetivo": "rke2-worker-1",
+  "worker_superviviente": "rke2-worker-2",
+  "commit_fuente": "6d052daeedf9c29eaec0596dc514aa7c0fcdd9a6",
+  "run_id": "45851500040",
+  "fases": {
+    "antes": {
+      "utc": "2026-11-26T15:42:54.487853+00:00",
+      "nodos": {
+        "rke2-server": {
+          "Ready": "True",
+          "uid": "e9a51f32-bd6e-4edb-914e-2921ff16b49a",
+          "ip": "10.42.10.31",
+          "rol": "control-plane",
+          "kubelet": "v1.35.8+rke2r1"
+        },
+        "rke2-worker-1": {
+          "Ready": "True",
+          "uid": "7f5ffe10-e864-4551-b416-be311cc76f36",
+          "ip": "10.42.10.32",
+          "rol": "worker",
+          "kubelet": "v1.35.8+rke2r1"
+        },
+        "rke2-worker-2": {
+          "Ready": "True",
+          "uid": "e839df31-d187-41fb-a189-4513a119882a",
+          "ip": "10.42.10.33",
+          "rol": "worker",
+          "kubelet": "v1.35.8+rke2r1"
+        }
+      },
+      "pods": [
+        {
+          "nombre": "testigo-6cbb9c8f95-g67br",
+          "uid": "02249f7e-c88d-4ad9-a1ae-f24f520cb30a",
+          "nodo": "rke2-worker-1",
+          "ip": "10.52.2.3",
+          "fase": "Running",
+          "Ready": "True",
+          "borrado": null
+        },
+        {
+          "nombre": "testigo-6cbb9c8f95-q4hsw",
+          "uid": "22449e02-011d-4c0c-9325-17b75ee130b1",
+          "nodo": "rke2-worker-2",
+          "ip": "10.52.1.2",
+          "fase": "Running",
+          "Ready": "True",
+          "borrado": null
+        }
+      ],
+      "endpoints": [
+        {
+          "addresses": [
+            "10.52.1.2"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "rke2-worker-2",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "testigo-6cbb9c8f95-q4hsw",
+            "namespace": "lago-p5",
+            "uid": "22449e02-011d-4c0c-9325-17b75ee130b1"
+          }
+        },
+        {
+          "addresses": [
+            "10.52.2.3"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "rke2-worker-1",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "testigo-6cbb9c8f95-g67br",
+            "namespace": "lago-p5",
+            "uid": "02249f7e-c88d-4ad9-a1ae-f24f520cb30a"
+          }
+        }
+      ],
+      "backends": {
+        "worker-1": {
+          "estado": "UP",
+          "sesiones": 2
+        },
+        "worker-2": {
+          "estado": "UP",
+          "sesiones": 13
+        }
+      },
+      "replicas_deseadas": 2,
+      "replicas_disponibles": 2,
+      "http": {
+        "utc": "2026-11-26T15:42:54.489156+00:00",
+        "fase": "antes",
+        "http": 200,
+        "identidad": "testigo-6cbb9c8f95-g67br rke2-worker-1",
+        "ms": 1
+      }
+    }
+  },
+  "acciones": [],
+  "capturas": {},
+  "p5": "Sin ejecutar",
+  "id_contenedor_detenido": "7dcac8d1f16d850de5e434cdcdffe94781d6072a07612e0acc398fa5da4edf4c",
+  "error": "kubectl --request-timeout=8s (rc 1) wget: download timed out\ncommand terminated with exit code 1",
+  "muestras_http": {
+    "antes": {
+      "total": 10,
+      "http_200": 3
+    }
+  },
+  "fin_utc": "2026-11-26T15:43:01.775922+00:00"
+}

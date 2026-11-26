@@ -1,0 +1,10 @@
+{"utc": "2026-11-26T15:42:42.757119+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-q4hsw rke2-worker-2", "ms": 3}
+{"utc": "2026-11-26T15:42:43.760327+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-q4hsw rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T15:42:44.761929+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T15:42:47.763919+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T15:42:50.765884+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:42:51.766826+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T15:42:52.767702+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-g67br rke2-worker-1", "ms": 1}
+{"utc": "2026-11-26T15:42:53.769350+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T15:42:56.771921+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T15:42:59.773889+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}

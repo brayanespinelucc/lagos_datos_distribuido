@@ -6,6 +6,8 @@
 
 **Punto de control de esta ejecución.** Docker 29.9.2 funciona en modo rootless con controlador cgroup `none`. El contenedor de systemd de las pruebas oficiales de RKE2 terminó con código 255. Kind devolvió código 1 y solicitó delegación de cgroups. Se continúa con un ejecutor remoto para intentar la topología de tres nodos y P5. [RKE2](evidence/moment-01/kubernetes/p5/codex/rke2.json) · [Docker y Kind](evidence/moment-01/kubernetes/p5/codex/docker-kind.json)
 
+El primer runner público levantó RKE2 v1.35.8+rke2r1 con un control plane y dos workers Ready. El supervisor y la API respondieron por HAProxy, y el Deployment presentó dos pods Running en workers distintos. La conexión directa entre las IP de pod agotó su tiempo antes de ordenar el apagado. La repetición prepara Canal con rutas host-gw en el puente L2 dedicado. [Acta del ensayo inicial](evidence/moment-01/kubernetes/p5/ensayos/45851500040/p5.json)
+
 ## Último componente terminado en este entorno
 
 **MinIO y HAProxy.** Se corrigió el falso fallo de IAM. La versión ensayada de `mc` devolvió código 1 y el mensaje `Insufficient permissions to access this path`. La política autoriza operaciones en Bronze. Con la misma identidad, `ingesta-lab`, se cargó y descargó el CSV en Bronze, y los PUT firmados en Silver y Gold devolvieron `403 AccessDenied`. El administrador recibió `404 NoSuchKey` al consultar las dos claves. Se preservó el acta del fallo inicial. [Acta aprobada](evidence/moment-01/minio/validacion/result.json) · [Acta histórica](evidence/moment-01/minio/result.json)

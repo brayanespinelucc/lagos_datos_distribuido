@@ -1,0 +1,9 @@
+# Solo para el puente L2 del laboratorio de contenedores.
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata: {name: rke2-canal, namespace: kube-system}
+spec:
+  valuesContent: |-
+    flannel:
+      iface: eth0
+      backend: host-gw
