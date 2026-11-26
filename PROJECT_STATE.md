@@ -4,6 +4,8 @@
 
 **Momento 1 · RKE2 y su balanceador Kubernetes.** Contrastar las evidencias existentes de admisión de manifiestos y de HAProxy con los criterios del servidor, los dos workers y el estado Ready. Registrar qué se validó en el entorno disponible y qué requiere el clúster objetivo. [Admisión](evidence/moment-01/kubernetes/admision.json) · [Balanceador Kubernetes](evidence/moment-01/kubernetes/balanceador.json)
 
+**Punto de control de esta ejecución.** Docker 29.9.2 funciona en modo rootless con controlador cgroup `none`. El contenedor de systemd de las pruebas oficiales de RKE2 terminó con código 255. Kind devolvió código 1 y solicitó delegación de cgroups. Se continúa con un ejecutor remoto para intentar la topología de tres nodos y P5. [RKE2](evidence/moment-01/kubernetes/p5/codex/rke2.json) · [Docker y Kind](evidence/moment-01/kubernetes/p5/codex/docker-kind.json)
+
 ## Último componente terminado en este entorno
 
 **MinIO y HAProxy.** Se corrigió el falso fallo de IAM. La versión ensayada de `mc` devolvió código 1 y el mensaje `Insufficient permissions to access this path`. La política autoriza operaciones en Bronze. Con la misma identidad, `ingesta-lab`, se cargó y descargó el CSV en Bronze, y los PUT firmados en Silver y Gold devolvieron `403 AccessDenied`. El administrador recibió `404 NoSuchKey` al consultar las dos claves. Se preservó el acta del fallo inicial. [Acta aprobada](evidence/moment-01/minio/validacion/result.json) · [Acta histórica](evidence/moment-01/minio/result.json)

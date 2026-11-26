@@ -1,0 +1,94 @@
+{
+  "inicio_utc": "2026-11-26T15:35:29.750280+00:00",
+  "imagen": "rancher/systemd-node:v0.0.8@sha256:bd3f36cfa953ea1c72e4c73e6d70fd964ebd32c1eabeacb69ac5497fc3dcf830",
+  "pasos": [
+    {
+      "utc": "2026-11-26T15:35:33.877126+00:00",
+      "comando": [
+        "docker",
+        "run",
+        "-d",
+        "--privileged",
+        "--cgroupns=private",
+        "--network",
+        "bridge",
+        "--tmpfs",
+        "/run",
+        "--tmpfs",
+        "/run/lock",
+        "--name",
+        "lago-p5-sonda-ef4747",
+        "--hostname",
+        "rke2-server",
+        "rancher/systemd-node:v0.0.8@sha256:bd3f36cfa953ea1c72e4c73e6d70fd964ebd32c1eabeacb69ac5497fc3dcf830",
+        "/usr/lib/systemd/systemd",
+        "--unit=noop.target",
+        "--show-status=true"
+      ],
+      "rc": 0,
+      "salida": "0b7a671c9639d772f6b26853777601f955441572a5a413aef444c11a20463e16\n"
+    },
+    {
+      "utc": "2026-11-26T15:35:36.923454+00:00",
+      "comando": [
+        "docker",
+        "inspect",
+        "--format",
+        "{{.State.Status}} {{.State.ExitCode}}",
+        "0b7a671c9639d772f6b26853777601f955441572a5a413aef444c11a20463e16"
+      ],
+      "rc": 0,
+      "salida": "exited 255\n"
+    },
+    {
+      "utc": "2026-11-26T15:35:36.954268+00:00",
+      "comando": [
+        "docker",
+        "logs",
+        "--tail",
+        "25",
+        "0b7a671c9639d772f6b26853777601f955441572a5a413aef444c11a20463e16"
+      ],
+      "rc": 0,
+      "salida": ""
+    },
+    {
+      "utc": "2026-11-26T15:35:36.982325+00:00",
+      "comando": [
+        "docker",
+        "exec",
+        "0b7a671c9639d772f6b26853777601f955441572a5a413aef444c11a20463e16",
+        "systemctl",
+        "is-active",
+        "noop.target"
+      ],
+      "rc": 1,
+      "salida": "Error response from daemon: container 0b7a671c9639d772f6b26853777601f955441572a5a413aef444c11a20463e16 is not running\n"
+    },
+    {
+      "utc": "2026-11-26T15:35:37.006385+00:00",
+      "comando": [
+        "docker",
+        "exec",
+        "0b7a671c9639d772f6b26853777601f955441572a5a413aef444c11a20463e16",
+        "sh",
+        "-c",
+        "cat /sys/fs/cgroup/cgroup.controllers; cat /proc/self/cgroup; ps -p 1 -o comm="
+      ],
+      "rc": 1,
+      "salida": "Error response from daemon: container 0b7a671c9639d772f6b26853777601f955441572a5a413aef444c11a20463e16 is not running\n"
+    },
+    {
+      "utc": "2026-11-26T15:35:37.504358+00:00",
+      "comando": [
+        "docker",
+        "rm",
+        "-fv",
+        "0b7a671c9639d772f6b26853777601f955441572a5a413aef444c11a20463e16"
+      ],
+      "rc": 0,
+      "salida": "0b7a671c9639d772f6b26853777601f955441572a5a413aef444c11a20463e16\n"
+    }
+  ],
+  "fin_utc": "2026-11-26T15:35:37.504718+00:00"
+}
