@@ -1,0 +1,49 @@
+{
+  "utc": "2026-11-26T20:09:03.637732+00:00",
+  "comando": "kubectl kustomize services/trino",
+  "kubectl": "v1.35.0",
+  "render_sha256": "a0ffd0d082d4ed7627dfd7d0fa81e5725edb248030e7c97bc022cc4dbcf2eaee",
+  "recursos": [
+    {
+      "tipo": "ConfigMap",
+      "nombre": "trino-catalogo-65tmg5htg9"
+    },
+    {
+      "tipo": "ConfigMap",
+      "nombre": "trino-propiedades-k4bh7c5mcf"
+    },
+    {
+      "tipo": "Service",
+      "nombre": "trino"
+    },
+    {
+      "tipo": "PersistentVolumeClaim",
+      "nombre": "trino-metastore"
+    },
+    {
+      "tipo": "Deployment",
+      "nombre": "trino"
+    }
+  ],
+  "ejecucion_k8s": "Pendiente",
+  "trino_docker": "trinodb/trino:477@sha256:ada485e4bffb90f859b401dc04c393d147b5840846ef66b27110662eb2675854",
+  "capturas": {
+    "coordinador.png": {
+      "sha256": "f308596b0db11dc3c3f660914f8bd5aac3ebd845a4ab602c4c00b7c6282d2c35",
+      "dimensiones_px": [
+        1440,
+        1000
+      ]
+    },
+    "consulta-p2.png": {
+      "sha256": "976c2d7697f376f0060294b7da8a4da17f6e30edc6940c69d9002f168755bd37",
+      "dimensiones_px": [
+        1440,
+        1000
+      ]
+    }
+  },
+  "origen_capturas": "Chromium sobre la Web UI real de Trino. Vista del coordinador filtrada a consultas finalizadas y detalle de la consulta principal.",
+  "consulta_capturada": "20261126_200553_00021_sga7n",
+  "sql_y_csv_verificados": 15
+}

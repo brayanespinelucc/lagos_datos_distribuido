@@ -1,0 +1,127 @@
+{
+  "engine": "Trino",
+  "version": "477",
+  "executed_at": "2026-11-26T20:05:51.337+00:00",
+  "queries": [
+    {
+      "id": "01-conciliacion",
+      "title": "Conciliación del lote en las tres capas",
+      "sql": "sql/queries/01-conciliacion.sql",
+      "csv": "results/sql/01-conciliacion.csv",
+      "rows": 1,
+      "query_id": "20261126_200553_00021_sga7n"
+    },
+    {
+      "id": "02-ventas-diarias",
+      "title": "Ventas, unidades y transacciones por día",
+      "sql": "sql/queries/02-ventas-diarias.sql",
+      "csv": "results/sql/02-ventas-diarias.csv",
+      "rows": 90,
+      "query_id": "20261126_200554_00022_sga7n"
+    },
+    {
+      "id": "03-ventas-region",
+      "title": "Ingresos por sucursal y región",
+      "sql": "sql/queries/03-ventas-region.sql",
+      "csv": "results/sql/03-ventas-region.csv",
+      "rows": 3,
+      "query_id": "20261126_200555_00023_sga7n"
+    },
+    {
+      "id": "04-ticket",
+      "title": "Ticket promedio por sucursal",
+      "sql": "sql/queries/04-ticket.sql",
+      "csv": "results/sql/04-ticket.csv",
+      "rows": 3,
+      "query_id": "20261126_200556_00024_sga7n"
+    },
+    {
+      "id": "05-productos",
+      "title": "Diez productos de mayor facturación",
+      "sql": "sql/queries/05-productos.sql",
+      "csv": "results/sql/05-productos.csv",
+      "rows": 10,
+      "query_id": "20261126_200556_00025_sga7n"
+    },
+    {
+      "id": "06-categorias",
+      "title": "Participación de cada categoría en ventas",
+      "sql": "sql/queries/06-categorias.sql",
+      "csv": "results/sql/06-categorias.csv",
+      "rows": 4,
+      "query_id": "20261126_200557_00026_sga7n"
+    },
+    {
+      "id": "07-clientes",
+      "title": "Clientes con mayor valor de compra",
+      "sql": "sql/queries/07-clientes.sql",
+      "csv": "results/sql/07-clientes.csv",
+      "rows": 10,
+      "query_id": "20261126_200557_00027_sga7n"
+    },
+    {
+      "id": "08-segmentos",
+      "title": "Actividad de clientes por segmento",
+      "sql": "sql/queries/08-segmentos.sql",
+      "csv": "results/sql/08-segmentos.csv",
+      "rows": 3,
+      "query_id": "20261126_200558_00028_sga7n"
+    },
+    {
+      "id": "09-inventario",
+      "title": "Existencias al último corte por sucursal",
+      "sql": "sql/queries/09-inventario.sql",
+      "csv": "results/sql/09-inventario.csv",
+      "rows": 3,
+      "query_id": "20261126_200559_00029_sga7n"
+    },
+    {
+      "id": "10-reposicion",
+      "title": "Diez referencias con menor existencia y sus ventas históricas",
+      "sql": "sql/queries/10-reposicion.sql",
+      "csv": "results/sql/10-reposicion.csv",
+      "rows": 10,
+      "query_id": "20261126_200600_00030_sga7n"
+    },
+    {
+      "id": "11-tendencia",
+      "title": "Variación semanal de ventas",
+      "sql": "sql/queries/11-tendencia.sql",
+      "csv": "results/sql/11-tendencia.csv",
+      "rows": 14,
+      "query_id": "20261126_200600_00031_sga7n"
+    },
+    {
+      "id": "12-rechazos",
+      "title": "Motivos de rechazo en la transformación",
+      "sql": "sql/queries/12-rechazos.sql",
+      "csv": "results/sql/12-rechazos.csv",
+      "rows": 3,
+      "query_id": "20261126_200600_00032_sga7n"
+    },
+    {
+      "id": "13-duplicados",
+      "title": "Líneas exactamente repetidas en Bronze",
+      "sql": "sql/queries/13-duplicados.sql",
+      "csv": "results/sql/13-duplicados.csv",
+      "rows": 1,
+      "query_id": "20261126_200601_00033_sga7n"
+    },
+    {
+      "id": "14-calidad",
+      "title": "Controles de integridad de las ventas Silver",
+      "sql": "sql/queries/14-calidad.sql",
+      "csv": "results/sql/14-calidad.csv",
+      "rows": 1,
+      "query_id": "20261126_200601_00034_sga7n"
+    },
+    {
+      "id": "15-origenes",
+      "title": "Objetos de MinIO y filas leídas por Trino",
+      "sql": "sql/queries/15-origenes.sql",
+      "csv": "results/sql/15-origenes.csv",
+      "rows": 12,
+      "query_id": "20261126_200602_00035_sga7n"
+    }
+  ]
+}

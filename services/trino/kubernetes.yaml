@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: trino-metastore
+spec:
+  accessModes: [ReadWriteOnce]
+  resources:
+    requests: {storage: 1Gi}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trino
+spec:
+  replicas: 1
+  strategy: {type: Recreate}
+  selector: {matchLabels: {app: trino}}
+  template:
+    metadata:
+      labels: {app: trino}
+    spec:
+      automountServiceAccountToken: false
+      securityContext: {fsGroup: 1000, runAsNonRoot: true, runAsUser: 1000, seccompProfile: {type: RuntimeDefault}}
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 80
+              preference:
+                matchExpressions:
+                  - {key: lago.lab/grupo, operator: In, values: [analitica]}
+      containers:
+        - name: coordinador
+          image: trinodb/trino:477@sha256:ada485e4bffb90f859b401dc04c393d147b5840846ef66b27110662eb2675854
+          ports: [{name: http, containerPort: 8080}]
+          env:
+            - {name: AWS_REGION, value: us-east-1}
+            - {name: S3_ENDPOINT, value: "http://10.42.10.10:9000"}
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom: {secretKeyRef: {name: trino-s3-lectura, key: acceso}}
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom: {secretKeyRef: {name: trino-s3-lectura, key: secreto}}
+          resources:
+            requests: {cpu: 250m, memory: 640Mi}
+            limits: {cpu: "2", memory: 1152Mi}
+          securityContext: {allowPrivilegeEscalation: false, capabilities: {drop: [ALL]}}
+          startupProbe: {httpGet: {path: /v1/info, port: http}, failureThreshold: 40, periodSeconds: 5}
+          readinessProbe: {httpGet: {path: /v1/info, port: http}, periodSeconds: 10}
+          volumeMounts:
+            - {name: datos, mountPath: /data/trino}
+            - {name: catalogo, mountPath: /etc/trino/catalog, readOnly: true}
+            - {name: propiedades, mountPath: /etc/trino/config.properties, subPath: config.properties, readOnly: true}
+            - {name: propiedades, mountPath: /etc/trino/jvm.config, subPath: jvm.config, readOnly: true}
+      volumes:
+        - {name: datos, persistentVolumeClaim: {claimName: trino-metastore}}
+        - {name: propiedades, configMap: {name: trino-propiedades}}
+        - {name: catalogo, configMap: {name: trino-catalogo}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: trino
+spec:
+  type: ClusterIP
+  selector: {app: trino}
+  ports: [{name: http, port: 8080, targetPort: http}]

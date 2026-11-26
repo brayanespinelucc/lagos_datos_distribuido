@@ -1,0 +1,13 @@
+uri,filas
+s3://bronze/categorias.csv,4
+s3://bronze/clientes.csv,52
+s3://bronze/inventario.csv,72
+s3://bronze/productos.csv,24
+s3://bronze/sucursales.csv,3
+s3://bronze/transacciones.csv,120
+s3://bronze/ventas.csv,251
+s3://gold/productos/part-00000.parquet,24
+s3://gold/ventas_diarias/part-00000.parquet,107
+s3://silver/inventario/part-00000.parquet,72
+s3://silver/rechazos/part-00000.parquet,3
+s3://silver/ventas/part-00000.parquet,247

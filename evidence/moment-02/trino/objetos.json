@@ -1,0 +1,329 @@
+{
+  "inicio_utc": "2026-11-26T20:07:45.116828+00:00",
+  "metodo": "GET S3. SHA-256 de los bytes devueltos y del fichero versionado de referencia.",
+  "metodo_parquet": "PyArrow decodifica todas las columnas. Se cotejan esquema, número de filas y SHA-256 de las filas JSON ordenadas conservando multiplicidades.",
+  "archivos": [
+    {
+      "uri": "s3://bronze/clientes.csv",
+      "ruta_local": "datasets/bronze/clientes.csv",
+      "bytes_s3": 870,
+      "sha256_s3": "ceea3fa0779abb30959543f808e1a8018cf8a6152df70e95c4ea4a03312863b1",
+      "sha256_local": "ceea3fa0779abb30959543f808e1a8018cf8a6152df70e95c4ea4a03312863b1",
+      "coinciden": true,
+      "id_peticion": "18EBB128C6AED78F"
+    },
+    {
+      "uri": "s3://bronze/categorias.csv",
+      "ruta_local": "datasets/bronze/categorias.csv",
+      "bytes_s3": 74,
+      "sha256_s3": "96defe27e8c296c337a0cf85429df0b4c80d7b668a0c157f77f2072de25b5feb",
+      "sha256_local": "96defe27e8c296c337a0cf85429df0b4c80d7b668a0c157f77f2072de25b5feb",
+      "coinciden": true,
+      "id_peticion": "18EBB128C8118728"
+    },
+    {
+      "uri": "s3://bronze/productos.csv",
+      "ruta_local": "datasets/bronze/productos.csv",
+      "bytes_s3": 401,
+      "sha256_s3": "20f020f955638bd10b4f11f626e262959df29cd50da5bec977d787d975439c18",
+      "sha256_local": "20f020f955638bd10b4f11f626e262959df29cd50da5bec977d787d975439c18",
+      "coinciden": true,
+      "id_peticion": "18EBB128C8B67EB3"
+    },
+    {
+      "uri": "s3://bronze/sucursales.csv",
+      "ruta_local": "datasets/bronze/sucursales.csv",
+      "bytes_s3": 54,
+      "sha256_s3": "7d0036b6660d4c15b4e8f1064bda043519ed2a7f2c75b17b258bd10134089673",
+      "sha256_local": "7d0036b6660d4c15b4e8f1064bda043519ed2a7f2c75b17b258bd10134089673",
+      "coinciden": true,
+      "id_peticion": "18EBB128C9789D6E"
+    },
+    {
+      "uri": "s3://bronze/transacciones.csv",
+      "ruta_local": "datasets/bronze/transacciones.csv",
+      "bytes_s3": 3764,
+      "sha256_s3": "3776fbc8959ffc4424250da629419b39902183a425ed5e556d85e063f0a9dd79",
+      "sha256_local": "3776fbc8959ffc4424250da629419b39902183a425ed5e556d85e063f0a9dd79",
+      "coinciden": true,
+      "id_peticion": "18EBB128C9ECF194"
+    },
+    {
+      "uri": "s3://bronze/ventas.csv",
+      "ruta_local": "datasets/bronze/ventas.csv",
+      "bytes_s3": 6573,
+      "sha256_s3": "93fcbd243fc069c94145a573a828bd5971169fa63cd0d98b59c303b5c1dbfde4",
+      "sha256_local": "93fcbd243fc069c94145a573a828bd5971169fa63cd0d98b59c303b5c1dbfde4",
+      "coinciden": true,
+      "id_peticion": "18EBB128CA53CBE4"
+    },
+    {
+      "uri": "s3://bronze/inventario.csv",
+      "ruta_local": "datasets/bronze/inventario.csv",
+      "bytes_s3": 1748,
+      "sha256_s3": "dd0f7be68dacdcb044e170c25664aed383db7ebe2104a643a75ef425508f2301",
+      "sha256_local": "dd0f7be68dacdcb044e170c25664aed383db7ebe2104a643a75ef425508f2301",
+      "coinciden": true,
+      "id_peticion": "18EBB128CAE6B820"
+    },
+    {
+      "uri": "s3://silver/ventas/part-00000.parquet",
+      "ruta_local": "datasets/silver/ventas/part-00000.parquet",
+      "bytes_s3": 7867,
+      "sha256_s3": "9f3d0430c4c7449629a404db2858ed99775324f57c2668c176d527ede7f8521f",
+      "sha256_local": "09d9cfda128a4fb710e659ac3b9ac1ecc3dd5470ac73187886330a06bec81795",
+      "coinciden": false,
+      "id_peticion": "18EBB128CB65CE6D",
+      "parquet_local": {
+        "fichero": "parquet-mr version 1.15.2 (build 859eac165b08f927fa14590c33bc5f476405fb68)",
+        "filas": 247,
+        "claves": [
+          "venta_id",
+          "transaccion_id",
+          "fecha",
+          "cliente_id",
+          "sucursal_id",
+          "producto_id",
+          "categoria",
+          "cantidad",
+          "precio_unitario_cop",
+          "importe_cop"
+        ],
+        "tipos": [
+          "string",
+          "string",
+          "date32[day]",
+          "string",
+          "string",
+          "string",
+          "string",
+          "int32",
+          "int64",
+          "int64"
+        ],
+        "multiconjunto_sha256": "7b96a667319c7961be04575dd2e8226e27923c188725460e8839525421252245",
+        "orden_sha256": "ac7dd98cadd6ed1e488f0e6c53be4334673151124133d1d21cf8cbc80c23e213"
+      },
+      "parquet_s3": {
+        "fichero": "parquet-mr version 1.15.2 (build 859eac165b08f927fa14590c33bc5f476405fb68)",
+        "filas": 247,
+        "claves": [
+          "venta_id",
+          "transaccion_id",
+          "fecha",
+          "cliente_id",
+          "sucursal_id",
+          "producto_id",
+          "categoria",
+          "cantidad",
+          "precio_unitario_cop",
+          "importe_cop"
+        ],
+        "tipos": [
+          "string",
+          "string",
+          "date32[day]",
+          "string",
+          "string",
+          "string",
+          "string",
+          "int32",
+          "int64",
+          "int64"
+        ],
+        "multiconjunto_sha256": "7b96a667319c7961be04575dd2e8226e27923c188725460e8839525421252245",
+        "orden_sha256": "ac7dd98cadd6ed1e488f0e6c53be4334673151124133d1d21cf8cbc80c23e213"
+      },
+      "contenido_logico_igual": true
+    },
+    {
+      "uri": "s3://silver/inventario/part-00000.parquet",
+      "ruta_local": "datasets/silver/inventario/part-00000.parquet",
+      "bytes_s3": 1829,
+      "sha256_s3": "7d9820a77b8597ca0aa3cdcb4d3225afc4f1985568f999cfaf43bec6d736bc9c",
+      "sha256_local": "7858cf29eaeea43ca3b7caed14500ed2f1a6ac89978511a487c0f73c1f3ee2ea",
+      "coinciden": false,
+      "id_peticion": "18EBB128CE3D181F",
+      "parquet_local": {
+        "fichero": "parquet-mr version 1.15.2 (build 859eac165b08f927fa14590c33bc5f476405fb68)",
+        "filas": 72,
+        "claves": [
+          "fecha",
+          "sucursal_id",
+          "producto_id",
+          "existencias"
+        ],
+        "tipos": [
+          "date32[day]",
+          "string",
+          "string",
+          "int32"
+        ],
+        "multiconjunto_sha256": "ce9b5717072fd078e72fffb459bf32abf35af737e927f7c617913c07a31cab45",
+        "orden_sha256": "fa9a2ab5e72faa9afd4f081243366f7d1364d944fcf266326150ce175592718e"
+      },
+      "parquet_s3": {
+        "fichero": "parquet-mr version 1.15.2 (build 859eac165b08f927fa14590c33bc5f476405fb68)",
+        "filas": 72,
+        "claves": [
+          "fecha",
+          "sucursal_id",
+          "producto_id",
+          "existencias"
+        ],
+        "tipos": [
+          "date32[day]",
+          "string",
+          "string",
+          "int32"
+        ],
+        "multiconjunto_sha256": "ce9b5717072fd078e72fffb459bf32abf35af737e927f7c617913c07a31cab45",
+        "orden_sha256": "fa9a2ab5e72faa9afd4f081243366f7d1364d944fcf266326150ce175592718e"
+      },
+      "contenido_logico_igual": true
+    },
+    {
+      "uri": "s3://silver/rechazos/part-00000.parquet",
+      "ruta_local": "datasets/silver/rechazos/part-00000.parquet",
+      "bytes_s3": 1493,
+      "sha256_s3": "b4048cefec8e148d1f4bc5bfa2a24e6508d78bb0f256b6c25d7bf45b50d463f1",
+      "sha256_local": "7c73afa153b57741309a935e4524e437b40f01cb0afb17097ce3a136cede61b6",
+      "coinciden": false,
+      "id_peticion": "18EBB128CEAB6D3C",
+      "parquet_local": {
+        "fichero": "parquet-mr version 1.15.2 (build 859eac165b08f927fa14590c33bc5f476405fb68)",
+        "filas": 3,
+        "claves": [
+          "venta_id",
+          "transaccion_id",
+          "producto_id",
+          "motivo"
+        ],
+        "tipos": [
+          "string",
+          "string",
+          "string",
+          "string"
+        ],
+        "multiconjunto_sha256": "3736a083ced8b6b796dd7853d7efe8bd909fe0dee7a544631e5312942ce415aa",
+        "orden_sha256": "3736a083ced8b6b796dd7853d7efe8bd909fe0dee7a544631e5312942ce415aa"
+      },
+      "parquet_s3": {
+        "fichero": "parquet-mr version 1.15.2 (build 859eac165b08f927fa14590c33bc5f476405fb68)",
+        "filas": 3,
+        "claves": [
+          "venta_id",
+          "transaccion_id",
+          "producto_id",
+          "motivo"
+        ],
+        "tipos": [
+          "string",
+          "string",
+          "string",
+          "string"
+        ],
+        "multiconjunto_sha256": "3736a083ced8b6b796dd7853d7efe8bd909fe0dee7a544631e5312942ce415aa",
+        "orden_sha256": "3736a083ced8b6b796dd7853d7efe8bd909fe0dee7a544631e5312942ce415aa"
+      },
+      "contenido_logico_igual": true
+    },
+    {
+      "uri": "s3://gold/ventas_diarias/part-00000.parquet",
+      "ruta_local": "datasets/gold/ventas_diarias/part-00000.parquet",
+      "bytes_s3": 2858,
+      "sha256_s3": "6b6e028eced4d1bd0533ee7550303944578fa3f52c45318a00089c7de16cb0d2",
+      "sha256_local": "99308bef07b50f157e0f141c181e37d511856fbd8eb5b45a7f91ad3189468387",
+      "coinciden": false,
+      "id_peticion": "18EBB128CF3D450E",
+      "parquet_local": {
+        "fichero": "parquet-mr version 1.15.2 (build 859eac165b08f927fa14590c33bc5f476405fb68)",
+        "filas": 107,
+        "claves": [
+          "fecha",
+          "sucursal_id",
+          "ventas_cop",
+          "unidades",
+          "transacciones"
+        ],
+        "tipos": [
+          "date32[day]",
+          "string",
+          "int64",
+          "int64",
+          "int64"
+        ],
+        "multiconjunto_sha256": "b394983875c49d96c48e82753040fd46c617ac3b4ec3514bc96107f9f20e7b55",
+        "orden_sha256": "b394983875c49d96c48e82753040fd46c617ac3b4ec3514bc96107f9f20e7b55"
+      },
+      "parquet_s3": {
+        "fichero": "parquet-mr version 1.15.2 (build 859eac165b08f927fa14590c33bc5f476405fb68)",
+        "filas": 107,
+        "claves": [
+          "fecha",
+          "sucursal_id",
+          "ventas_cop",
+          "unidades",
+          "transacciones"
+        ],
+        "tipos": [
+          "date32[day]",
+          "string",
+          "int64",
+          "int64",
+          "int64"
+        ],
+        "multiconjunto_sha256": "b394983875c49d96c48e82753040fd46c617ac3b4ec3514bc96107f9f20e7b55",
+        "orden_sha256": "b394983875c49d96c48e82753040fd46c617ac3b4ec3514bc96107f9f20e7b55"
+      },
+      "contenido_logico_igual": true
+    },
+    {
+      "uri": "s3://gold/productos/part-00000.parquet",
+      "ruta_local": "datasets/gold/productos/part-00000.parquet",
+      "bytes_s3": 1803,
+      "sha256_s3": "578f9c53978bb89e5f018ea17ad23e01b22c545d74960053d8bde85d7300e4eb",
+      "sha256_local": "c17167d9aae3777563257f5fd58e95891aabf933f36c9b7f47cd91147d07d3ee",
+      "coinciden": false,
+      "id_peticion": "18EBB128CFAC9685",
+      "parquet_local": {
+        "fichero": "parquet-mr version 1.15.2 (build 859eac165b08f927fa14590c33bc5f476405fb68)",
+        "filas": 24,
+        "claves": [
+          "producto_id",
+          "categoria",
+          "ventas_cop",
+          "unidades"
+        ],
+        "tipos": [
+          "string",
+          "string",
+          "int64",
+          "int64"
+        ],
+        "multiconjunto_sha256": "fec44bf331d56f157c76d68957ff066135c5ffb222fb19e45fea583950b3b9b9",
+        "orden_sha256": "24a5348b2127fa9857a72aa7f98d4552b9a12a33a566c62a02aaf6899275a7a6"
+      },
+      "parquet_s3": {
+        "fichero": "parquet-mr version 1.15.2 (build 859eac165b08f927fa14590c33bc5f476405fb68)",
+        "filas": 24,
+        "claves": [
+          "producto_id",
+          "categoria",
+          "ventas_cop",
+          "unidades"
+        ],
+        "tipos": [
+          "string",
+          "string",
+          "int64",
+          "int64"
+        ],
+        "multiconjunto_sha256": "fec44bf331d56f157c76d68957ff066135c5ffb222fb19e45fea583950b3b9b9",
+        "orden_sha256": "24a5348b2127fa9857a72aa7f98d4552b9a12a33a566c62a02aaf6899275a7a6"
+      },
+      "contenido_logico_igual": true
+    }
+  ],
+  "fin_utc": "2026-11-26T20:07:45.283029+00:00"
+}

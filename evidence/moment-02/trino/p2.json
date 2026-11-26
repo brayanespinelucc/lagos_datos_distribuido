@@ -1,0 +1,537 @@
+{
+  "inicio_utc": "2026-11-26T20:05:51.337+00:00",
+  "motor": "Trino",
+  "version": "477",
+  "contexto": "Coordinador del laboratorio y MinIO por S3, catálogo Hive con metastore de archivos.",
+  "coordinador": {
+    "nodeId": "trino",
+    "environment": "docker",
+    "coordinatorId": "sga7n",
+    "state": "ACTIVE"
+  },
+  "catalogo_sql_sha256": "19cf1d389cfc4c9e59209976540d0d7b1f882e684f4ef15a63a576944b5da00e",
+  "registro_catalogo": [
+    {
+      "sentencia": "CREATE SCHEMA IF NOT EXISTS lago.bronze",
+      "query_id": "20261126_200551_00005_sga7n"
+    },
+    {
+      "sentencia": "CREATE SCHEMA IF NOT EXISTS lago.silver",
+      "query_id": "20261126_200551_00006_sga7n"
+    },
+    {
+      "sentencia": "CREATE SCHEMA IF NOT EXISTS lago.gold",
+      "query_id": "20261126_200551_00007_sga7n"
+    },
+    {
+      "sentencia": "CREATE TABLE IF NOT EXISTS lago.bronze.archivos_csv (",
+      "query_id": "20261126_200551_00008_sga7n"
+    },
+    {
+      "sentencia": "CREATE OR REPLACE VIEW lago.bronze.clientes AS",
+      "query_id": "20261126_200551_00009_sga7n"
+    },
+    {
+      "sentencia": "CREATE OR REPLACE VIEW lago.bronze.categorias AS",
+      "query_id": "20261126_200551_00010_sga7n"
+    },
+    {
+      "sentencia": "CREATE OR REPLACE VIEW lago.bronze.productos AS",
+      "query_id": "20261126_200552_00011_sga7n"
+    },
+    {
+      "sentencia": "CREATE OR REPLACE VIEW lago.bronze.sucursales AS",
+      "query_id": "20261126_200552_00012_sga7n"
+    },
+    {
+      "sentencia": "CREATE OR REPLACE VIEW lago.bronze.transacciones AS",
+      "query_id": "20261126_200552_00013_sga7n"
+    },
+    {
+      "sentencia": "CREATE OR REPLACE VIEW lago.bronze.ventas AS",
+      "query_id": "20261126_200552_00014_sga7n"
+    },
+    {
+      "sentencia": "CREATE OR REPLACE VIEW lago.bronze.inventario AS",
+      "query_id": "20261126_200552_00015_sga7n"
+    },
+    {
+      "sentencia": "CREATE TABLE IF NOT EXISTS lago.silver.ventas (",
+      "query_id": "20261126_200552_00016_sga7n"
+    },
+    {
+      "sentencia": "CREATE TABLE IF NOT EXISTS lago.silver.inventario (",
+      "query_id": "20261126_200552_00017_sga7n"
+    },
+    {
+      "sentencia": "CREATE TABLE IF NOT EXISTS lago.silver.rechazos (",
+      "query_id": "20261126_200552_00018_sga7n"
+    },
+    {
+      "sentencia": "CREATE TABLE IF NOT EXISTS lago.gold.ventas_diarias (",
+      "query_id": "20261126_200552_00019_sga7n"
+    },
+    {
+      "sentencia": "CREATE TABLE IF NOT EXISTS lago.gold.productos (",
+      "query_id": "20261126_200552_00020_sga7n"
+    }
+  ],
+  "consultas": [
+    {
+      "id": "01-conciliacion",
+      "title": "Conciliación del lote en las tres capas",
+      "sql": "sql/queries/01-conciliacion.sql",
+      "csv": "results/sql/01-conciliacion.csv",
+      "rows": 1,
+      "query_id": "20261126_200553_00021_sga7n",
+      "inicio_utc": "2026-11-26T20:05:53.060+00:00",
+      "fin_utc": "2026-11-26T20:05:54.903+00:00",
+      "estadisticas": {
+        "state": "FINISHED",
+        "nodes": 1,
+        "processedRows": 608,
+        "processedBytes": 33016,
+        "cpuTimeMillis": 462,
+        "elapsedTimeMillis": 1720
+      },
+      "tipos": {
+        "recibidas": "bigint",
+        "aceptadas": "bigint",
+        "duplicadas": "bigint",
+        "rechazadas": "bigint",
+        "unidades": "bigint",
+        "importe_cop": "bigint",
+        "unidades_gold": "bigint",
+        "importe_gold_cop": "bigint",
+        "conteo_concilia": "boolean",
+        "importes_concilian": "boolean"
+      },
+      "sql_sha256": "635d49f0ed9c956d025d9f5efd69bee8a28f6460b58aff9e27f21bb8a00cb4a3",
+      "csv_sha256": "cf5d4528c0c1e578fcc864fec6188ed19c76b7c5c66eb2f51d2af672f771e882"
+    },
+    {
+      "id": "02-ventas-diarias",
+      "title": "Ventas, unidades y transacciones por día",
+      "sql": "sql/queries/02-ventas-diarias.sql",
+      "csv": "results/sql/02-ventas-diarias.csv",
+      "rows": 90,
+      "query_id": "20261126_200554_00022_sga7n",
+      "inicio_utc": "2026-11-26T20:05:54.908+00:00",
+      "fin_utc": "2026-11-26T20:05:55.267+00:00",
+      "estadisticas": {
+        "state": "FINISHED",
+        "nodes": 1,
+        "processedRows": 107,
+        "processedBytes": 10786,
+        "cpuTimeMillis": 25,
+        "elapsedTimeMillis": 337
+      },
+      "tipos": {
+        "fecha": "date",
+        "ventas_cop": "bigint",
+        "unidades": "bigint",
+        "transacciones": "bigint"
+      },
+      "sql_sha256": "250ab987453817e1e732985b897a571d20186f9da0620bcf98524a749d7c4718",
+      "csv_sha256": "557ce8b0fd7419694f20bae08d5277a24bc89dea84543dd0309330459baf3330"
+    },
+    {
+      "id": "03-ventas-region",
+      "title": "Ingresos por sucursal y región",
+      "sql": "sql/queries/03-ventas-region.sql",
+      "csv": "results/sql/03-ventas-region.csv",
+      "rows": 3,
+      "query_id": "20261126_200555_00023_sga7n",
+      "inicio_utc": "2026-11-26T20:05:55.267+00:00",
+      "fin_utc": "2026-11-26T20:05:56.016+00:00",
+      "estadisticas": {
+        "state": "FINISHED",
+        "nodes": 1,
+        "processedRows": 110,
+        "processedBytes": 6988,
+        "cpuTimeMillis": 82,
+        "elapsedTimeMillis": 716
+      },
+      "tipos": {
+        "sucursal_id": "varchar",
+        "region": "varchar",
+        "ventas_cop": "bigint",
+        "unidades": "bigint",
+        "transacciones": "bigint"
+      },
+      "sql_sha256": "388c70d77797fe4f4491cbea9cf72be0ef48e08601998f2b8cfc28b356eccd7d",
+      "csv_sha256": "57bffb6af8986b663887ded3d3c753ae21a399022bbaaa035a3becfc3f2c8a83"
+    },
+    {
+      "id": "04-ticket",
+      "title": "Ticket promedio por sucursal",
+      "sql": "sql/queries/04-ticket.sql",
+      "csv": "results/sql/04-ticket.csv",
+      "rows": 3,
+      "query_id": "20261126_200556_00024_sga7n",
+      "inicio_utc": "2026-11-26T20:05:56.021+00:00",
+      "fin_utc": "2026-11-26T20:05:56.664+00:00",
+      "estadisticas": {
+        "state": "FINISHED",
+        "nodes": 1,
+        "processedRows": 247,
+        "processedBytes": 12073,
+        "cpuTimeMillis": 57,
+        "elapsedTimeMillis": 546
+      },
+      "tipos": {
+        "sucursal_id": "varchar",
+        "transacciones": "bigint",
+        "ventas_cop": "bigint",
+        "ticket_medio_cop": "decimal(38, 17)"
+      },
+      "sql_sha256": "af956486b86d66f21982f1b088b270ed607f7e8acc91cefff7273079da410921",
+      "csv_sha256": "d90d07621c3ca8cb30599e9c60e5237dd29d20806f417f27820585506097fa25"
+    },
+    {
+      "id": "05-productos",
+      "title": "Diez productos de mayor facturación",
+      "sql": "sql/queries/05-productos.sql",
+      "csv": "results/sql/05-productos.csv",
+      "rows": 10,
+      "query_id": "20261126_200556_00025_sga7n",
+      "inicio_utc": "2026-11-26T20:05:56.666+00:00",
+      "fin_utc": "2026-11-26T20:05:57.357+00:00",
+      "estadisticas": {
+        "state": "FINISHED",
+        "nodes": 1,
+        "processedRows": 24,
+        "processedBytes": 3279,
+        "cpuTimeMillis": 35,
+        "elapsedTimeMillis": 619
+      },
+      "tipos": {
+        "producto_id": "varchar",
+        "categoria": "varchar",
+        "unidades": "bigint",
+        "ventas_cop": "bigint",
+        "porcentaje_del_total": "decimal(38, 15)"
+      },
+      "sql_sha256": "e50c99abf8db7294b0f6521290305dc238730373c37bd1eb907188db6fbf89ee",
+      "csv_sha256": "bbb5dfd7f8ed93a281e55902f36253ff9760a9daa72802e2634bb46653c191b6"
+    },
+    {
+      "id": "06-categorias",
+      "title": "Participación de cada categoría en ventas",
+      "sql": "sql/queries/06-categorias.sql",
+      "csv": "results/sql/06-categorias.csv",
+      "rows": 4,
+      "query_id": "20261126_200557_00026_sga7n",
+      "inicio_utc": "2026-11-26T20:05:57.358+00:00",
+      "fin_utc": "2026-11-26T20:05:57.800+00:00",
+      "estadisticas": {
+        "state": "FINISHED",
+        "nodes": 1,
+        "processedRows": 24,
+        "processedBytes": 2761,
+        "cpuTimeMillis": 18,
+        "elapsedTimeMillis": 415
+      },
+      "tipos": {
+        "categoria": "varchar",
+        "ventas_cop": "bigint",
+        "unidades": "bigint",
+        "participacion_pct": "decimal(38, 15)"
+      },
+      "sql_sha256": "4c2c98391dbeff49d4a0bc3a356e99caf5adff298034bbfe3c5e1fec72b7a746",
+      "csv_sha256": "43643a804c82818326de91eb0decc15b41759de97ed843f8889ecfba63988537"
+    },
+    {
+      "id": "07-clientes",
+      "title": "Clientes con mayor valor de compra",
+      "sql": "sql/queries/07-clientes.sql",
+      "csv": "results/sql/07-clientes.csv",
+      "rows": 10,
+      "query_id": "20261126_200557_00027_sga7n",
+      "inicio_utc": "2026-11-26T20:05:57.801+00:00",
+      "fin_utc": "2026-11-26T20:05:58.895+00:00",
+      "estadisticas": {
+        "state": "FINISHED",
+        "nodes": 1,
+        "processedRows": 299,
+        "processedBytes": 17983,
+        "cpuTimeMillis": 54,
+        "elapsedTimeMillis": 991
+      },
+      "tipos": {
+        "cliente_id": "varchar",
+        "segmento": "varchar",
+        "transacciones": "bigint",
+        "compras_cop": "bigint"
+      },
+      "sql_sha256": "111ab6c50f576a20dfc9dc5ff314e3b39bc6f7d9ad584d11b740736fb858451d",
+      "csv_sha256": "de2b50b4a167a9803f8835817057754064bde3d21335955a17366272fb6b0498"
+    },
+    {
+      "id": "08-segmentos",
+      "title": "Actividad de clientes por segmento",
+      "sql": "sql/queries/08-segmentos.sql",
+      "csv": "results/sql/08-segmentos.csv",
+      "rows": 3,
+      "query_id": "20261126_200558_00028_sga7n",
+      "inicio_utc": "2026-11-26T20:05:58.895+00:00",
+      "fin_utc": "2026-11-26T20:05:59.496+00:00",
+      "estadisticas": {
+        "state": "FINISHED",
+        "nodes": 1,
+        "processedRows": 299,
+        "processedBytes": 18755,
+        "cpuTimeMillis": 64,
+        "elapsedTimeMillis": 579
+      },
+      "tipos": {
+        "segmento": "varchar",
+        "registrados": "bigint",
+        "compradores": "bigint",
+        "ventas_cop": "bigint"
+      },
+      "sql_sha256": "747bffd1364044a3b680d4990a6ec3f19447fbf1ed11c05ef216ee9b76c6d2a9",
+      "csv_sha256": "4bff0cf6f6d1dd51293049f9f1d0637fcfd8d59f5292c909e0629b2efcd9d2b1"
+    },
+    {
+      "id": "09-inventario",
+      "title": "Existencias al último corte por sucursal",
+      "sql": "sql/queries/09-inventario.sql",
+      "csv": "results/sql/09-inventario.csv",
+      "rows": 3,
+      "query_id": "20261126_200559_00029_sga7n",
+      "inicio_utc": "2026-11-26T20:05:59.496+00:00",
+      "fin_utc": "2026-11-26T20:06:00.086+00:00",
+      "estadisticas": {
+        "state": "FINISHED",
+        "nodes": 1,
+        "processedRows": 72,
+        "processedBytes": 4512,
+        "cpuTimeMillis": 35,
+        "elapsedTimeMillis": 568
+      },
+      "tipos": {
+        "sucursal_id": "varchar",
+        "fecha_corte": "date",
+        "referencias": "bigint",
+        "existencias": "bigint",
+        "referencias_agotadas": "bigint"
+      },
+      "sql_sha256": "5eecb1362711121f2a3b869ff22855dd7433a36b95784b0fa53a6af0077f8b22",
+      "csv_sha256": "16c21f1e9acad1f9ab34cc4074da38f88dffcdd2d577427351649c8b4d46da9b"
+    },
+    {
+      "id": "10-reposicion",
+      "title": "Diez referencias con menor existencia y sus ventas históricas",
+      "sql": "sql/queries/10-reposicion.sql",
+      "csv": "results/sql/10-reposicion.csv",
+      "rows": 10,
+      "query_id": "20261126_200600_00030_sga7n",
+      "inicio_utc": "2026-11-26T20:06:00.090+00:00",
+      "fin_utc": "2026-11-26T20:06:00.586+00:00",
+      "estadisticas": {
+        "state": "FINISHED",
+        "nodes": 1,
+        "processedRows": 319,
+        "processedBytes": 13573,
+        "cpuTimeMillis": 47,
+        "elapsedTimeMillis": 460
+      },
+      "tipos": {
+        "fecha": "date",
+        "sucursal_id": "varchar",
+        "producto_id": "varchar",
+        "existencias": "integer",
+        "unidades_vendidas_lote": "bigint"
+      },
+      "sql_sha256": "4cc5b5f3c18d0ee6daa9106fc2ca40959f09f80e59162aff9777cc478dc684f1",
+      "csv_sha256": "e37421e3a1feb6972a110bad8cb5b3432f2999ffbb727a52a6f36b39e2e1b32b"
+    },
+    {
+      "id": "11-tendencia",
+      "title": "Variación semanal de ventas",
+      "sql": "sql/queries/11-tendencia.sql",
+      "csv": "results/sql/11-tendencia.csv",
+      "rows": 14,
+      "query_id": "20261126_200600_00031_sga7n",
+      "inicio_utc": "2026-11-26T20:06:00.587+00:00",
+      "fin_utc": "2026-11-26T20:06:00.970+00:00",
+      "estadisticas": {
+        "state": "FINISHED",
+        "nodes": 1,
+        "processedRows": 107,
+        "processedBytes": 4528,
+        "cpuTimeMillis": 32,
+        "elapsedTimeMillis": 358
+      },
+      "tipos": {
+        "inicio_semana": "date",
+        "ventas_cop": "bigint",
+        "semana_anterior_cop": "bigint",
+        "variacion_pct": "decimal(38, 15)"
+      },
+      "sql_sha256": "aa1cc86acb59dcf1dffdec24ccb4b0a2047221d6cca84039a0318889a02f0030",
+      "csv_sha256": "fa36f61d6b504717136210a99f3ebdb23c3922a6fdecc7465b3632803afb5ab4"
+    },
+    {
+      "id": "12-rechazos",
+      "title": "Motivos de rechazo en la transformación",
+      "sql": "sql/queries/12-rechazos.sql",
+      "csv": "results/sql/12-rechazos.csv",
+      "rows": 3,
+      "query_id": "20261126_200600_00032_sga7n",
+      "inicio_utc": "2026-11-26T20:06:00.971+00:00",
+      "fin_utc": "2026-11-26T20:06:01.212+00:00",
+      "estadisticas": {
+        "state": "FINISHED",
+        "nodes": 1,
+        "processedRows": 3,
+        "processedBytes": 2028,
+        "cpuTimeMillis": 14,
+        "elapsedTimeMillis": 225
+      },
+      "tipos": {
+        "motivo": "varchar",
+        "lineas_rechazadas": "bigint"
+      },
+      "sql_sha256": "4f2f71d7ce267ff1f5c5d62bb9b3cfe8326afeaecd2f23a2d96ae7865aba7002",
+      "csv_sha256": "ab1dd89daf1e02a08aabd2cd0957a6d3051689e296748a2bffddfcee55b9ee65"
+    },
+    {
+      "id": "13-duplicados",
+      "title": "Líneas exactamente repetidas en Bronze",
+      "sql": "sql/queries/13-duplicados.sql",
+      "csv": "results/sql/13-duplicados.csv",
+      "rows": 1,
+      "query_id": "20261126_200601_00033_sga7n",
+      "inicio_utc": "2026-11-26T20:06:01.213+00:00",
+      "fin_utc": "2026-11-26T20:06:01.577+00:00",
+      "estadisticas": {
+        "state": "FINISHED",
+        "nodes": 1,
+        "processedRows": 251,
+        "processedBytes": 18647,
+        "cpuTimeMillis": 29,
+        "elapsedTimeMillis": 351
+      },
+      "tipos": {
+        "venta_id": "varchar",
+        "transaccion_id": "varchar",
+        "producto_id": "varchar",
+        "cantidad": "varchar",
+        "apariciones": "bigint"
+      },
+      "sql_sha256": "775e6d8eb27e95e08aad6092548d18b263d41de205a82cfb5a6cabd3ce5f2f92",
+      "csv_sha256": "5e0c2402c3d19e0bc4b595fbb155ff7a5b7e123c54177115aa4c1a3e659953af"
+    },
+    {
+      "id": "14-calidad",
+      "title": "Controles de integridad de las ventas Silver",
+      "sql": "sql/queries/14-calidad.sql",
+      "csv": "results/sql/14-calidad.csv",
+      "rows": 1,
+      "query_id": "20261126_200601_00034_sga7n",
+      "inicio_utc": "2026-11-26T20:06:01.578+00:00",
+      "fin_utc": "2026-11-26T20:06:02.289+00:00",
+      "estadisticas": {
+        "state": "FINISHED",
+        "nodes": 1,
+        "processedRows": 247,
+        "processedBytes": 21464,
+        "cpuTimeMillis": 58,
+        "elapsedTimeMillis": 673
+      },
+      "tipos": {
+        "filas": "bigint",
+        "ventas_unicas": "bigint",
+        "cantidades_invalidas": "bigint",
+        "importes_invalidos": "bigint",
+        "claves_incompletas": "bigint"
+      },
+      "sql_sha256": "8afe9cc3f0fb7b7cefabd4f8f9a77dd69e5852129c8ebf754c7ef24bf9e33e31",
+      "csv_sha256": "527038bc2eaa442dba378c7a45c2ee2da2a8912feb5cc2b5e68acee731e19153"
+    },
+    {
+      "id": "15-origenes",
+      "title": "Objetos de MinIO y filas leídas por Trino",
+      "sql": "sql/queries/15-origenes.sql",
+      "csv": "results/sql/15-origenes.csv",
+      "rows": 12,
+      "query_id": "20261126_200602_00035_sga7n",
+      "inicio_utc": "2026-11-26T20:06:02.293+00:00",
+      "fin_utc": "2026-11-26T20:06:02.909+00:00",
+      "estadisticas": {
+        "state": "FINISHED",
+        "nodes": 1,
+        "processedRows": 979,
+        "processedBytes": 31698,
+        "cpuTimeMillis": 81,
+        "elapsedTimeMillis": 586
+      },
+      "tipos": {
+        "uri": "varchar",
+        "filas": "bigint"
+      },
+      "sql_sha256": "2e4bd88d783d5bde9fd3c794d3557b376c9704274a399145719a3aeaf997b805",
+      "csv_sha256": "a3639012f61319dff1862b617d7f659f93e96ec022320b7238a5e1e4bd24df38"
+    }
+  ],
+  "p2": {
+    "criterios": {
+      "entrada": true,
+      "aceptadas": true,
+      "duplicadas": true,
+      "rechazadas": true,
+      "unidades_silver_gold_spark": true,
+      "importe_silver_gold_spark": true,
+      "conteo_concilia_en_trino": true,
+      "importes_concilian_en_trino": true,
+      "doce_objetos_minio_y_conteos": true,
+      "causas_rechazo": true
+    },
+    "control_trino": {
+      "recibidas": 251,
+      "aceptadas": 247,
+      "duplicadas": 1,
+      "rechazadas": 3,
+      "unidades": 875,
+      "importe_cop": 33589000,
+      "unidades_gold": 875,
+      "importe_gold_cop": 33589000,
+      "conteo_concilia": true,
+      "importes_concilian": true
+    },
+    "referencia_spark": {
+      "ventas_entrada": 251,
+      "ventas_aceptadas": 247,
+      "duplicados": 1,
+      "rechazados": 3,
+      "ventas_cop": 33589000,
+      "unidades": 875,
+      "causas": {
+        "producto_nulo": 1,
+        "producto_desconocido": 1,
+        "cantidad_no_positiva": 1
+      },
+      "s3_verificado": true
+    },
+    "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774",
+    "spark_application_id": "local-1795658695800",
+    "objetos_y_filas": {
+      "s3://bronze/categorias.csv": 4,
+      "s3://bronze/clientes.csv": 52,
+      "s3://bronze/inventario.csv": 72,
+      "s3://bronze/productos.csv": 24,
+      "s3://bronze/sucursales.csv": 3,
+      "s3://bronze/transacciones.csv": 120,
+      "s3://bronze/ventas.csv": 251,
+      "s3://gold/productos/part-00000.parquet": 24,
+      "s3://gold/ventas_diarias/part-00000.parquet": 107,
+      "s3://silver/inventario/part-00000.parquet": 72,
+      "s3://silver/rechazos/part-00000.parquet": 3,
+      "s3://silver/ventas/part-00000.parquet": 247
+    },
+    "estado": "Aprobada"
+  },
+  "fin_utc": "2026-11-26T20:06:02.911+00:00"
+}
