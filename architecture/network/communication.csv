@@ -1,0 +1,21 @@
+source,destination,protocol,ports,purpose
+admin,vms,tcp,22,Administración SSH con llave
+vms,vms,icmp,,Prueba dirigida entre las ocho máquinas
+admin,vms,icmp,,Diagnóstico por el operador
+admin,proxmox,tcp,8006,Interfaz web de Proxmox mediante red privada
+admin,proxmox,tcp,22,Administración del hipervisor
+vms,dns,udp,53,Resolución recursiva externa
+vms,dns,tcp,53,Consultas DNS extensas y reintentos
+vms,ntp,udp,123,Sincronización horaria
+vms,archives,tcp,80|443,Repositorios y artefactos de instalación
+admin,minio-lb,tcp,9000|9001,API S3 y consola
+rke2,minio-lb,tcp,9000,Clientes S3 del lago con SNAT del CNI
+minio-lb,minio,tcp,9000|9001,Comprobación y distribución de S3 y web
+minio,minio,tcp,9000,Tráfico distribuido entre nodos MinIO
+admin,rke2-lb,tcp,6443|80|443,API e Ingress del laboratorio
+rke2,rke2-lb,tcp,6443|9345,Registro y API a través de HAProxy
+rke2-lb,rke2-server,tcp,6443|9345,Sondas y conexiones al servidor
+rke2,rke2-server,tcp,6443|9345,Tráfico interno del plano de control
+rke2,rke2,udp,8472,Encapsulación VXLAN de Canal
+rke2,rke2,tcp,9099|10250,Salud de Canal y kubelet
+rke2-lb,rke2-worker,tcp,80|443,Ingreso a los controladores en los workers

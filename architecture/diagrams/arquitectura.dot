@@ -1,0 +1,21 @@
+digraph Arquitectura {
+    graph [label="Arquitectura objetivo del laboratorio", labelloc=t, labeljust=l, fontname="DejaVu Sans Bold", fontsize=19, fontcolor="#153653", bgcolor="white", pad=0.2, ranksep=0.33, nodesep=0.28, splines=polyline];
+    node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=12, color="#9eb9c9", fillcolor="#f1f6f9", fontcolor="#102f45", margin="0.16,0.10", penwidth=1.3];
+    edge [fontname="DejaVu Sans", fontsize=10, color="#526e82", fontcolor="#36546b", arrowsize=0.70];
+    pve [label="Servidor dedicado  ·  Proxmox VE\nPuente vmbr0  /  Ocho VM con Ubuntu Server 24.04 LTS", fillcolor="#153653", fontcolor=white, color="#153653"];
+    lbs [label="lb-minio\nHAProxy para S3 y consola", fillcolor="#e8f6f1", color="#77a997"];
+    lbk [label="lb-k8s\nHAProxy para Kubernetes"];
+    minio [label="MinIO distribuido\nminio-1  ·  minio-2  ·  minio-3\nDos discos de datos por VM", fillcolor="#e8f6f1", color="#77a997"];
+    k8s [label="Clúster RKE2\nrke2-server  ·  control plane\nrke2-worker-1  ·  rke2-worker-2"];
+    buckets [label="Objetos en MinIO\nbronze  /  silver  /  gold", fillcolor="#cdeade", color="#60a087"];
+    apps [label="Servicios requeridos en los workers\nAirflow · Spark · Trino · DataHub\nPrometheus · Grafana", fillcolor="#dbe9f6", color="#8da7c1"];
+    pve -> lbs; pve -> lbk;
+    lbs -> minio [label=" 9000 / 9001"];
+    lbk -> k8s [label=" 6443 / 9345\n 80 / 443"];
+    minio -> buckets;
+    k8s -> apps;
+    {rank=same; lbs; lbk}
+    {rank=same; minio; k8s}
+    {rank=same; buckets; apps}
+    apps -> buckets [label=" S3 vía lb-minio ", style=dashed, constraint=false];
+}

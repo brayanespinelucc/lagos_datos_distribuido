@@ -1,0 +1,142 @@
+{
+  "platform": "Proxmox VE 8.4/9 · Ubuntu Server 24.04 LTS amd64",
+  "scope": "Diseño objetivo de laboratorio",
+  "network": {
+    "cidr": "10.42.10.0/24",
+    "gateway": "10.42.10.1",
+    "dns": "10.42.10.1",
+    "bridge": "vmbr0",
+    "proxmox_ip": "10.42.10.2",
+    "admin_cidr": "10.42.10.0/29",
+    "pod_cidr": "10.52.0.0/16",
+    "service_cidr": "10.53.0.0/16",
+    "domain": "lago.internal",
+    "ingress_host": "m1.lago.internal"
+  },
+  "vms": [
+    {
+      "id": 110,
+      "hostname": "lb-minio",
+      "role": "minio-lb",
+      "ip": "10.42.10.10",
+      "vcpus": 1,
+      "memory_mib": 1024,
+      "os_disk_gib": 16,
+      "data_disks": []
+    },
+    {
+      "id": 111,
+      "hostname": "lb-k8s",
+      "role": "rke2-lb",
+      "ip": "10.42.10.11",
+      "vcpus": 1,
+      "memory_mib": 1024,
+      "os_disk_gib": 16,
+      "data_disks": []
+    },
+    {
+      "id": 121,
+      "hostname": "minio-1",
+      "role": "minio",
+      "ip": "10.42.10.21",
+      "vcpus": 2,
+      "memory_mib": 4096,
+      "os_disk_gib": 20,
+      "data_disks": [
+        {
+          "slot": "scsi1",
+          "size_gib": 20,
+          "serial": "lago121d1",
+          "mount": "/srv/minio/disk1"
+        },
+        {
+          "slot": "scsi2",
+          "size_gib": 20,
+          "serial": "lago121d2",
+          "mount": "/srv/minio/disk2"
+        }
+      ]
+    },
+    {
+      "id": 122,
+      "hostname": "minio-2",
+      "role": "minio",
+      "ip": "10.42.10.22",
+      "vcpus": 2,
+      "memory_mib": 4096,
+      "os_disk_gib": 20,
+      "data_disks": [
+        {
+          "slot": "scsi1",
+          "size_gib": 20,
+          "serial": "lago122d1",
+          "mount": "/srv/minio/disk1"
+        },
+        {
+          "slot": "scsi2",
+          "size_gib": 20,
+          "serial": "lago122d2",
+          "mount": "/srv/minio/disk2"
+        }
+      ]
+    },
+    {
+      "id": 123,
+      "hostname": "minio-3",
+      "role": "minio",
+      "ip": "10.42.10.23",
+      "vcpus": 2,
+      "memory_mib": 4096,
+      "os_disk_gib": 20,
+      "data_disks": [
+        {
+          "slot": "scsi1",
+          "size_gib": 20,
+          "serial": "lago123d1",
+          "mount": "/srv/minio/disk1"
+        },
+        {
+          "slot": "scsi2",
+          "size_gib": 20,
+          "serial": "lago123d2",
+          "mount": "/srv/minio/disk2"
+        }
+      ]
+    },
+    {
+      "id": 131,
+      "hostname": "rke2-server",
+      "role": "rke2-server",
+      "ip": "10.42.10.31",
+      "vcpus": 4,
+      "memory_mib": 8192,
+      "os_disk_gib": 40,
+      "data_disks": []
+    },
+    {
+      "id": 132,
+      "hostname": "rke2-worker-1",
+      "role": "rke2-worker",
+      "ip": "10.42.10.32",
+      "vcpus": 6,
+      "memory_mib": 12288,
+      "os_disk_gib": 64,
+      "data_disks": []
+    },
+    {
+      "id": 133,
+      "hostname": "rke2-worker-2",
+      "role": "rke2-worker",
+      "ip": "10.42.10.33",
+      "vcpus": 8,
+      "memory_mib": 16384,
+      "os_disk_gib": 64,
+      "data_disks": []
+    }
+  ],
+  "image": {
+    "release": "noble/release-20261017",
+    "file": "ubuntu-24.04-server-cloudimg-amd64.img",
+    "sha256": "04e8f2461a16a44e78a370284471f29616cdd9baf1893df25807b71f985b6c94"
+  }
+}

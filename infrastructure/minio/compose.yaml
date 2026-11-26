@@ -1,0 +1,92 @@
+# Laboratorio efímero; el proyecto y sus volúmenes se aíslan por nombre de Compose.
+x-server: &server
+  image: bitnamilegacy/minio:2025.4.22-debian-12-r2@sha256:50cec18ac4184af4671a78aedd5554942c8ae105d51a465fa82037949046da01
+  user: "1001:1001"
+  entrypoint: ["/bin/sh", "-ec"]
+  command:
+    - |
+      export MINIO_ROOT_USER="$$(cat /run/secrets/root_user)"
+      export MINIO_ROOT_PASSWORD="$$(cat /run/secrets/root_password)"
+      exec minio server --address :9000 --console-address :9001 'http://minio-{1...3}:9000/srv/minio/disk{1...2}'
+  environment:
+    HOME: /tmp
+    MINIO_STORAGE_CLASS_STANDARD: EC:2
+    # Sólo laboratorio: los seis volúmenes Docker comparten un disco del anfitrión.
+    MINIO_CI_CD: "1"
+    NO_PROXY: localhost,127.0.0.1,minio-1,minio-2,minio-3,lb-minio
+    no_proxy: localhost,127.0.0.1,minio-1,minio-2,minio-3,lb-minio
+    MINIO_UPDATE: "off"
+  secrets: [root_user, root_password]
+  depends_on:
+    volumes-init:
+      condition: service_completed_successfully
+  healthcheck:
+    test: ["CMD", "curl", "--fail", "--silent", "--max-time", "3", "http://localhost:9000/minio/health/live"]
+    interval: 5s
+    timeout: 4s
+    retries: 20
+  security_opt: ["no-new-privileges:true"]
+  cap_drop: [ALL]
+services:
+  volumes-init:
+    image: bitnamilegacy/minio:2025.4.22-debian-12-r2@sha256:50cec18ac4184af4671a78aedd5554942c8ae105d51a465fa82037949046da01
+    user: "0:0"
+    entrypoint: ["/bin/sh", "-ec", "chown 1001:1001 /disks/*"]
+    network_mode: none
+    cap_drop: [ALL]
+    cap_add: [CHOWN]
+    volumes:
+      - d11:/disks/d11
+      - d12:/disks/d12
+      - d21:/disks/d21
+      - d22:/disks/d22
+      - d31:/disks/d31
+      - d32:/disks/d32
+  minio-1:
+    <<: *server
+    hostname: minio-1
+    volumes: [d11:/srv/minio/disk1, d12:/srv/minio/disk2]
+  minio-2:
+    <<: *server
+    hostname: minio-2
+    volumes: [d21:/srv/minio/disk1, d22:/srv/minio/disk2]
+  minio-3:
+    <<: *server
+    hostname: minio-3
+    volumes: [d31:/srv/minio/disk1, d32:/srv/minio/disk2]
+  lb-minio:
+    image: haproxy:3.0.11-alpine@sha256:e49b7beb96f4dba79f9a671515b469a6e516a2b88ff0681a820b184bba1effbd
+    depends_on: [minio-1, minio-2, minio-3]
+    volumes: ["../load-balancers/minio/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro"]
+    ports: ["127.0.0.1::9000", "127.0.0.1::9001"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+  cliente:
+    image: bitnamilegacy/minio-client:2025.4.16-debian-12-r2@sha256:8a86e441decf053093c5977d49290298295f850c7843652f93e970ab15871dd1
+    entrypoint: ["/bin/sleep", "infinity"]
+    environment:
+      NO_PROXY: localhost,127.0.0.1,minio-1,minio-2,minio-3,lb-minio
+      no_proxy: localhost,127.0.0.1,minio-1,minio-2,minio-3,lb-minio
+      MC_CONFIG_DIR: /tmp/mc
+      HOME: /tmp
+    secrets: [root_user, root_password, ingesta_password]
+    volumes:
+      - ./bootstrap.sh:/lab/bootstrap.sh:ro
+      - ./ingesta-bronze.json:/lab/ingesta-bronze.json:ro
+    tmpfs: ["/tmp:mode=1777"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+volumes:
+  d11: {}
+  d12: {}
+  d21: {}
+  d22: {}
+  d31: {}
+  d32: {}
+secrets:
+  root_user:
+    file: "${MINIO_SECRETS_DIR:?directorio de credenciales}/root_user"
+  root_password:
+    file: "${MINIO_SECRETS_DIR:?directorio de credenciales}/root_password"
+  ingesta_password:
+    file: "${MINIO_SECRETS_DIR:?directorio de credenciales}/ingesta_password"

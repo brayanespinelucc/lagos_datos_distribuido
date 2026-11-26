@@ -1,0 +1,41 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: lago-m1-local
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+reclaimPolicy: Retain
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: lago-m1-registro
+spec:
+  capacity: {storage: 1Gi}
+  accessModes: [ReadWriteOnce]
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: lago-m1-local
+  claimRef:
+    name: registro
+    namespace: lago-m1
+  local:
+    path: /var/lib/lago/m1-registro
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values: [rke2-worker-2]
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: registro
+  namespace: lago-m1
+spec:
+  accessModes: [ReadWriteOnce]
+  storageClassName: lago-m1-local
+  volumeName: lago-m1-registro
+  resources:
+    requests: {storage: 1Gi}

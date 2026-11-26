@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portada
+  namespace: lago-m1
+spec:
+  replicas: 2
+  selector: {matchLabels: {app: portada}}
+  template:
+    metadata:
+      labels: {app: portada}
+    spec:
+      automountServiceAccountToken: false
+      nodeSelector: {lago.lab/rol: worker}
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector: {matchLabels: {app: portada}}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        seccompProfile: {type: RuntimeDefault}
+      containers:
+        - name: web
+          image: docker.io/library/busybox:1.37.0@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec
+          command: [httpd, -f, -p, "8080", -h, /www]
+          ports: [{name: http, containerPort: 8080}]
+          volumeMounts: [{name: contenido, mountPath: /www, readOnly: true}]
+          resources:
+            requests: {cpu: 10m, memory: 8Mi}
+            limits: {cpu: 100m, memory: 32Mi}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: {drop: [ALL]}
+          readinessProbe: {httpGet: {path: /, port: http}, periodSeconds: 5}
+          livenessProbe: {httpGet: {path: /, port: http}, periodSeconds: 15}
+      volumes:
+        - name: contenido
+          configMap: {name: portada}
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: registro
+  namespace: lago-m1
+spec:
+  replicas: 1
+  serviceName: registro
+  selector: {matchLabels: {app: registro}}
+  template:
+    metadata:
+      labels: {app: registro}
+    spec:
+      automountServiceAccountToken: false
+      nodeSelector: {lago.lab/rol: worker}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        seccompProfile: {type: RuntimeDefault}
+      containers:
+        - name: registro
+          image: docker.io/library/busybox:1.37.0@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec
+          command: [sh, -ec]
+          args:
+            - |
+              if [ ! -s /registro/huella.txt ]; then
+                cat /proc/sys/kernel/random/uuid > /registro/.huella.tmp
+                mv /registro/.huella.tmp /registro/huella.txt
+              fi
+              exec httpd -f -p 8080 -h /registro
+          ports: [{name: http, containerPort: 8080}]
+          volumeMounts: [{name: registro, mountPath: /registro}]
+          resources:
+            requests: {cpu: 10m, memory: 8Mi}
+            limits: {cpu: 100m, memory: 32Mi}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: {drop: [ALL]}
+          readinessProbe: {httpGet: {path: /huella.txt, port: http}, periodSeconds: 5}
+          livenessProbe: {httpGet: {path: /huella.txt, port: http}, periodSeconds: 15}
+      volumes:
+        - name: registro
+          persistentVolumeClaim: {claimName: registro}

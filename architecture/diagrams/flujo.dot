@@ -1,0 +1,19 @@
+digraph Flujo {
+    graph [label="Flujo de datos objetivo  ·  Momento 2", labelloc=t, labeljust=l, fontname="DejaVu Sans Bold", fontsize=18, fontcolor="#153653", bgcolor="white", pad=0.20, nodesep=0.45, ranksep=0.28, splines=polyline];
+    node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=12, color="#98b3c4", fillcolor="#f1f6f9", fontcolor="#102f45", margin="0.15,0.10", penwidth=1.2];
+    edge [color="#526e82", arrowsize=0.70, fontname="DejaVu Sans", fontsize=10, fontcolor="#36546b"];
+    src [label="Fuentes del comercio\nTransacciones, maestros e inventario"];
+    bronze [label="Bronze  /  MinIO\nFicheros originales por lote", fillcolor="#f6eade", color="#bd9973"];
+    silver [label="Silver  /  MinIO\nDatos tipados y validados", fillcolor="#e6edf0", color="#91a2ab"];
+    gold [label="Gold  /  MinIO\nIndicadores agregados", fillcolor="#f6eecb", color="#b69a46"];
+    result [label="Resultado SQL\nAnálisis del negocio", fillcolor="#153653", fontcolor=white, color="#153653"];
+    hub [label="DataHub\nCatálogo, propiedad y linaje", fillcolor="#e6f4ed", color="#77a997"];
+    src -> bronze [label=" Airflow  ·  ingesta por lote"];
+    bronze -> silver [label=" Spark  ·  valida y cruza"];
+    silver -> gold [label=" Spark  ·  agrega"];
+    gold -> result [label=" Trino  ·  consulta SQL"];
+    {rank=same; silver; hub}
+    silver -> hub [label=" metadatos ", style=dashed];
+    bronze -> hub [style=dashed];
+    gold -> hub [style=dashed, constraint=false];
+}

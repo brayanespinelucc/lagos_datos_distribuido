@@ -1,0 +1,15 @@
+digraph MinIO {
+    graph [label="Distribución de MinIO y umbral de recuperación", labelloc=t, labeljust=l, fontname="DejaVu Sans Bold", fontsize=18, fontcolor="#153653", bgcolor="white", pad=0.20, nodesep=0.28, ranksep=0.33];
+    node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=11, color="#8cb2a1", fillcolor="#e8f6f1", fontcolor="#102f45", margin="0.14,0.1"];
+    edge [color="#526e82", arrowsize=0.7];
+    endpoint [label="Cliente S3  →  lb-minio:9000", color="#153653", fontcolor=white, fillcolor="#153653"];
+    m1 [label="minio-1  /  .21\ndisk1     disk2"];
+    m2 [label="minio-2  /  .22\ndisk1     disk2"];
+    m3 [label="minio-3  /  .23\ndisk1     disk2"];
+    set [label="Un grupo de seis discos  ·  EC:2\nObjeto estándar escrito con todos los discos en línea\n4 fragmentos de datos + 2 de paridad", fillcolor="#f2f6fa", color="#98b3c4"];
+    loss [label="Un nodo caído  /  4 discos accesibles\nLectura posible y escritura esperada con quórum", fillcolor="#e8f6f1"];
+    multi [label="Dos nodos caídos  /  2 discos accesibles\nQuórum insuficiente para el objeto de referencia", fillcolor="#faeddf", color="#c4a079"];
+    endpoint -> m1; endpoint -> m2; endpoint -> m3;
+    m1 -> set; m2 -> set; m3 -> set;
+    set -> loss; set -> multi;
+}

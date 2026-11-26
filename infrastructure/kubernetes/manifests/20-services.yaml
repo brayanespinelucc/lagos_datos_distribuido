@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: portada
+  namespace: lago-m1
+data:
+  index.html: |
+    <!doctype html>
+    <html lang="es"><meta charset="utf-8"><title>Infraestructura del lago</title>
+    <h1>Lago de datos distribuido</h1><p>Servicio de verificación del Momento 1.</p></html>
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: portada
+  namespace: lago-m1
+spec:
+  selector: {app: portada}
+  ports:
+    - {name: http, port: 80, targetPort: http}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: registro
+  namespace: lago-m1
+spec:
+  clusterIP: None
+  selector: {app: registro}
+  ports:
+    - {name: http, port: 8080, targetPort: http}
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: portada
+  namespace: lago-m1
+spec:
+  ingressClassName: traefik
+  tls:
+    - secretName: m1-ingress-tls
+      hosts: [m1.lago.internal]
+  rules:
+    - host: m1.lago.internal
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: portada
+                port: {name: http}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Documentación, infraestructura propuesta y evidencias de la plataforma empresarial para un lago de datos distribuido.">
+  <title>Lago de Datos Distribuido — Portal de Demostración del Proyecto</title>
+  <link rel="icon" href="./assets/icono.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script defer src="./assets/data.js"></script>
+  <script defer src="./assets/app.js"></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<div class="shell">
+  <aside class="rail" id="rail">
+    <a class="identity" href="#resumen"><img src="./assets/icono.svg" alt="" width="40" height="40"><span>Lago de datos<small>Laboratorio distribuido</small></span></a>
+    <button class="mobile-close icon-button" type="button" aria-label="Cerrar menú" data-menu="close"><span data-i="close"></span></button>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#resumen" data-section="resumen"><span data-i="overview"></span>Resumen</a>
+      <a href="#infraestructura" data-section="infraestructura"><span data-i="network"></span>Infraestructura</a>
+      <a href="#trazabilidad" data-section="trazabilidad"><span data-i="rows"></span>Trazabilidad</a>
+      <a href="#evidencias" data-section="evidencias"><span data-i="evidence"></span>Evidencias</a>
+      <a href="#documentos" data-section="documentos"><span data-i="folder"></span>Documentos</a>
+    </nav>
+    <section class="rail-info"><span data-i="book"></span><div><strong>Consulta académica</strong><small>Bloque 0 y Momento 1</small></div></section>
+  </aside>
+  <button class="scrim" id="scrim" type="button" data-menu="close" aria-label="Cerrar navegación"></button>
+  <div class="main-shell">
+    <header class="topbar">
+      <div class="crumb"><button class="mobile-open icon-button" data-menu="open" type="button" aria-label="Abrir navegación" aria-controls="rail" aria-expanded="false"><span data-i="menu"></span></button><span class="crumb-home">Portal del proyecto</span><span class="crumb-slash">/</span><strong id="section-name">Resumen</strong></div>
+      <a class="repo" href="https://github.com/brayanespinelucc/lagos_datos_distribuido" target="_blank" rel="noopener noreferrer"><span data-i="git"></span><span>Repositorio de trabajo</span><span data-i="external"></span></a>
+    </header>
+    <main id="contenido" tabindex="-1"><noscript><h1>Lago de Datos Distribuido</h1><p>Este portal usa JavaScript para los filtros y las vistas de archivos. El paquete también contiene los originales en la carpeta <code>archivos</code>.</p></noscript></main>
+  </div>
+</div>
+<dialog id="viewer" aria-labelledby="viewer-title"><div class="dialog-header"><div><p class="eyebrow" id="viewer-kind"></p><h2 id="viewer-title"></h2></div><button class="icon-button" type="button" data-close aria-label="Cerrar vista previa"><span data-i="close"></span></button></div><div id="viewer-content"></div><div id="viewer-footer"></div></dialog>
+</body>
+</html>

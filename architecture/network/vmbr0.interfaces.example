@@ -1,0 +1,13 @@
+# Diseño de laboratorio para un uplink aislado de capa 2.
+# Sustituir el nombre físico según ip -br link en el host PVE.
+# El operador mantiene la consola de gestión durante el cambio.
+auto enp1s0
+iface enp1s0 inet manual
+
+auto vmbr0
+iface vmbr0 inet static
+    address 10.42.10.2/24
+    gateway 10.42.10.1
+    bridge-ports enp1s0
+    bridge-stp off
+    bridge-fd 0

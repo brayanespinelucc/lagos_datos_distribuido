@@ -1,0 +1,15 @@
+digraph Red {
+    graph [label="Topología IP propuesta  ·  Momento 1", labelloc=t, labeljust=l, fontname="DejaVu Sans Bold", fontsize=19, fontcolor="#153653", bgcolor="white", pad=0.2, ranksep=0.36, nodesep=0.24];
+    node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=11.5, color="#98b3c4", fillcolor="#f0f5fa", fontcolor="#102f45", margin="0.16,0.10", penwidth=1.2];
+    edge [color="#526e82", arrowsize=0.72, fontname="DejaVu Sans", fontsize=10, fontcolor="#36546b"];
+    uplink [label="Administración autorizada\nVPN o bastión  ·  10.42.10.0/29"];
+    fabric [label="vmbr0   /   10.42.10.0/24\nPuerta de enlace y DNS  10.42.10.1   ·   Proxmox VE  10.42.10.2", fillcolor="#153653", fontcolor=white, color="#153653"];
+    lbs [label="lb-minio   10.42.10.10\n9000/TCP  S3     9001/TCP  consola", fillcolor="#e8f6f1", color="#77a997"];
+    lbk [label="lb-k8s   10.42.10.11\n6443/TCP  API     9345/TCP  registro\n80 y 443/TCP  Ingress en los workers"];
+    storage [label="minio-1   10.42.10.21\nminio-2   10.42.10.22\nminio-3   10.42.10.23\n\nTráfico entre pares  ·  9000/TCP", fillcolor="#e8f6f1", color="#77a997"];
+    nodes [label="rke2-server      10.42.10.31\nrke2-worker-1   10.42.10.32\nrke2-worker-2   10.42.10.33\n\nPods  10.52.0.0/16   ·   Services  10.53.0.0/16"];
+    uplink -> fabric [label=" gestión por la red privada "];
+    fabric -> lbs; fabric -> lbk; lbs -> storage; lbk -> nodes;
+    {rank=same; lbs; lbk}
+    {rank=same; storage; nodes}
+}

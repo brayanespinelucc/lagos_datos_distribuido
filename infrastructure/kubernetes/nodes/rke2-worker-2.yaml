@@ -1,0 +1,7 @@
+server: https://10.42.10.11:9345
+token-file: /etc/rancher/rke2/join-token
+node-name: rke2-worker-2
+node-ip: 10.42.10.33
+node-label:
+  - lago.lab/rol=worker
+  - lago.lab/grupo=analitica

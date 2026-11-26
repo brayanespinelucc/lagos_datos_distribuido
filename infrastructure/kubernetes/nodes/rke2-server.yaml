@@ -1,0 +1,19 @@
+node-name: rke2-server
+node-ip: 10.42.10.31
+advertise-address: 10.42.10.31
+tls-san:
+  - lb-k8s
+  - 10.42.10.11
+  - rke2-server
+write-kubeconfig-mode: "0600"
+agent-token-file: /etc/rancher/rke2/agent-secret
+cluster-cidr: 10.52.0.0/16
+service-cidr: 10.53.0.0/16
+cluster-dns: 10.53.0.10
+cni: canal
+ingress-controller:
+  - traefik
+node-taint:
+  - node-role.kubernetes.io/control-plane=true:NoSchedule
+etcd-snapshot-schedule-cron: "0 */6 * * *"
+etcd-snapshot-retention: 8
