@@ -1,0 +1,135 @@
+{
+  "inicio_utc": "2026-11-27T01:14:13.337288+00:00",
+  "servicio": "DataHub Lite",
+  "version": "1.9.0.1",
+  "almacen": "SQLite",
+  "transporte": "HTTP",
+  "url_efimera": "http://127.0.0.1:18763",
+  "propuestas": 86,
+  "entidades": 26,
+  "mcp_sha256": "9f2613d7ef6d82b86ff40222414a43bca041eb8fd4f1692e64a98a36ac477ca6",
+  "datasets": [
+    {
+      "id": "bronze.clientes",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.clientes,DEV)",
+      "campos": 2,
+      "upstream": [],
+      "responsable": "urn:li:corpGroup:lago-operaciones",
+      "respuesta_http": 200
+    },
+    {
+      "id": "bronze.categorias",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.categorias,DEV)",
+      "campos": 2,
+      "upstream": [],
+      "responsable": "urn:li:corpGroup:lago-inventarios",
+      "respuesta_http": 200
+    },
+    {
+      "id": "bronze.productos",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.productos,DEV)",
+      "campos": 3,
+      "upstream": [],
+      "responsable": "urn:li:corpGroup:lago-inventarios",
+      "respuesta_http": 200
+    },
+    {
+      "id": "bronze.sucursales",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.sucursales,DEV)",
+      "campos": 2,
+      "upstream": [],
+      "responsable": "urn:li:corpGroup:lago-operaciones",
+      "respuesta_http": 200
+    },
+    {
+      "id": "bronze.transacciones",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.transacciones,DEV)",
+      "campos": 4,
+      "upstream": [],
+      "responsable": "urn:li:corpGroup:lago-operaciones",
+      "respuesta_http": 200
+    },
+    {
+      "id": "bronze.ventas",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.ventas,DEV)",
+      "campos": 4,
+      "upstream": [],
+      "responsable": "urn:li:corpGroup:lago-operaciones",
+      "respuesta_http": 200
+    },
+    {
+      "id": "bronze.inventario",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.inventario,DEV)",
+      "campos": 4,
+      "upstream": [],
+      "responsable": "urn:li:corpGroup:lago-inventarios",
+      "respuesta_http": 200
+    },
+    {
+      "id": "silver.ventas",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.ventas,DEV)",
+      "campos": 10,
+      "upstream": [
+        "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.categorias,DEV)",
+        "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.clientes,DEV)",
+        "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.productos,DEV)",
+        "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.sucursales,DEV)",
+        "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.transacciones,DEV)",
+        "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.ventas,DEV)"
+      ],
+      "responsable": "urn:li:corpGroup:lago-calidad",
+      "respuesta_http": 200
+    },
+    {
+      "id": "silver.inventario",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.inventario,DEV)",
+      "campos": 4,
+      "upstream": [
+        "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.inventario,DEV)"
+      ],
+      "responsable": "urn:li:corpGroup:lago-inventarios",
+      "respuesta_http": 200
+    },
+    {
+      "id": "silver.rechazos",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.rechazos,DEV)",
+      "campos": 4,
+      "upstream": [
+        "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.categorias,DEV)",
+        "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.clientes,DEV)",
+        "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.productos,DEV)",
+        "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.sucursales,DEV)",
+        "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.transacciones,DEV)",
+        "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.ventas,DEV)"
+      ],
+      "responsable": "urn:li:corpGroup:lago-calidad",
+      "respuesta_http": 200
+    },
+    {
+      "id": "gold.ventas_diarias",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.ventas_diarias,DEV)",
+      "campos": 5,
+      "upstream": [
+        "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.ventas,DEV)"
+      ],
+      "responsable": "urn:li:corpGroup:lago-analitica",
+      "respuesta_http": 200
+    },
+    {
+      "id": "gold.productos",
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.productos,DEV)",
+      "campos": 4,
+      "upstream": [
+        "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.ventas,DEV)"
+      ],
+      "responsable": "urn:li:corpGroup:lago-analitica",
+      "respuesta_http": 200
+    }
+  ],
+  "detalle_nativo_http": 500,
+  "campos": 48,
+  "relaciones": 15,
+  "resultado": "Aprobado en DataHub Lite",
+  "gms_en_kubernetes": "Pendiente de despliegue",
+  "fin_utc": "2026-11-27T01:14:13.374904+00:00"
+}

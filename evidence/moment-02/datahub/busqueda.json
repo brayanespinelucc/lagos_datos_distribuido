@@ -1,0 +1,12 @@
+[
+  {
+    "id": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.ventas_diarias,DEV)",
+    "aspect": "datasetProperties",
+    "snippet": "{\"customProperties\": {\"formato\": \"Parquet\", \"granularidad\": \"Sucursal y d\\u00eda\", \"filas\": \"107\", \"archivo_sha256\": \"99308bef07b50f157e0f141c181e37d511856fbd8eb5b45a7f91ad3189468387\", \"lote_sha256\": \"52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774\"}, \"name\": \"gold.ventas_diarias\", \"description\": \"Ingresos en COP, unidades y tiquetes distintos por fecha y sucursal.\", \"uri\": \"s3://gold/ventas_diarias/part-00000.parquet\", \"tags\": []}"
+  },
+  {
+    "id": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.ventas_diarias,DEV)",
+    "aspect": "urn",
+    "snippet": null
+  }
+]

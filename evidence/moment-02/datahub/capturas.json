@@ -1,0 +1,15 @@
+{
+  "busqueda": {
+    "ruta": "/search?query=ventas_diarias",
+    "http": 200,
+    "fecha_utc": "2026-11-27T01:14:16.363268+00:00",
+    "origen": "Respuesta JSON viva de DataHub Lite en Chromium"
+  },
+  "linaje-gold": {
+    "ruta": "/ficha/urn%3Ali%3Adataset%3A%28urn%3Ali%3AdataPlatform%3As3%2Clago.gold.ventas_diarias%2CDEV%29?aspects=upstreamLineage",
+    "http": 200,
+    "fecha_utc": "2026-11-27T01:14:16.776337+00:00",
+    "origen": "Respuesta JSON viva de DataHub Lite en Chromium"
+  },
+  "chromium": "156.0.8078.79"
+}

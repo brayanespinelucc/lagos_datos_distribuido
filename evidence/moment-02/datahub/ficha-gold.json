@@ -1,0 +1,145 @@
+{
+  "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.ventas_diarias,DEV)",
+  "datasetProperties": {
+    "customProperties": {
+      "formato": "Parquet",
+      "granularidad": "Sucursal y día",
+      "filas": "107",
+      "archivo_sha256": "99308bef07b50f157e0f141c181e37d511856fbd8eb5b45a7f91ad3189468387",
+      "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774"
+    },
+    "name": "gold.ventas_diarias",
+    "description": "Ingresos en COP, unidades y tiquetes distintos por fecha y sucursal.",
+    "uri": "s3://gold/ventas_diarias/part-00000.parquet",
+    "tags": []
+  },
+  "domains": {
+    "domains": [
+      "urn:li:domain:lago-analitica"
+    ]
+  },
+  "globalTags": {
+    "tags": [
+      {
+        "tag": "urn:li:tag:lago-gold"
+      },
+      {
+        "tag": "urn:li:tag:lago-sintetico"
+      },
+      {
+        "tag": "urn:li:tag:lago-interno"
+      }
+    ]
+  },
+  "ownership": {
+    "owners": [
+      {
+        "owner": "urn:li:corpGroup:lago-analitica",
+        "type": "BUSINESS_OWNER"
+      }
+    ],
+    "ownerTypes": {},
+    "lastModified": {
+      "time": 0,
+      "actor": "urn:li:corpuser:unknown"
+    }
+  },
+  "schemaMetadata": {
+    "schemaName": "gold.ventas_diarias",
+    "platform": "urn:li:dataPlatform:s3",
+    "version": 0,
+    "created": {
+      "time": 0,
+      "actor": "urn:li:corpuser:unknown"
+    },
+    "lastModified": {
+      "time": 0,
+      "actor": "urn:li:corpuser:unknown"
+    },
+    "hash": "a9edf4130f0797c36b5e5e13a57797da76cb5f15adf1d9bd836d56125a4f2fc8",
+    "platformSchema": {
+      "com.linkedin.schema.OtherSchema": {
+        "rawSchema": "[{\"fecha\": \"date32[day]\"}, {\"sucursal_id\": \"string\"}, {\"ventas_cop\": \"int64\"}, {\"unidades\": \"int64\"}, {\"transacciones\": \"int64\"}]"
+      }
+    },
+    "fields": [
+      {
+        "fieldPath": "fecha",
+        "nullable": false,
+        "description": "Fecha de la transacción o del corte de existencias, según el conjunto. Fecha civil ISO 8601. Gold diario agrupa por esta fecha.",
+        "type": {
+          "type": {
+            "com.linkedin.schema.DateType": {}
+          }
+        },
+        "nativeDataType": "date32[day]",
+        "recursive": false,
+        "isPartOfKey": true
+      },
+      {
+        "fieldPath": "sucursal_id",
+        "nullable": false,
+        "description": "Identificador de la tienda donde se registró la operación. Código de la dimensión sucursales.",
+        "type": {
+          "type": {
+            "com.linkedin.schema.StringType": {}
+          }
+        },
+        "nativeDataType": "string",
+        "recursive": false,
+        "isPartOfKey": true
+      },
+      {
+        "fieldPath": "ventas_cop",
+        "nullable": false,
+        "description": "Suma de los importes de líneas válidas del grupo, en pesos colombianos. Suma de importe_cop.",
+        "type": {
+          "type": {
+            "com.linkedin.schema.NumberType": {}
+          }
+        },
+        "nativeDataType": "int64",
+        "recursive": false,
+        "isPartOfKey": false
+      },
+      {
+        "fieldPath": "unidades",
+        "nullable": false,
+        "description": "Suma de las cantidades de las líneas válidas del grupo. Conteo entero de unidades vendidas.",
+        "type": {
+          "type": {
+            "com.linkedin.schema.NumberType": {}
+          }
+        },
+        "nativeDataType": "int64",
+        "recursive": false,
+        "isPartOfKey": false
+      },
+      {
+        "fieldPath": "transacciones",
+        "nullable": false,
+        "description": "Cantidad de tiquetes distintos incluidos en el grupo. COUNT DISTINCT de transaccion_id por día y sucursal.",
+        "type": {
+          "type": {
+            "com.linkedin.schema.NumberType": {}
+          }
+        },
+        "nativeDataType": "int64",
+        "recursive": false,
+        "isPartOfKey": false
+      }
+    ]
+  },
+  "upstreamLineage": {
+    "upstreams": [
+      {
+        "auditStamp": {
+          "time": 0,
+          "actor": "urn:li:corpuser:unknown"
+        },
+        "dataset": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.ventas,DEV)",
+        "type": "TRANSFORMED"
+      }
+    ]
+  }
+}
