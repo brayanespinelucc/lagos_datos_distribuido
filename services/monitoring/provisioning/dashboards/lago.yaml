@@ -1,0 +1,10 @@
+apiVersion: 1
+providers:
+  - name: Infraestructura del lago
+    orgId: 1
+    folder: Lago de datos
+    type: file
+    disableDeletion: true
+    allowUiUpdates: false
+    updateIntervalSeconds: 5
+    options: {path: /var/lib/grafana/dashboards}

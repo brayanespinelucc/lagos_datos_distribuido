@@ -1,0 +1,17 @@
+groups:
+  - name: infraestructura-lago
+    rules:
+      - record: lago:cpu_usada:porcentaje
+        expr: 100 * (1 - avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[1m])))
+      - record: lago:memoria_usada:bytes
+        expr: node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes
+      - alert: MinIODiscosFueraDeLinea
+        expr: max(minio_cluster_drive_offline_total) > 0
+        for: 30s
+        labels: {severidad: critica}
+        annotations: {resumen: "Hay discos fuera de línea en MinIO."}
+      - alert: FuenteSinMuestras
+        expr: up == 0
+        for: 30s
+        labels: {severidad: advertencia}
+        annotations: {resumen: "No se puede recolectar {{ $labels.job }}."}

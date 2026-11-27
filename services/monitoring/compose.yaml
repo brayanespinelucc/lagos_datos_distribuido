@@ -1,0 +1,43 @@
+name: lago-observabilidad
+services:
+  prometheus:
+    image: prom/prometheus@sha256:e04987641b57704f408e31f6373ba4138ecf27cb4a165d24aabb6c38fddd0f06
+    command: [--config.file=/etc/prometheus/prometheus.yml, --storage.tsdb.retention.time=24h]
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yml:ro
+      - ./reglas.yaml:/etc/prometheus/reglas.yaml:ro
+      - ${MON_SECRET_DIR:?directorio privado}/minio.token:/run/secrets/minio.token:ro
+      - series:/prometheus
+    ports: ["127.0.0.1::9090"]
+    networks: [default, lago]
+  grafana:
+    image: grafana/grafana@sha256:81556409ba48b2b922e0adb69a2511337d8ba7578f11962eefa6149a2d815101
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD__FILE: /run/secrets/grafana.pass
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GF_ANALYTICS_CHECK_FOR_UPDATES: "false"
+      GF_PLUGINS_PREINSTALL_DISABLED: "true"
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_DATE_FORMATS_DEFAULT_TIMEZONE: UTC
+      NO_PROXY: prometheus,localhost,127.0.0.1
+      no_proxy: prometheus,localhost,127.0.0.1
+    volumes:
+      - ./provisioning:/etc/grafana/provisioning:ro
+      - ./dashboards:/var/lib/grafana/dashboards:ro
+      - ${MON_SECRET_DIR}/grafana.pass:/run/secrets/grafana.pass:ro
+    ports: ["127.0.0.1::3000"]
+    depends_on: [prometheus]
+  node-exporter:
+    image: prom/node-exporter@sha256:7296504d4ada44b7d7ab4431e27e9f9900d8488f8d55842f4b12ae2704e16dfe
+    command:
+      - --collector.textfile.directory=/observaciones
+      - --collector.filesystem.fs-types-exclude=^(autofs|bpf|cgroup2?|debugfs|devpts|devtmpfs|mqueue|proc|securityfs|sysfs|tmpfs|nsfs)$$
+      - --collector.filesystem.mount-points-include=^/datos$$
+    volumes:
+      - ../../datasets:/datos:ro
+      - ${MON_OBSERVATIONS_DIR:?directorio de series}:/observaciones:ro
+volumes:
+  series: {}
+networks:
+  lago: {external: true, name: "${LAGO_NETWORK:?red Docker de MinIO}"}
