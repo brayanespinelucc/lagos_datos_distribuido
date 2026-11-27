@@ -1,0 +1,53 @@
+{
+  "metodo": "ZIP de Word, reapertura PDF, numeración de índice y detección de páginas vacías y texto fuera del papel",
+  "documentos": {
+    "informe": {
+      "paginas_pdf": 4,
+      "docx_integro": true,
+      "pdf_con_contenido_en_cada_pagina": true,
+      "secciones_con_indice": 6
+    },
+    "arquitectura": {
+      "paginas_pdf": 6,
+      "docx_integro": true,
+      "pdf_con_contenido_en_cada_pagina": true,
+      "secciones_con_indice": 7
+    },
+    "instalacion": {
+      "paginas_pdf": 4,
+      "docx_integro": true,
+      "pdf_con_contenido_en_cada_pagina": true,
+      "secciones_con_indice": 5
+    },
+    "administracion": {
+      "paginas_pdf": 3,
+      "docx_integro": true,
+      "pdf_con_contenido_en_cada_pagina": true,
+      "secciones_con_indice": 3
+    },
+    "lago": {
+      "paginas_pdf": 3,
+      "docx_integro": true,
+      "pdf_con_contenido_en_cada_pagina": true,
+      "secciones_con_indice": 4
+    },
+    "operacion": {
+      "paginas_pdf": 3,
+      "docx_integro": true,
+      "pdf_con_contenido_en_cada_pagina": true,
+      "secciones_con_indice": 2
+    },
+    "recuperacion": {
+      "paginas_pdf": 3,
+      "docx_integro": true,
+      "pdf_con_contenido_en_cada_pagina": true,
+      "secciones_con_indice": 2
+    },
+    "buenas-practicas": {
+      "paginas_pdf": 2,
+      "docx_integro": true,
+      "pdf_con_contenido_en_cada_pagina": true,
+      "secciones_con_indice": 2
+    }
+  }
+}

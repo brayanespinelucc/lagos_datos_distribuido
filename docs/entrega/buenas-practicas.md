@@ -1,5 +1,10 @@
 # Manual de buenas prácticas
 
+## Criterios de operación
+
+
+## Responsabilidades y comprobaciones
+
 | Responsable | Acción operativa | Evidencia de que se aplicó |
 |---|---|---|
 | Administrador de infraestructura | Mantener inventario con VMID, IP, montajes y dominio de fallo. Identificar el host único y las dependencias de cada balanceador. | Plan, diagrama y consulta real del hipervisor, con fecha y versión. [Inventario](../../infrastructure/proxmox/inventory.json) |

@@ -21,15 +21,15 @@ MATRIX_COLUMNS = {
     "evidencia_asociada", "estado", "limitaciones", "observaciones",
 }
 PUBLIC_ROOTS = (
-    "docs/block-00", "docs/moment-01", "docs/moment-02", "docs/moment-03", "docs/final",
+    "docs/block-00", "docs/moment-01", "docs/moment-02", "docs/moment-03", "docs/final", "docs/entrega",
     "architecture", "evidence", "presentation", "video", "monitoring", "sql/queries",
-    "results/sql", "results/catalog", "services/airflow/dags",
+    "results/sql", "results/catalog", "services/airflow/dags", "services/monitoring",
 )
 MEDIA_LIMIT = 24 * 1024 * 1024
 EXTENSIONS = {
     ".md", ".txt", ".csv", ".tsv", ".json", ".log", ".svg", ".png", ".jpg",
     ".dot", ".mmd", ".conf", ".cfg", ".yml", ".yaml", ".pdf", ".docx", ".sha256",
-    ".sql", ".srt", ".vtt", ".pptx", ".mp4", ".py",
+    ".sql", ".srt", ".vtt", ".pptx", ".mp4", ".py", ".jsonl",
 }
 CODE_EXT = EXTENSIONS | {".py", ".sh", ".service", ".template", ".tmpl", ".rules", ".ini", ".toml", ".j2"}
 TITLES = {
@@ -182,7 +182,7 @@ def build(root, staging, video_url=None):
     shutil.copytree(root / "portal/assets", staging / "assets")
     (staging / "archivos").mkdir()
     files = {root / MATRIX, root / INVENTORY}
-    for named in ("ARCHITECTURE_DECISIONS.md", "EVIDENCE_INDEX.md"):
+    for named in ("README.md", "PROJECT_STATE.md", "ARCHITECTURE_DECISIONS.md", "EVIDENCE_INDEX.md", "Lago de Datos Distribuido.pdf"):
         if (root / named).is_file():
             files.add(root / named)
     for base in PUBLIC_ROOTS:
@@ -208,8 +208,9 @@ def build(root, staging, video_url=None):
         catalog.append(asset)
     model = {
         "requirements": requirements, "inventory": inventory, "files": catalog, "lake": lake,
-        "sql": sql_index(root), "catalog": read_json(root, "results/catalog/catalog.json", {}),
+        "sql": sql_index(root), "catalog": read_json(root, "evidence/moment-02/datahub/catalog.json", {}),
         "videoUrl": video_url,
+        "metrics": read_json(root, "evidence/moment-03/monitoreo/p6.json", {}),
     }
     # Se usa un script externo clásico para que la consulta por file:// no necesite fetch ni CORS.
     (staging / "assets/data.js").write_text(

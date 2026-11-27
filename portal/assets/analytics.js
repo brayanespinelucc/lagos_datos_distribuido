@@ -116,10 +116,10 @@ window.createLakeViews = function createLakeViews(ctx) {
       (model.glossary?.length?head("Glosario")+tableGrid(["Término","Definición"],model.glossary.map(t=>[t.term,t.definition])):'')+head("Exportaciones de gobierno")+actions(files.filter(f=>f.path.startsWith("results/catalog/")));
   }
   function monitor() {
-    const dashboards=files.filter(f=>f.path.startsWith("monitoring/grafana/dashboards/") && f.format==="JSON");
-    const series=data.metrics || jsonFile("evidence/moment-03/monitoring/mediciones.json");
-    const evidence=files.filter(f=>f.path.startsWith("evidence/moment-03/monitoring/"));
-    const picture=evidence.find(f=>f.path.endsWith("captura-grafana.png"));
+    const dashboards=files.filter(f=>(f.path.startsWith("monitoring/grafana/dashboards/") || f.path.startsWith("services/monitoring/dashboards/")) && f.format==="JSON");
+    const series=data.metrics || jsonFile("evidence/moment-03/monitoreo/mediciones.json");
+    const evidence=files.filter(f=>f.path.startsWith("evidence/moment-03/monitoreo/"));
+    const picture=evidence.find(f=>f.path.endsWith("general.png"));
     const queries = series?.queries || {};
     const qEntries=Array.isArray(queries)?queries.map((entry,i)=>[entry.nombre || entry.query || String(i+1),entry]):Object.entries(queries);
     const selected=qEntries.find(([key])=>key===state.metric)||qEntries[0];
@@ -164,7 +164,7 @@ window.createLakeViews = function createLakeViews(ctx) {
       '<div class="tools">'+choose("lab","Escenario",scenarioNames.map((n,i)=>[String(i+1),(i+1)+". "+n]),String(selected))+'</div>'+
       '<section class="panel panel-pad"><div class="heading-inline"><h2>'+esc(scenarioNames[selected-1])+'</h2>'+tagged("Simulación")+'</div>'+model+'<div class="control-row">'+action("lab-reset","Restablecer escenario")+'</div></section>'+
       head("Registro de la prueba")+(row?'<p>'+chip(row.estado)+' '+esc(row.limitaciones)+'</p>'+linkButton("Abrir requisito "+row.id,routeLink("trazabilidad",{q:row.id}),"plain-button"):'')+actions(related)+
-      actions(list([bySuffix("docs/moment-03/entrega/pruebas.pdf")]));
+      actions(list([bySuffix("docs/moment-03/entrega/pruebas.pdf") || bySuffix("docs/moment-03/pruebas.md")]));
   }
   function support() {
     const video=pathFile("video/sustentacion.mp4"), src=video?fileUrl(video):data.videoUrl;

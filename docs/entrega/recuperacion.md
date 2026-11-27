@@ -1,6 +1,11 @@
 # Manual de recuperación
 
+## Alcance de la recuperación
+
 El primer dato que necesita el responsable de la guardia es el dominio afectado. Un proceso caído, un disco perdido y un fallo del host Proxmox tienen procedimientos y alcances distintos. Registre quién abrió el incidente, hora UTC, versión, error exacto, último resultado íntegro y ubicación privada del respaldo correspondiente.
+
+
+## Intervención y verificación
 
 | Incidente | Diagnóstico y primera acción | Cómo aceptar la recuperación |
 |---|---|---|

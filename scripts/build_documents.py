@@ -178,8 +178,8 @@ def add_cover(document, title, subtitle, context, sections, page_numbers):
     insert(title, 31, NAVY, True, after=6)
     insert(subtitle, 14.3, TEAL, after=16)
     insert(PROJECT + ".", 11.4, DARK, after=13)
-    insert("Estudiante y código   [por diligenciar]", 9.5, SLATE, after=4)
-    insert("Asignatura y docente   [por diligenciar]", 9.5, SLATE, after=4)
+    insert("Proyecto de aula   ·   Ingeniería de datos", 9.5, SLATE, after=4)
+    insert("Entrega académica   ·   Noviembre de 2026", 9.5, SLATE, after=4)
     insert("Versión documental   0.1  ·  Entrega académica", 9.5, SLATE, after=17)
     insert("Contenido", 13, NAVY, True, after=6)
     for heading in sections:
@@ -208,7 +208,7 @@ def heading_pages(pdf_path, headings):
 
 
 def make_doc(source, target, stage, page_numbers=None):
-    title, subtitle = META[source.stem]
+    title, subtitle = META[target.stem]
     raw = source.read_text(encoding="utf-8")
     raw = re.sub(r"^# [^\n]+\n", "", raw, count=1)
     # Usa el PNG hermano cuando una figura vectorial cuenta con las dos exportaciones.
@@ -224,7 +224,7 @@ def make_doc(source, target, stage, page_numbers=None):
         raise ValueError(f"Revise los encabezados ## de {source}")
     style_doc(document)
     context = {"moment-01":"MOMENTO 1", "moment-02":"MOMENTO 2", "moment-03":"MOMENTO 3",
-               "final":"SUSTENTACIÓN Y ENTREGA"}[SOURCE_DIRECTORIES[source.stem]]
+               "final":"SUSTENTACIÓN Y ENTREGA"}[SOURCE_DIRECTORIES[target.stem]]
     band(document, title, context)
     add_cover(document, title, subtitle, context, headings, page_numbers or {})
     properties = document.core_properties
@@ -274,7 +274,11 @@ def main():
     keys = list(dict.fromkeys(args.documentos or META))
     if any(key not in META for key in keys):
         parser.error("Documentos válidos: " + ", ".join(META))
-    sources = {name: ROOT / "docs" / SOURCE_DIRECTORIES[name] / (name + ".md") for name in keys}
+    originals = {"lago": "moment-02/manual.md", "recuperacion": "entrega/recuperacion.md",
+                 "buenas-practicas": "entrega/buenas-practicas.md"}
+    sources = {name: ROOT / "docs" / originals.get(name, SOURCE_DIRECTORIES[name] + "/" + name + ".md") for name in keys}
+    if not args.documentos:
+        keys = [name for name in keys if sources[name].is_file()]
     with tempfile.TemporaryDirectory(prefix="lago-documentos-") as temp:
         tmp = Path(temp)
         headings = {}
@@ -290,7 +294,7 @@ def main():
         for stem in keys:
             if heading_pages(tmp / (stem + ".pdf"), headings[stem]) != page_map[stem]:
                 raise ValueError(f"El índice de {stem} cambió al paginar")
-            output = args.output.resolve() if args.output else sources[stem].parent / "entrega"
+            output = args.output.resolve() if args.output else ROOT / "docs" / SOURCE_DIRECTORIES[stem] / "entrega"
             output.mkdir(parents=True, exist_ok=True)
             for ext in (".pdf", ".docx"):
                 shutil.copyfile(tmp / (stem + ext), output / (stem + ext))

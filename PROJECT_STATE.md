@@ -1,14 +1,14 @@
 # Estado del proyecto
 
+## Cierre de entrega · primer paquete
+
+La rama de origen de este cierre es `entrega/bloque-0-momento-1` en `a64f532`. La prioridad es preservar una entrega navegable y descargable. El ZIP contiene el portal offline, los documentos disponibles, el código, los datasets y los resultados con sus evidencias. La matriz conserva sus 83 filas. [Guía docente](docs/entrega/guia-docente.md) · [Descarga del ZIP](entrega/lago-datos-distribuido.zip)
+
+**Pruebas acreditadas en el primer paquete.** P2 se aprobó con Trino 477 consultando MinIO. P3 y P4 se aprobaron con tres nodos MinIO y seis volúmenes en Docker. Spark 4.0.1 procesó 251 filas y concilió 247 aceptadas, un duplicado y tres rechazos. El primer ensayo remoto de RKE2 acreditó tres nodos Ready con dos pods reales. El segundo conservó los tres nodos y registró Canal 0/3 y backends inestables. [P2](evidence/moment-02/trino/p2.json) · [P3/P4](evidence/moment-01/minio/validacion/result.json) · [RKE2](docs/moment-01/rke2.md)
+
 ## Próxima actividad
 
-**Momento 1 · RKE2 y su balanceador Kubernetes.** Contrastar las evidencias existentes de admisión de manifiestos y de HAProxy con los criterios del servidor, los dos workers y el estado Ready. Registrar qué se validó en el entorno disponible y qué requiere el clúster objetivo. [Admisión](evidence/moment-01/kubernetes/admision.json) · [Balanceador Kubernetes](evidence/moment-01/kubernetes/balanceador.json)
-
-**Punto de control de esta ejecución.** Docker 29.9.2 funciona en modo rootless con controlador cgroup `none`. El contenedor de systemd de las pruebas oficiales de RKE2 terminó con código 255. Kind devolvió código 1 y solicitó delegación de cgroups. Se continúa con un ejecutor remoto para intentar la topología de tres nodos y P5. [RKE2](evidence/moment-01/kubernetes/p5/codex/rke2.json) · [Docker y Kind](evidence/moment-01/kubernetes/p5/codex/docker-kind.json)
-
-El primer runner público levantó RKE2 v1.35.8+rke2r1 con un control plane y dos workers Ready. El supervisor y la API respondieron por HAProxy, y el Deployment presentó dos pods Running en workers distintos. La conexión directa entre las IP de pod agotó su tiempo antes de ordenar el apagado. La repetición prepara Canal con rutas host-gw en el puente L2 dedicado. [Acta del ensayo inicial](evidence/moment-01/kubernetes/p5/ensayos/45851500040/p5.json)
-
-El segundo pipeline conservó tres nodos Ready, dos pods y dos endpoints. Canal figuró 0/3 en la consulta del DaemonSet y el balanceador presentó backends inestables. Se prepara un último ensayo acotado con propagación de montajes dentro de los nodos desechables y captura de los registros del CNI. La entrega urgente continúa en paralelo con las evidencias de los momentos 2 y 3. [Segundo ensayo](evidence/moment-01/kubernetes/p5/ensayos/45852407871/p5.json)
+Recuperar el acta del último pipeline RKE2, conservar P1, documentar la ingesta de DataHub y cerrar los paneles y P6. La ejecución local previa de Airflow registró un DagRun programado con cinco tareas correctas. Su registro completo no formaba parte de `a64f532`. Se conserva esa distinción hasta recuperar o reproducir el acta. La ejecución de Proxmox y la publicación GitLab siguen pendientes de un destino compatible.
 
 ## Último componente terminado en este entorno
 
