@@ -1,0 +1,244 @@
+{
+  "uid": "lago-trino",
+  "title": "Trino · Coordinador y consultas",
+  "description": "Se separan las consultas del coordinador en vivo y el acta P2 archivada.",
+  "schemaVersion": 39,
+  "version": 1,
+  "timezone": "utc",
+  "refresh": "10s",
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "title": "Consultas verificadas · acta P2",
+      "type": "stat",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lago-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "lago_acta_trino_consultas",
+          "legendFormat": "Consultas SQL",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": false,
+          "instant": true,
+          "format": "time_series"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "orientation": "auto",
+        "textMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "noValue": "Sin muestras",
+          "decimals": 0,
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "id": 1,
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 7
+      }
+    },
+    {
+      "title": "Finalización del acta P2 · UTC",
+      "type": "stat",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lago-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "lago_acta_trino_fecha_segundos * 1000",
+          "legendFormat": "Instante del acta",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": false,
+          "instant": true,
+          "format": "time_series"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "orientation": "auto",
+        "textMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "dateTimeAsIso",
+          "noValue": "Sin muestras",
+          "decimals": 0,
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "id": 2,
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 12,
+        "h": 7
+      }
+    },
+    {
+      "title": "Conexión en vivo al coordinador",
+      "type": "stat",
+      "description": "Ausencia de URL configurada significa sin telemetría en vivo.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lago-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "lago_sonda_http{servicio=\"Trino\"}",
+          "legendFormat": "/v1/info",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": false,
+          "instant": true,
+          "format": "time_series"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "orientation": "auto",
+        "textMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "noValue": "Sin muestras",
+          "decimals": 0,
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "id": 3,
+      "gridPos": {
+        "x": 0,
+        "y": 7,
+        "w": 12,
+        "h": 7
+      }
+    },
+    {
+      "title": "Consultas P2 visibles en el coordinador",
+      "type": "timeseries",
+      "description": "Historial retenido por /v1/query para las fuentes lago-p2 y laboratorio-p2.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lago-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "lago_trino_consultas_visibles",
+          "legendFormat": "{{estado}}",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": true,
+          "instant": false,
+          "format": "time_series"
+        }
+      ],
+      "options": {
+        "legend": {
+          "showLegend": true,
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "noValue": "Sin muestras",
+          "decimals": 0,
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "id": 4,
+      "gridPos": {
+        "x": 12,
+        "y": 7,
+        "w": 12,
+        "h": 7
+      }
+    }
+  ],
+  "tags": [
+    "lago",
+    "P6"
+  ],
+  "editable": true,
+  "templating": {
+    "list": []
+  },
+  "annotations": {
+    "list": []
+  }
+}

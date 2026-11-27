@@ -1,0 +1,404 @@
+{
+  "uid": "lago-minio",
+  "title": "MinIO · Disponibilidad y quórum",
+  "description": "Métricas nativas de /minio/v2/metrics/cluster tomadas por HAProxy.",
+  "schemaVersion": 39,
+  "version": 1,
+  "timezone": "utc",
+  "refresh": "10s",
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "title": "Estado del clúster · 1 operativo",
+      "type": "stat",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lago-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "max(minio_cluster_health_status)",
+          "legendFormat": "Salud",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": false,
+          "instant": true,
+          "format": "time_series"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "orientation": "auto",
+        "textMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "noValue": "Sin muestras",
+          "decimals": 0,
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "id": 1,
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 7
+      }
+    },
+    {
+      "title": "Nodos por estado",
+      "type": "stat",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lago-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "max(minio_cluster_nodes_online_total)",
+          "legendFormat": "En línea",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": false,
+          "instant": true,
+          "format": "time_series"
+        },
+        {
+          "refId": "B",
+          "expr": "max(minio_cluster_nodes_offline_total)",
+          "legendFormat": "Fuera de línea",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": false,
+          "instant": true,
+          "format": "time_series"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "orientation": "auto",
+        "textMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "noValue": "Sin muestras",
+          "decimals": 0,
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "id": 2,
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 12,
+        "h": 7
+      }
+    },
+    {
+      "title": "Discos del clúster",
+      "type": "timeseries",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lago-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "max(minio_cluster_drive_online_total)",
+          "legendFormat": "En línea",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": true,
+          "instant": false,
+          "format": "time_series"
+        },
+        {
+          "refId": "B",
+          "expr": "max(minio_cluster_drive_offline_total)",
+          "legendFormat": "Fuera de línea",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": true,
+          "instant": false,
+          "format": "time_series"
+        }
+      ],
+      "options": {
+        "legend": {
+          "showLegend": true,
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "noValue": "Sin muestras",
+          "decimals": 0,
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "id": 3,
+      "gridPos": {
+        "x": 0,
+        "y": 7,
+        "w": 12,
+        "h": 7
+      }
+    },
+    {
+      "title": "Quórum del erasure set",
+      "type": "stat",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lago-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "minio_cluster_health_erasure_set_read_quorum",
+          "legendFormat": "Lectura",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": false,
+          "instant": true,
+          "format": "time_series"
+        },
+        {
+          "refId": "B",
+          "expr": "minio_cluster_health_erasure_set_write_quorum",
+          "legendFormat": "Escritura",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": false,
+          "instant": true,
+          "format": "time_series"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "orientation": "auto",
+        "textMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "noValue": "Sin muestras",
+          "decimals": 0,
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "id": 4,
+      "gridPos": {
+        "x": 12,
+        "y": 7,
+        "w": 12,
+        "h": 7
+      }
+    },
+    {
+      "title": "Capacidad del almacenamiento",
+      "type": "timeseries",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lago-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "minio_cluster_capacity_usable_free_bytes",
+          "legendFormat": "Libre",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": true,
+          "instant": false,
+          "format": "time_series"
+        },
+        {
+          "refId": "B",
+          "expr": "minio_cluster_capacity_usable_total_bytes",
+          "legendFormat": "Útil",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": true,
+          "instant": false,
+          "format": "time_series"
+        }
+      ],
+      "options": {
+        "legend": {
+          "showLegend": true,
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bytes",
+          "noValue": "Sin muestras",
+          "decimals": 0,
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "id": 5,
+      "gridPos": {
+        "x": 0,
+        "y": 14,
+        "w": 12,
+        "h": 7
+      }
+    },
+    {
+      "title": "Target autenticado",
+      "type": "stat",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lago-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "up{job=\"minio\"}",
+          "legendFormat": "{{instance}}",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": false,
+          "instant": true,
+          "format": "time_series"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "orientation": "auto",
+        "textMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "noValue": "Sin muestras",
+          "decimals": 0,
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "id": 6,
+      "gridPos": {
+        "x": 12,
+        "y": 14,
+        "w": 12,
+        "h": 7
+      }
+    }
+  ],
+  "tags": [
+    "lago",
+    "P6"
+  ],
+  "editable": true,
+  "templating": {
+    "list": []
+  },
+  "annotations": {
+    "list": []
+  }
+}

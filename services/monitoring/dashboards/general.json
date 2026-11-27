@@ -1,0 +1,367 @@
+{
+  "uid": "lago-general",
+  "title": "Lago de datos · Estado general",
+  "description": "Muestras del ejecutor. Las observaciones archivadas llevan un instante y fuente propios.",
+  "schemaVersion": 39,
+  "version": 1,
+  "timezone": "utc",
+  "refresh": "10s",
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "title": "Fuentes de Prometheus",
+      "type": "stat",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lago-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "up",
+          "legendFormat": "{{job}}",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": false,
+          "instant": true,
+          "format": "time_series"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "orientation": "auto",
+        "textMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "noValue": "Sin muestras",
+          "decimals": 0,
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "id": 1,
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 7
+      }
+    },
+    {
+      "title": "Memoria utilizada",
+      "type": "stat",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lago-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "lago:memoria_usada:bytes",
+          "legendFormat": "{{instance}}",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": false,
+          "instant": true,
+          "format": "time_series"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "orientation": "auto",
+        "textMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bytes",
+          "noValue": "Sin muestras",
+          "decimals": 0,
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "id": 2,
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 12,
+        "h": 7
+      }
+    },
+    {
+      "title": "CPU ocupada",
+      "type": "timeseries",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lago-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "lago:cpu_usada:porcentaje",
+          "legendFormat": "{{instance}}",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": true,
+          "instant": false,
+          "format": "time_series"
+        }
+      ],
+      "options": {
+        "legend": {
+          "showLegend": true,
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "noValue": "Sin muestras",
+          "decimals": 1,
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "id": 3,
+      "gridPos": {
+        "x": 0,
+        "y": 7,
+        "w": 12,
+        "h": 7
+      }
+    },
+    {
+      "title": "Sondas disponibles del laboratorio",
+      "type": "stat",
+      "description": "Uno si la URL configurada respondió con la estructura esperada, cero si falló.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lago-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "lago_sonda_http",
+          "legendFormat": "{{servicio}}",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": false,
+          "instant": true,
+          "format": "time_series"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "orientation": "auto",
+        "textMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "noValue": "Sin muestras",
+          "decimals": 0,
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "id": 4,
+      "gridPos": {
+        "x": 12,
+        "y": 7,
+        "w": 12,
+        "h": 7
+      }
+    },
+    {
+      "title": "Nodos y discos MinIO",
+      "type": "stat",
+      "description": "",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lago-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "max(minio_cluster_nodes_online_total)",
+          "legendFormat": "Nodos",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": false,
+          "instant": true,
+          "format": "time_series"
+        },
+        {
+          "refId": "B",
+          "expr": "max(minio_cluster_drive_online_total)",
+          "legendFormat": "Discos",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": false,
+          "instant": true,
+          "format": "time_series"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "orientation": "auto",
+        "textMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "noValue": "Sin muestras",
+          "decimals": 0,
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "id": 5,
+      "gridPos": {
+        "x": 0,
+        "y": 14,
+        "w": 12,
+        "h": 7
+      }
+    },
+    {
+      "title": "Máquinas virtuales del hipervisor",
+      "type": "stat",
+      "description": "Sin exportador Proxmox el estado es desconocido.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "lago-prom"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "pve_up{id=~\"qemu/.+\"}",
+          "legendFormat": "{{id}}",
+          "editorMode": "code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "lago-prom"
+          },
+          "range": false,
+          "instant": true,
+          "format": "time_series"
+        }
+      ],
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "orientation": "auto",
+        "textMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "noValue": "Sin muestras",
+          "decimals": 0,
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": []
+      },
+      "id": 6,
+      "gridPos": {
+        "x": 12,
+        "y": 14,
+        "w": 12,
+        "h": 7
+      }
+    }
+  ],
+  "tags": [
+    "lago",
+    "P6"
+  ],
+  "editable": true,
+  "templating": {
+    "list": []
+  },
+  "annotations": {
+    "list": []
+  }
+}
