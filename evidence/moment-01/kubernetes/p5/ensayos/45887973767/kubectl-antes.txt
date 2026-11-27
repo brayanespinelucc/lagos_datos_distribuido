@@ -1,0 +1,18 @@
+2026-11-26T20:04:39.079237+00:00
+NAME            STATUS   ROLES                AGE     VERSION          INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
+rke2-server     Ready    control-plane,etcd   2m14s   v1.35.8+rke2r1   10.42.10.31   <none>        openSUSE Leap 16.0   7.0.0-1020-azure   containerd://2.2.7-k3s1
+rke2-worker-1   Ready    <none>               108s    v1.35.8+rke2r1   10.42.10.32   <none>        openSUSE Leap 16.0   7.0.0-1020-azure   containerd://2.2.7-k3s1
+rke2-worker-2   Ready    <none>               103s    v1.35.8+rke2r1   10.42.10.33   <none>        openSUSE Leap 16.0   7.0.0-1020-azure   containerd://2.2.7-k3s1
+
+NAME                           READY   STATUS    RESTARTS   AGE   IP          NODE            NOMINATED NODE   READINESS GATES
+pod/testigo-6cbb9c8f95-fnz7j   1/1     Running   0          90s   10.52.2.2   rke2-worker-2   <none>           <none>
+pod/testigo-6cbb9c8f95-khk64   1/1     Running   0          90s   10.52.1.2   rke2-worker-1   <none>           <none>
+
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES                                                                                                     SELECTOR
+deployment.apps/testigo   2/2     2            2           90s   web          docker.io/library/busybox:1.37.0@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec   app=testigo
+
+NAME              TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE   SELECTOR
+service/testigo   NodePort   10.53.81.130   <none>        80:30080/TCP   90s   app=testigo
+
+NAME                                           ADDRESSTYPE   PORTS   ENDPOINTS             AGE
+endpointslice.discovery.k8s.io/testigo-jgtcw   IPv4          8080    10.52.1.2,10.52.2.2   90s

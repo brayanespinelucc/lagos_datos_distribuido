@@ -1,0 +1,313 @@
+{"utc": "2026-11-26T20:04:38.822980+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 2}
+{"utc": "2026-11-26T20:04:39.825629+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:04:40.826548+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:04:41.827376+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:04:42.828434+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:04:43.829475+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:04:44.831247+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:04:45.832942+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:04:48.835212+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:04:51.837788+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1", "ms": 2}
+{"utc": "2026-11-26T20:04:52.839455+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:04:55.841218+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:04:56.842266+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:04:57.842949+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:04:58.844408+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:04:59.845974+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2001}
+{"utc": "2026-11-26T20:05:02.846963+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:05:03.848450+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:05:06.850244+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:05:07.852041+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1", "ms": 1}
+{"utc": "2026-11-26T20:05:08.853419+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:05:11.855215+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:05:14.857712+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:05:15.859323+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:05:16.860840+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2001}
+{"utc": "2026-11-26T20:05:19.861579+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:05:20.862647+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:05:21.863496+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:05:22.864452+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:05:23.865263+00:00", "fase": "antes", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:05:24.866211+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1", "ms": 1}
+{"utc": "2026-11-26T20:05:25.867710+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:05:28.870250+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1", "ms": 1}
+{"utc": "2026-11-26T20:05:29.871653+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:05:32.874238+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:05:35.876220+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1", "ms": 1}
+{"utc": "2026-11-26T20:05:36.877799+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:05:39.880300+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:05:42.882963+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1", "ms": 1}
+{"utc": "2026-11-26T20:05:43.884555+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1", "ms": 1}
+{"utc": "2026-11-26T20:05:44.885982+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1", "ms": 1}
+{"utc": "2026-11-26T20:05:45.887616+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:05:48.890182+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:05:51.892300+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1", "ms": 2}
+{"utc": "2026-11-26T20:05:52.893962+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1", "ms": 1}
+{"utc": "2026-11-26T20:05:53.895484+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1", "ms": 1}
+{"utc": "2026-11-26T20:05:54.897074+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2003}
+{"utc": "2026-11-26T20:05:57.899750+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1", "ms": 1}
+{"utc": "2026-11-26T20:05:58.901091+00:00", "fase": "antes", "http": 200, "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1", "ms": 2}
+{"utc": "2026-11-26T20:05:59.902899+00:00", "fase": "antes", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:06:02.905219+00:00", "fase": "apagando", "http": 200, "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1", "ms": 1}
+{"utc": "2026-11-26T20:06:03.906757+00:00", "fase": "apagando", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:06:06.909388+00:00", "fase": "apagando", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:06:09.911244+00:00", "fase": "apagando", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:10.912207+00:00", "fase": "apagando", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:11.913096+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:12.913875+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:13.914752+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:14.915594+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 0}
+{"utc": "2026-11-26T20:06:15.916240+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:16.917094+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:17.917945+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:18.918825+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:19.919713+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:20.920768+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:21.921583+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:22.922450+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:23.923353+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:24.924225+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:25.925099+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:26.926018+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:27.926943+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:28.927626+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:29.928661+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:30.929552+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:31.930636+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:32.931623+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:33.932505+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:34.933313+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:35.934133+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:36.935046+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:37.936092+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:06:38.937576+00:00", "fase": "detenido", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:06:41.940212+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:06:42.941721+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:06:43.943233+00:00", "fase": "detenido", "http": null, "error": "timed out", "ms": 2001}
+{"utc": "2026-11-26T20:06:46.944261+00:00", "fase": "detenido", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:06:49.946802+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:06:50.948319+00:00", "fase": "detenido", "http": null, "error": "timed out", "ms": 2002}
+{"utc": "2026-11-26T20:06:53.950877+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:54.951701+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:55.952478+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:56.953225+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:57.954075+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:58.954821+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:06:59.955621+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:07:00.956450+00:00", "fase": "detenido", "http": null, "error": "Remote end closed connection without response", "ms": 1}
+{"utc": "2026-11-26T20:07:01.957324+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:07:02.959106+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:03.960544+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:04.962076+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:05.963585+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:06.964786+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:07:07.966480+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:08.967983+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:07:09.969783+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:10.971303+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:11.972889+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:12.974240+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:13.975745+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:14.977133+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:07:15.979297+00:00", "fase": "detenido", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 4}
+{"utc": "2026-11-26T20:07:16.983467+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:07:17.985294+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:07:18.987222+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:07:19.989199+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:20.990824+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:21.992500+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:07:22.994860+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 3}
+{"utc": "2026-11-26T20:07:23.997564+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:24.998965+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:26.000523+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:07:27.002245+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:28.003732+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:29.005180+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:07:30.007058+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:31.008205+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:32.009724+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:33.011139+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:07:34.013322+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:35.014776+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:36.016290+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:37.017973+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:07:38.019764+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:39.021301+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:07:40.023043+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:41.024362+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:42.026002+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:43.027455+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:44.028957+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:07:45.030705+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:46.032317+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:47.033991+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:48.035508+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:49.036965+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:50.038440+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:51.039790+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:07:52.041480+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:53.042879+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:07:54.045355+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:55.046795+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:56.048291+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:57.049461+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:58.050978+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:07:59.052432+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:00.053976+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:01.055442+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:02.057133+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:03.058646+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:04.060224+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:05.061879+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:06.063474+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:07.064850+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:08.066483+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:09.068146+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:10.069494+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:11.071185+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:12.072773+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:13.074531+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:14.076119+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:15.077554+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:16.079280+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:17.081031+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:18.082782+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:19.084266+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:20.085737+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:21.087242+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:22.088740+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:23.090097+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:24.091840+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:25.093330+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:26.095237+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:27.096649+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:28.098335+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:29.099798+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:30.101525+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:31.103107+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:32.104954+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:33.106392+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:34.107987+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:35.110331+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:36.111968+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:37.113512+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:38.115090+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:39.116729+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:40.118230+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:41.119885+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:42.121607+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:43.123146+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:44.124720+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:45.126519+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:46.128104+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:47.129562+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:48.131332+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:49.132680+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:50.134169+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:51.135582+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:52.137611+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:53.139106+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:54.140770+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:08:55.142456+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:56.143957+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:57.145592+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:58.147084+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:08:59.148476+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:00.149986+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:01.151591+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:02.153635+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:03.155112+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:04.156976+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:05.159102+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:06.160644+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:07.162727+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:08.164252+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:09.165858+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:10.167502+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:11.169210+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:12.170703+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:13.172180+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:14.173643+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:15.175187+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:16.176880+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:17.178430+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:18.180655+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:19.182286+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:20.183779+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:21.185241+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:22.187274+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:23.188740+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:24.190445+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:25.192055+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:26.193610+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:27.195162+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:28.196760+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:29.198304+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:30.199887+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:31.201857+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:32.203349+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:33.204758+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:34.206319+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:35.207948+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:36.209549+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:37.211077+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:38.212850+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:39.214368+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:40.216227+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:41.217807+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:42.219431+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:43.220958+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:44.223598+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:45.225182+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:46.226876+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:47.228652+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:48.230357+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:49.231804+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:50.233352+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:51.234834+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:52.236554+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:53.238141+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:54.239696+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:09:55.241377+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:56.242874+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:57.244228+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:58.245833+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:09:59.247335+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:10:00.249256+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:01.250827+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:02.252339+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:03.253840+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:04.255473+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:05.256989+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:06.258498+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:07.260090+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:10:08.261775+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:09.263268+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:10.264473+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:11.265964+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:12.267529+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:13.269127+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:10:14.271079+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:15.272644+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:16.274222+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:10:17.275970+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:10:18.278492+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:19.280040+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:20.281483+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:21.282969+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:22.284578+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:23.286095+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:24.287637+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:25.290002+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 3}
+{"utc": "2026-11-26T20:10:26.292993+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:27.294584+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:28.296208+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:29.297744+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:30.299305+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:10:31.301254+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:32.302668+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:33.304140+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:34.305744+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 2}
+{"utc": "2026-11-26T20:10:35.307484+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:36.308761+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2", "ms": 1}
+{"utc": "2026-11-26T20:10:37.310353+00:00", "fase": "recuperando", "http": 200, "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2", "ms": 2}

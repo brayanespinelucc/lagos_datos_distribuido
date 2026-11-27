@@ -29,3 +29,6 @@ El plan asigna 26 vCPU, 50 GiB de RAM y 380 GiB de discos virtuales. Las VM desp
 - El commit `dbc27f4` conserva el primer avance de Bloque 0 y Momento 1 sobre `e2afb46` de `main`. El PDF tiene ocho páginas y el prompt adjunto se conserva íntegro en `PROJECT_MASTER_PROMPT.md`.
 - El commit `019deed` guarda los archivos que ya existían al reanudar esta ejecución, incluidas configuraciones, datasets, resultados, portal, documentos y guion. La matriz conserva sus 83 requisitos. Para el alcance de cada evidencia consulte el acta del componente.
 - El objetivo completo incluye los tres momentos, las seis pruebas y la entrega académica final. GitHub sigue siendo el repositorio de trabajo y GitLab el destino académico. El alumno autorizó el acceso público por enlace al portal. Las siguientes ejecuciones se realizan por componente y reutilizan las dependencias y los resultados disponibles.
+
+
+**Resultado recuperado de P5.** El pipeline 45887973767 ejecutó el apagado y la reprogramación. Volvió el mismo nodo a Ready y el backend del balanceador permaneció DOWN. Se conserva el fallo sin lanzar más intentos. [Acta](evidence/moment-01/kubernetes/p5/ensayos/45887973767/p5.json)

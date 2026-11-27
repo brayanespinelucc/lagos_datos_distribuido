@@ -1,0 +1,707 @@
+{
+  "inicio_utc": "2026-11-26T20:04:38.728228+00:00",
+  "tecnologia": "rke2",
+  "laboratorio": "p5-9302c8b4",
+  "worker_objetivo": "rke2-worker-1",
+  "worker_superviviente": "rke2-worker-2",
+  "commit_fuente": "35ee81883cf74e18a88e1e9a18f586829b89fdfa",
+  "run_id": "45887973767",
+  "fases": {
+    "antes": {
+      "utc": "2026-11-26T20:04:39.079237+00:00",
+      "nodos": {
+        "rke2-server": {
+          "Ready": "True",
+          "uid": "55e993cf-e9c7-404c-93e3-211525aa13d1",
+          "ip": "10.42.10.31",
+          "rol": "control-plane",
+          "kubelet": "v1.35.8+rke2r1"
+        },
+        "rke2-worker-1": {
+          "Ready": "True",
+          "uid": "f849b406-9389-40c1-b7ad-8fd45f3bd4ed",
+          "ip": "10.42.10.32",
+          "rol": "worker",
+          "kubelet": "v1.35.8+rke2r1"
+        },
+        "rke2-worker-2": {
+          "Ready": "True",
+          "uid": "e4dd58a8-b196-4143-b19d-53c32e5d4c41",
+          "ip": "10.42.10.33",
+          "rol": "worker",
+          "kubelet": "v1.35.8+rke2r1"
+        }
+      },
+      "pods": [
+        {
+          "nombre": "testigo-6cbb9c8f95-fnz7j",
+          "uid": "458f698b-03a9-4a46-b555-766cad8b7711",
+          "nodo": "rke2-worker-2",
+          "ip": "10.52.2.2",
+          "fase": "Running",
+          "Ready": "True",
+          "borrado": null
+        },
+        {
+          "nombre": "testigo-6cbb9c8f95-khk64",
+          "uid": "0813880a-47bc-4622-a9c4-aa46126c54d3",
+          "nodo": "rke2-worker-1",
+          "ip": "10.52.1.2",
+          "fase": "Running",
+          "Ready": "True",
+          "borrado": null
+        }
+      ],
+      "endpoints": [
+        {
+          "addresses": [
+            "10.52.1.2"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "rke2-worker-1",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "testigo-6cbb9c8f95-khk64",
+            "namespace": "lago-p5",
+            "uid": "0813880a-47bc-4622-a9c4-aa46126c54d3"
+          }
+        },
+        {
+          "addresses": [
+            "10.52.2.2"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "rke2-worker-2",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "testigo-6cbb9c8f95-fnz7j",
+            "namespace": "lago-p5",
+            "uid": "458f698b-03a9-4a46-b555-766cad8b7711"
+          }
+        }
+      ],
+      "backends": {
+        "worker-1": {
+          "estado": "DOWN",
+          "sesiones": 0
+        },
+        "worker-2": {
+          "estado": "DOWN 1/2",
+          "sesiones": 0
+        }
+      },
+      "replicas_deseadas": 2,
+      "replicas_disponibles": 2,
+      "http": {
+        "utc": "2026-11-26T20:04:39.080999+00:00",
+        "fase": "antes",
+        "http": null,
+        "error": "Remote end closed connection without response",
+        "ms": 1
+      }
+    },
+    "nodo-fuera": {
+      "utc": "2026-11-26T20:07:02.231537+00:00",
+      "nodos": {
+        "rke2-server": {
+          "Ready": "True",
+          "uid": "55e993cf-e9c7-404c-93e3-211525aa13d1",
+          "ip": "10.42.10.31",
+          "rol": "control-plane",
+          "kubelet": "v1.35.8+rke2r1"
+        },
+        "rke2-worker-1": {
+          "Ready": "Unknown",
+          "uid": "f849b406-9389-40c1-b7ad-8fd45f3bd4ed",
+          "ip": "10.42.10.32",
+          "rol": "worker",
+          "kubelet": "v1.35.8+rke2r1"
+        },
+        "rke2-worker-2": {
+          "Ready": "True",
+          "uid": "e4dd58a8-b196-4143-b19d-53c32e5d4c41",
+          "ip": "10.42.10.33",
+          "rol": "worker",
+          "kubelet": "v1.35.8+rke2r1"
+        }
+      },
+      "pods": [
+        {
+          "nombre": "testigo-6cbb9c8f95-fnz7j",
+          "uid": "458f698b-03a9-4a46-b555-766cad8b7711",
+          "nodo": "rke2-worker-2",
+          "ip": "10.52.2.2",
+          "fase": "Running",
+          "Ready": "True",
+          "borrado": null
+        },
+        {
+          "nombre": "testigo-6cbb9c8f95-khk64",
+          "uid": "0813880a-47bc-4622-a9c4-aa46126c54d3",
+          "nodo": "rke2-worker-1",
+          "ip": "10.52.1.2",
+          "fase": "Running",
+          "Ready": "False",
+          "borrado": null
+        }
+      ],
+      "endpoints": [
+        {
+          "addresses": [
+            "10.52.1.2"
+          ],
+          "conditions": {
+            "ready": false,
+            "serving": false,
+            "terminating": false
+          },
+          "nodeName": "rke2-worker-1",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "testigo-6cbb9c8f95-khk64",
+            "namespace": "lago-p5",
+            "uid": "0813880a-47bc-4622-a9c4-aa46126c54d3"
+          }
+        },
+        {
+          "addresses": [
+            "10.52.2.2"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "rke2-worker-2",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "testigo-6cbb9c8f95-fnz7j",
+            "namespace": "lago-p5",
+            "uid": "458f698b-03a9-4a46-b555-766cad8b7711"
+          }
+        }
+      ],
+      "backends": {
+        "worker-1": {
+          "estado": "DOWN",
+          "sesiones": 77
+        },
+        "worker-2": {
+          "estado": "UP",
+          "sesiones": 53
+        }
+      },
+      "replicas_deseadas": 2,
+      "replicas_disponibles": 1,
+      "http": {
+        "utc": "2026-11-26T20:07:02.232981+00:00",
+        "fase": "detenido",
+        "http": 200,
+        "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2",
+        "ms": 1
+      }
+    },
+    "reprogramado": {
+      "utc": "2026-11-26T20:07:15.603670+00:00",
+      "nodos": {
+        "rke2-server": {
+          "Ready": "True",
+          "uid": "55e993cf-e9c7-404c-93e3-211525aa13d1",
+          "ip": "10.42.10.31",
+          "rol": "control-plane",
+          "kubelet": "v1.35.8+rke2r1"
+        },
+        "rke2-worker-1": {
+          "Ready": "Unknown",
+          "uid": "f849b406-9389-40c1-b7ad-8fd45f3bd4ed",
+          "ip": "10.42.10.32",
+          "rol": "worker",
+          "kubelet": "v1.35.8+rke2r1"
+        },
+        "rke2-worker-2": {
+          "Ready": "True",
+          "uid": "e4dd58a8-b196-4143-b19d-53c32e5d4c41",
+          "ip": "10.42.10.33",
+          "rol": "worker",
+          "kubelet": "v1.35.8+rke2r1"
+        }
+      },
+      "pods": [
+        {
+          "nombre": "testigo-6cbb9c8f95-fnz7j",
+          "uid": "458f698b-03a9-4a46-b555-766cad8b7711",
+          "nodo": "rke2-worker-2",
+          "ip": "10.52.2.2",
+          "fase": "Running",
+          "Ready": "True",
+          "borrado": null
+        },
+        {
+          "nombre": "testigo-6cbb9c8f95-jzhzc",
+          "uid": "8ab61137-57f3-4f2d-91ec-2f58e4c20322",
+          "nodo": "rke2-worker-2",
+          "ip": "10.52.2.3",
+          "fase": "Running",
+          "Ready": "True",
+          "borrado": null
+        },
+        {
+          "nombre": "testigo-6cbb9c8f95-khk64",
+          "uid": "0813880a-47bc-4622-a9c4-aa46126c54d3",
+          "nodo": "rke2-worker-1",
+          "ip": "10.52.1.2",
+          "fase": "Running",
+          "Ready": "False",
+          "borrado": "2026-11-26T20:07:44Z"
+        }
+      ],
+      "endpoints": [
+        {
+          "addresses": [
+            "10.52.1.2"
+          ],
+          "conditions": {
+            "ready": false,
+            "serving": false,
+            "terminating": true
+          },
+          "nodeName": "rke2-worker-1",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "testigo-6cbb9c8f95-khk64",
+            "namespace": "lago-p5",
+            "uid": "0813880a-47bc-4622-a9c4-aa46126c54d3"
+          }
+        },
+        {
+          "addresses": [
+            "10.52.2.2"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "rke2-worker-2",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "testigo-6cbb9c8f95-fnz7j",
+            "namespace": "lago-p5",
+            "uid": "458f698b-03a9-4a46-b555-766cad8b7711"
+          }
+        },
+        {
+          "addresses": [
+            "10.52.2.3"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "rke2-worker-2",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "testigo-6cbb9c8f95-jzhzc",
+            "namespace": "lago-p5",
+            "uid": "8ab61137-57f3-4f2d-91ec-2f58e4c20322"
+          }
+        }
+      ],
+      "backends": {
+        "worker-1": {
+          "estado": "DOWN",
+          "sesiones": 77
+        },
+        "worker-2": {
+          "estado": "UP",
+          "sesiones": 71
+        }
+      },
+      "replicas_deseadas": 2,
+      "replicas_disponibles": 2,
+      "http": {
+        "utc": "2026-11-26T20:07:15.605127+00:00",
+        "fase": "detenido",
+        "http": 200,
+        "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2",
+        "ms": 1
+      }
+    },
+    "recuperado-al-vencer": {
+      "utc": "2026-11-26T20:10:35.229562+00:00",
+      "nodos": {
+        "rke2-server": {
+          "Ready": "True",
+          "uid": "55e993cf-e9c7-404c-93e3-211525aa13d1",
+          "ip": "10.42.10.31",
+          "rol": "control-plane",
+          "kubelet": "v1.35.8+rke2r1"
+        },
+        "rke2-worker-1": {
+          "Ready": "True",
+          "uid": "f849b406-9389-40c1-b7ad-8fd45f3bd4ed",
+          "ip": "10.42.10.32",
+          "rol": "worker",
+          "kubelet": "v1.35.8+rke2r1"
+        },
+        "rke2-worker-2": {
+          "Ready": "True",
+          "uid": "e4dd58a8-b196-4143-b19d-53c32e5d4c41",
+          "ip": "10.42.10.33",
+          "rol": "worker",
+          "kubelet": "v1.35.8+rke2r1"
+        }
+      },
+      "pods": [
+        {
+          "nombre": "testigo-6cbb9c8f95-fnz7j",
+          "uid": "458f698b-03a9-4a46-b555-766cad8b7711",
+          "nodo": "rke2-worker-2",
+          "ip": "10.52.2.2",
+          "fase": "Running",
+          "Ready": "True",
+          "borrado": null
+        },
+        {
+          "nombre": "testigo-6cbb9c8f95-jzhzc",
+          "uid": "8ab61137-57f3-4f2d-91ec-2f58e4c20322",
+          "nodo": "rke2-worker-2",
+          "ip": "10.52.2.3",
+          "fase": "Running",
+          "Ready": "True",
+          "borrado": null
+        }
+      ],
+      "endpoints": [
+        {
+          "addresses": [
+            "10.52.2.2"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "rke2-worker-2",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "testigo-6cbb9c8f95-fnz7j",
+            "namespace": "lago-p5",
+            "uid": "458f698b-03a9-4a46-b555-766cad8b7711"
+          }
+        },
+        {
+          "addresses": [
+            "10.52.2.3"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "rke2-worker-2",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "testigo-6cbb9c8f95-jzhzc",
+            "namespace": "lago-p5",
+            "uid": "8ab61137-57f3-4f2d-91ec-2f58e4c20322"
+          }
+        }
+      ],
+      "backends": {
+        "worker-1": {
+          "estado": "DOWN",
+          "sesiones": 77
+        },
+        "worker-2": {
+          "estado": "UP",
+          "sesiones": 339
+        }
+      },
+      "replicas_deseadas": 2,
+      "replicas_disponibles": 2,
+      "http": {
+        "utc": "2026-11-26T20:10:35.231102+00:00",
+        "fase": "recuperando",
+        "http": 200,
+        "identidad": "testigo-6cbb9c8f95-jzhzc rke2-worker-2",
+        "ms": 1
+      }
+    }
+  },
+  "acciones": [
+    {
+      "utc": "2026-11-26T20:06:01.037128+00:00",
+      "orden": "docker stop",
+      "id": "d7f93b807320b1be5e83818bfb783a78356a985903805598c19a0dfc0f23ddfe"
+    },
+    {
+      "utc": "2026-11-26T20:07:16.365492+00:00",
+      "orden": "docker start",
+      "id": "d7f93b807320b1be5e83818bfb783a78356a985903805598c19a0dfc0f23ddfe"
+    }
+  ],
+  "capturas": {
+    "antes": "servicio-antes.png",
+    "detenido": "servicio-detenido.png"
+  },
+  "p5": "Fallida",
+  "id_contenedor_detenido": "d7f93b807320b1be5e83818bfb783a78356a985903805598c19a0dfc0f23ddfe",
+  "comunicacion": {
+    "kubelets": {
+      "rke2-server": "ok",
+      "rke2-worker-1": "ok",
+      "rke2-worker-2": "ok"
+    },
+    "tcp_entre_nodos": [
+      {
+        "origen": "rke2-server",
+        "destino": "rke2-worker-1",
+        "puerto": 10250,
+        "rc": 0
+      },
+      {
+        "origen": "rke2-server",
+        "destino": "rke2-worker-2",
+        "puerto": 10250,
+        "rc": 0
+      },
+      {
+        "origen": "rke2-worker-1",
+        "destino": "rke2-server",
+        "puerto": 10250,
+        "rc": 0
+      },
+      {
+        "origen": "rke2-worker-1",
+        "destino": "rke2-worker-2",
+        "puerto": 10250,
+        "rc": 0
+      },
+      {
+        "origen": "rke2-worker-2",
+        "destino": "rke2-server",
+        "puerto": 10250,
+        "rc": 0
+      },
+      {
+        "origen": "rke2-worker-2",
+        "destino": "rke2-worker-1",
+        "puerto": 10250,
+        "rc": 0
+      }
+    ],
+    "http_entre_pods": [],
+    "reintentos": [
+      {
+        "utc": "2026-11-26T20:04:44.050439+00:00",
+        "origen": "testigo-6cbb9c8f95-fnz7j",
+        "destino": "testigo-6cbb9c8f95-khk64",
+        "error": "kubectl --request-timeout=8s (rc 1) wget: download timed out\ncommand terminated with exit code 1"
+      },
+      {
+        "utc": "2026-11-26T20:04:50.449227+00:00",
+        "origen": "testigo-6cbb9c8f95-fnz7j",
+        "destino": "testigo-6cbb9c8f95-khk64",
+        "error": "kubectl --request-timeout=8s (rc 1) wget: download timed out\ncommand terminated with exit code 1"
+      },
+      {
+        "utc": "2026-11-26T20:04:56.833187+00:00",
+        "origen": "testigo-6cbb9c8f95-fnz7j",
+        "destino": "testigo-6cbb9c8f95-khk64",
+        "error": "kubectl --request-timeout=8s (rc 1) wget: download timed out\ncommand terminated with exit code 1"
+      },
+      {
+        "utc": "2026-11-26T20:05:03.147877+00:00",
+        "origen": "testigo-6cbb9c8f95-fnz7j",
+        "destino": "testigo-6cbb9c8f95-khk64",
+        "error": "kubectl --request-timeout=8s (rc 1) wget: download timed out\ncommand terminated with exit code 1"
+      }
+    ],
+    "resultado": "Fallida",
+    "error": "kubectl --request-timeout=8s (rc 1) wget: download timed out\ncommand terminated with exit code 1"
+  },
+  "ingress": {
+    "antes": {
+      "http": {
+        "utc": "2026-11-26T20:05:21.226472+00:00",
+        "error": "curl --noproxy (rc 52) curl: (52) Empty reply from server",
+        "resultado": "Fallida"
+      },
+      "https": {
+        "utc": "2026-11-26T20:05:41.316042+00:00",
+        "error": "curl --noproxy (rc 35) curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to p5.lago.internal:32769",
+        "resultado": "Fallida"
+      }
+    }
+  },
+  "balanceo": {
+    "antes": {
+      "worker-1": {
+        "estado": "UP",
+        "sesiones": 26
+      },
+      "worker-2": {
+        "estado": "DOWN",
+        "sesiones": 27
+      }
+    },
+    "despues": {
+      "worker-1": {
+        "estado": "UP",
+        "sesiones": 57
+      },
+      "worker-2": {
+        "estado": "DOWN",
+        "sesiones": 27
+      }
+    },
+    "respuestas": [
+      {
+        "utc": "2026-11-26T20:05:43.318393+00:00",
+        "fase": "antes",
+        "http": null,
+        "error": "timed out",
+        "ms": 2002
+      },
+      {
+        "utc": "2026-11-26T20:05:45.320672+00:00",
+        "fase": "antes",
+        "http": null,
+        "error": "timed out",
+        "ms": 2002
+      },
+      {
+        "utc": "2026-11-26T20:05:47.322326+00:00",
+        "fase": "antes",
+        "http": null,
+        "error": "timed out",
+        "ms": 2001
+      },
+      {
+        "utc": "2026-11-26T20:05:49.322869+00:00",
+        "fase": "antes",
+        "http": 200,
+        "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1",
+        "ms": 1
+      },
+      {
+        "utc": "2026-11-26T20:05:49.324222+00:00",
+        "fase": "antes",
+        "http": null,
+        "error": "timed out",
+        "ms": 2002
+      },
+      {
+        "utc": "2026-11-26T20:05:51.326047+00:00",
+        "fase": "antes",
+        "http": 200,
+        "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1",
+        "ms": 1
+      },
+      {
+        "utc": "2026-11-26T20:05:51.327223+00:00",
+        "fase": "antes",
+        "http": 200,
+        "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1",
+        "ms": 1
+      },
+      {
+        "utc": "2026-11-26T20:05:51.328296+00:00",
+        "fase": "antes",
+        "http": 200,
+        "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1",
+        "ms": 1
+      },
+      {
+        "utc": "2026-11-26T20:05:51.329283+00:00",
+        "fase": "antes",
+        "http": 200,
+        "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1",
+        "ms": 1
+      },
+      {
+        "utc": "2026-11-26T20:05:51.330333+00:00",
+        "fase": "antes",
+        "http": 200,
+        "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1",
+        "ms": 1
+      },
+      {
+        "utc": "2026-11-26T20:05:51.331377+00:00",
+        "fase": "antes",
+        "http": 200,
+        "identidad": "testigo-6cbb9c8f95-khk64 rke2-worker-1",
+        "ms": 1
+      },
+      {
+        "utc": "2026-11-26T20:05:51.332431+00:00",
+        "fase": "antes",
+        "http": null,
+        "error": "timed out",
+        "ms": 2002
+      }
+    ],
+    "resultado": "Fallida"
+  },
+  "http_con_worker_detenido": [
+    {
+      "utc": "2026-11-26T20:07:15.737618+00:00",
+      "fase": "detenido",
+      "http": 200,
+      "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2",
+      "ms": 1
+    },
+    {
+      "utc": "2026-11-26T20:07:15.738875+00:00",
+      "fase": "detenido",
+      "http": 200,
+      "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2",
+      "ms": 1
+    },
+    {
+      "utc": "2026-11-26T20:07:15.739999+00:00",
+      "fase": "detenido",
+      "http": 200,
+      "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2",
+      "ms": 1
+    },
+    {
+      "utc": "2026-11-26T20:07:15.741110+00:00",
+      "fase": "detenido",
+      "http": 200,
+      "identidad": "testigo-6cbb9c8f95-fnz7j rke2-worker-2",
+      "ms": 1
+    }
+  ],
+  "backend_detenido": "DOWN",
+  "error": "recuperado: condición ausente tras 200 s",
+  "muestras_http": {
+    "antes": {
+      "total": 50,
+      "http_200": 21
+    },
+    "apagando": {
+      "total": 5,
+      "http_200": 1
+    },
+    "detenido": {
+      "total": 57,
+      "http_200": 19
+    },
+    "recuperando": {
+      "total": 201,
+      "http_200": 201
+    }
+  },
+  "fin_utc": "2026-11-26T20:10:38.232792+00:00"
+}

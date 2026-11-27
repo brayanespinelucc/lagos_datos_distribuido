@@ -1,0 +1,22 @@
+LAST SEEN   TYPE      REASON                   OBJECT                          MESSAGE
+7m29s       Warning   FailedCreatePodSandBox   pod/testigo-6cbb9c8f95-fnz7j    Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "561af821d2a771d2756e6a1d7b0c5f29b489a88cabaa97f7dfa23f3ca5ab5802": plugin type="calico" failed (add): stat /var/lib/calico/nodename: no such file or directory: check that the calico/node container is running and has mounted /var/lib/calico/
+7m29s       Normal    ScalingReplicaSet        deployment/testigo              Scaled up replica set testigo-6cbb9c8f95 from 0 to 2
+7m29s       Normal    SuccessfulCreate         replicaset/testigo-6cbb9c8f95   Created pod: testigo-6cbb9c8f95-khk64
+7m28s       Normal    Scheduled                pod/testigo-6cbb9c8f95-fnz7j    Successfully assigned lago-p5/testigo-6cbb9c8f95-fnz7j to rke2-worker-2
+7m29s       Normal    SuccessfulCreate         replicaset/testigo-6cbb9c8f95   Created pod: testigo-6cbb9c8f95-fnz7j
+7m28s       Normal    Scheduled                pod/testigo-6cbb9c8f95-khk64    Successfully assigned lago-p5/testigo-6cbb9c8f95-khk64 to rke2-worker-1
+7m28s       Normal    Pulling                  pod/testigo-6cbb9c8f95-khk64    Pulling image "docker.io/library/busybox:1.37.0@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec"
+7m28s       Normal    Created                  pod/testigo-6cbb9c8f95-khk64    Container created
+7m28s       Normal    Pulled                   pod/testigo-6cbb9c8f95-khk64    Successfully pulled image "docker.io/library/busybox:1.37.0@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec" in 443ms (443ms including waiting). Image size: 2222118 bytes.
+7m27s       Normal    Started                  pod/testigo-6cbb9c8f95-khk64    Container started
+7m14s       Normal    Pulling                  pod/testigo-6cbb9c8f95-fnz7j    Pulling image "docker.io/library/busybox:1.37.0@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec"
+7m13s       Normal    Started                  pod/testigo-6cbb9c8f95-fnz7j    Container started
+7m13s       Normal    Created                  pod/testigo-6cbb9c8f95-fnz7j    Container created
+7m13s       Normal    Pulled                   pod/testigo-6cbb9c8f95-fnz7j    Successfully pulled image "docker.io/library/busybox:1.37.0@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec" in 727ms (727ms including waiting). Image size: 2222118 bytes.
+3m39s       Warning   NodeNotReady             pod/testigo-6cbb9c8f95-khk64    Node is not ready
+3m24s       Normal    Created                  pod/testigo-6cbb9c8f95-jzhzc    Container created
+3m24s       Normal    Pulled                   pod/testigo-6cbb9c8f95-jzhzc    Container image "docker.io/library/busybox:1.37.0@sha256:a7dbc319b1438115a207e11930dc4bb3e643dcb3ec0bdd694bb36cd8fad289ec" already present on machine and can be accessed by the pod
+3m24s       Normal    TaintManagerEviction     pod/testigo-6cbb9c8f95-khk64    Marking for deletion Pod lago-p5/testigo-6cbb9c8f95-khk64
+3m24s       Normal    Scheduled                pod/testigo-6cbb9c8f95-jzhzc    Successfully assigned lago-p5/testigo-6cbb9c8f95-jzhzc to rke2-worker-2
+3m24s       Normal    SuccessfulCreate         replicaset/testigo-6cbb9c8f95   Created pod: testigo-6cbb9c8f95-jzhzc
+3m23s       Normal    Started                  pod/testigo-6cbb9c8f95-jzhzc    Container started

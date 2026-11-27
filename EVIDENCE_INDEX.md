@@ -37,3 +37,6 @@ Las fechas UTC, los IDs de petición S3, la identidad del contenedor y los nombr
 | Spark y Medallion | 251 filas de venta, 247 aceptadas, un duplicado y tres rechazos. 875 unidades y 33.589.000 COP. Spark 4.0.1 en local[2] con almacenamiento S3 verificado. | [Motor](evidence/moment-02/spark/ejecucion.json) · [Conciliación](evidence/moment-02/spark/conciliacion.json) |
 | Trino y P2 | Quince consultas ejecutadas en Trino 477 sobre MinIO, con ID de consulta y CSV. P2 aprobada en el laboratorio Docker. | [Acta](evidence/moment-02/trino/p2.json) · [CSV de resultados](results/sql/index.json) · [Captura](evidence/moment-02/trino/consulta-p2.png) |
 | Gobierno de datos | Exportación del catálogo de 12 activos físicos con 48 campos y 15 relaciones. | [Catálogo](evidence/moment-02/datahub/catalog.json) · [Diccionario](evidence/moment-02/datahub/diccionario.csv) |
+
+
+**P5 ejecutada con fallo.** En el último pipeline se observaron apagado, reprogramación y retorno del mismo worker a Ready. HAProxy mantuvo su backend DOWN al vencer el plazo. [Acta](evidence/moment-01/kubernetes/p5/ensayos/45887973767/p5.json) · [kubectl durante la reprogramación](evidence/moment-01/kubernetes/p5/ensayos/45887973767/kubectl-reprogramado.txt) · [Procedencia y SHA-256 del artefacto](evidence/moment-01/kubernetes/p5/ensayos/45887973767/procedencia.json)

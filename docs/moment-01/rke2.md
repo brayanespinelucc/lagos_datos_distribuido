@@ -52,3 +52,8 @@ Para repetir únicamente esta comprobación, use los binarios de envtest y de HA
 python3 tests/kubernetes/admission.py /ruta/al/envtest \
   --haproxy /ruta/al/haproxy --output /ruta/nueva/evidencia-api
 ```
+
+
+## Resultado de la última ejecución remota
+
+El 26 de noviembre se detuvo el contenedor del worker 1. Kubernetes lo marcó Unknown y reprogramó su réplica en el worker 2. El mismo nodo regresó a Ready con su UID original. HAProxy siguió marcando DOWN el backend recuperado al vencer 200 segundos. Durante la caída se recibieron 19 respuestas HTTP 200 en 57 muestras y durante la recuperación, 201 en 201. Se comprobaron los tres kubelets y los seis trayectos TCP entre nodos. El acceso directo entre pods agotó su tiempo. **P5 se ejecutó y el criterio integral falló.** [Acta](../../evidence/moment-01/kubernetes/p5/ensayos/45887973767/p5.json) · [Serie HTTP](../../evidence/moment-01/kubernetes/p5/ensayos/45887973767/servicio.jsonl) · [Ejecución en GitHub](https://github.com/brayanespinelucc/lagos_datos_distribuido/actions/runs/45887973767)

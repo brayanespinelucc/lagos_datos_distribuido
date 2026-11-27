@@ -1,0 +1,131 @@
+/tmp/tmp.MFnZUkpP1a/rke2.linux-amd64.tar.gz: OK
+Unable to find image 'haproxy:3.0.11-alpine@sha256:e49b7beb96f4dba79f9a671515b469a6e516a2b88ff0681a820b184bba1effbd' locally
+docker.io/library/haproxy@sha256:e49b7beb96f4dba79f9a671515b469a6e516a2b88ff0681a820b184bba1effbd: Pulling from library/haproxy
+9824c27679d3: Pulling fs layer
+e479d83b41a8: Pulling fs layer
+7fef91414216: Pulling fs layer
+f8b19317a98c: Pulling fs layer
+7d2bf18765d1: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+f8b19317a98c: Waiting
+7d2bf18765d1: Waiting
+4f4fb700ef54: Waiting
+7fef91414216: Verifying Checksum
+7fef91414216: Download complete
+e479d83b41a8: Verifying Checksum
+e479d83b41a8: Download complete
+9824c27679d3: Verifying Checksum
+9824c27679d3: Download complete
+4f4fb700ef54: Verifying Checksum
+4f4fb700ef54: Download complete
+7d2bf18765d1: Verifying Checksum
+7d2bf18765d1: Download complete
+f8b19317a98c: Verifying Checksum
+f8b19317a98c: Download complete
+9824c27679d3: Pull complete
+e479d83b41a8: Pull complete
+7fef91414216: Pull complete
+f8b19317a98c: Pull complete
+7d2bf18765d1: Pull complete
+4f4fb700ef54: Pull complete
+Digest: sha256:e49b7beb96f4dba79f9a671515b469a6e516a2b88ff0681a820b184bba1effbd
+Status: Downloaded newer image for haproxy@sha256:e49b7beb96f4dba79f9a671515b469a6e516a2b88ff0681a820b184bba1effbd
+Unable to find image 'rancher/systemd-node:v0.0.8@sha256:bd3f36cfa953ea1c72e4c73e6d70fd964ebd32c1eabeacb69ac5497fc3dcf830' locally
+docker.io/rancher/systemd-node@sha256:bd3f36cfa953ea1c72e4c73e6d70fd964ebd32c1eabeacb69ac5497fc3dcf830: Pulling from rancher/systemd-node
+64cfa2a65095: Pulling fs layer
+a7b0c2cc974a: Pulling fs layer
+6fff1f58fc31: Pulling fs layer
+82d9bf7dfbb9: Pulling fs layer
+ad3237ed4d9e: Pulling fs layer
+4d6fc24dab9d: Pulling fs layer
+68f886ecc726: Pulling fs layer
+c45bddf8a4ff: Pulling fs layer
+a2201c975049: Pulling fs layer
+4a769469ce19: Pulling fs layer
+7cb03524d29d: Pulling fs layer
+32a63d3f653d: Pulling fs layer
+cdd573ebcdae: Pulling fs layer
+a801748d19b2: Pulling fs layer
+70a812466a44: Pulling fs layer
+c88c6efb0ae7: Pulling fs layer
+6e70fe759006: Pulling fs layer
+6ede4558bda1: Pulling fs layer
+82d9bf7dfbb9: Waiting
+ad3237ed4d9e: Waiting
+7cb03524d29d: Waiting
+c45bddf8a4ff: Waiting
+32a63d3f653d: Waiting
+cdd573ebcdae: Waiting
+a2201c975049: Waiting
+4a769469ce19: Waiting
+a801748d19b2: Waiting
+4d6fc24dab9d: Waiting
+70a812466a44: Waiting
+6ede4558bda1: Waiting
+c88c6efb0ae7: Waiting
+68f886ecc726: Waiting
+6e70fe759006: Waiting
+64cfa2a65095: Download complete
+82d9bf7dfbb9: Verifying Checksum
+82d9bf7dfbb9: Download complete
+ad3237ed4d9e: Verifying Checksum
+ad3237ed4d9e: Download complete
+4d6fc24dab9d: Verifying Checksum
+4d6fc24dab9d: Download complete
+a7b0c2cc974a: Verifying Checksum
+a7b0c2cc974a: Download complete
+68f886ecc726: Verifying Checksum
+68f886ecc726: Download complete
+c45bddf8a4ff: Verifying Checksum
+c45bddf8a4ff: Download complete
+a2201c975049: Verifying Checksum
+a2201c975049: Download complete
+4a769469ce19: Verifying Checksum
+4a769469ce19: Download complete
+7cb03524d29d: Verifying Checksum
+7cb03524d29d: Download complete
+32a63d3f653d: Verifying Checksum
+32a63d3f653d: Download complete
+cdd573ebcdae: Download complete
+a801748d19b2: Verifying Checksum
+a801748d19b2: Download complete
+70a812466a44: Verifying Checksum
+70a812466a44: Download complete
+c88c6efb0ae7: Verifying Checksum
+c88c6efb0ae7: Download complete
+6fff1f58fc31: Verifying Checksum
+6fff1f58fc31: Download complete
+6e70fe759006: Verifying Checksum
+6e70fe759006: Download complete
+6ede4558bda1: Download complete
+64cfa2a65095: Pull complete
+a7b0c2cc974a: Pull complete
+6fff1f58fc31: Pull complete
+82d9bf7dfbb9: Pull complete
+ad3237ed4d9e: Pull complete
+4d6fc24dab9d: Pull complete
+68f886ecc726: Pull complete
+c45bddf8a4ff: Pull complete
+a2201c975049: Pull complete
+4a769469ce19: Pull complete
+7cb03524d29d: Pull complete
+32a63d3f653d: Pull complete
+cdd573ebcdae: Pull complete
+a801748d19b2: Pull complete
+70a812466a44: Pull complete
+c88c6efb0ae7: Pull complete
+6e70fe759006: Pull complete
+6ede4558bda1: Pull complete
+Digest: sha256:bd3f36cfa953ea1c72e4c73e6d70fd964ebd32c1eabeacb69ac5497fc3dcf830
+Status: Downloaded newer image for rancher/systemd-node@sha256:bd3f36cfa953ea1c72e4c73e6d70fd964ebd32c1eabeacb69ac5497fc3dcf830
+Failed to connect to system scope bus via local transport: No such file or directory
+active
+Failed to connect to system scope bus via local transport: No such file or directory
+active
+Failed to connect to system scope bus via local transport: No such file or directory
+active
+Created symlink '/etc/systemd/system/noop.target.wants/rke2-agent.service' → '/usr/local/lib/systemd/system/rke2-agent.service'.
+Created symlink '/etc/systemd/system/noop.target.wants/rke2-agent.service' → '/usr/local/lib/systemd/system/rke2-agent.service'.
+node/rke2-server condition met
+node/rke2-worker-1 condition met
+node/rke2-worker-2 condition met

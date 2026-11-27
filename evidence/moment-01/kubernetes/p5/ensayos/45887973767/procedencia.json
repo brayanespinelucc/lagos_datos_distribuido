@@ -1,0 +1,9 @@
+{
+  "github_run_id": 45887973767,
+  "job_id": 140143316673,
+  "artifact_id": 15149774760,
+  "commit_fuente": "35ee81883cf74e18a88e1e9a18f586829b89fdfa",
+  "sha256_zip_verificado": "0541f32c2608504a681762c7a1b3814d4f45d5e2bb5e8b385edd1e86d6de16e7",
+  "conclusion_ci": "failure",
+  "enlace": "https://github.com/brayanespinelucc/lagos_datos_distribuido/actions/runs/45887973767"
+}

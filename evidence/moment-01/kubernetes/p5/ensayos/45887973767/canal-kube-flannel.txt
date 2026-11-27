@@ -1,0 +1,27 @@
+[pod/rke2-canal-kwjmd/kube-flannel] W1126 20:04:33.950726       1 client_config.go:667] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+[pod/rke2-canal-kwjmd/kube-flannel] I1126 20:04:33.958261       1 kube.go:139] Waiting 10m0s for node controller to sync
+[pod/rke2-canal-kwjmd/kube-flannel] I1126 20:04:33.958322       1 kube.go:537] Starting kube subnet manager
+[pod/rke2-canal-kwjmd/kube-flannel] I1126 20:04:34.959096       1 kube.go:163] Node controller sync successful
+[pod/rke2-canal-kwjmd/kube-flannel] I1126 20:04:34.959165       1 main.go:255] Created subnet manager: Kubernetes Subnet Manager - rke2-worker-2
+[pod/rke2-canal-kwjmd/kube-flannel] I1126 20:04:34.959174       1 main.go:258] Installing signal handlers
+[pod/rke2-canal-kwjmd/kube-flannel] I1126 20:04:34.959516       1 main.go:554] Start healthz server on 0.0.0.0:8081
+[pod/rke2-canal-kwjmd/kube-flannel] I1126 20:04:34.959567       1 main.go:540] Found network config - Backend type: host-gw
+[pod/rke2-canal-kwjmd/kube-flannel] E1126 20:04:34.959604       1 main.go:292] Failed to check br_netfilter: stat /proc/sys/net/bridge/bridge-nf-call-iptables: no such file or directory
+[pod/rke2-canal-lgsp6/kube-flannel] W1126 20:04:31.721761       1 client_config.go:667] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+[pod/rke2-canal-lgsp6/kube-flannel] I1126 20:04:31.727380       1 kube.go:139] Waiting 10m0s for node controller to sync
+[pod/rke2-canal-lgsp6/kube-flannel] I1126 20:04:31.727439       1 kube.go:537] Starting kube subnet manager
+[pod/rke2-canal-lgsp6/kube-flannel] I1126 20:04:32.727550       1 kube.go:163] Node controller sync successful
+[pod/rke2-canal-lgsp6/kube-flannel] I1126 20:04:32.727580       1 main.go:255] Created subnet manager: Kubernetes Subnet Manager - rke2-worker-1
+[pod/rke2-canal-lgsp6/kube-flannel] I1126 20:04:32.727586       1 main.go:258] Installing signal handlers
+[pod/rke2-canal-lgsp6/kube-flannel] I1126 20:04:32.727698       1 main.go:554] Start healthz server on 0.0.0.0:8081
+[pod/rke2-canal-lgsp6/kube-flannel] I1126 20:04:32.727754       1 main.go:540] Found network config - Backend type: host-gw
+[pod/rke2-canal-lgsp6/kube-flannel] E1126 20:04:32.727791       1 main.go:292] Failed to check br_netfilter: stat /proc/sys/net/bridge/bridge-nf-call-iptables: no such file or directory
+[pod/rke2-canal-pz4m4/kube-flannel] W1126 20:04:18.027808       1 client_config.go:667] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+[pod/rke2-canal-pz4m4/kube-flannel] I1126 20:04:18.035242       1 kube.go:139] Waiting 10m0s for node controller to sync
+[pod/rke2-canal-pz4m4/kube-flannel] I1126 20:04:18.035295       1 kube.go:537] Starting kube subnet manager
+[pod/rke2-canal-pz4m4/kube-flannel] I1126 20:04:19.035405       1 kube.go:163] Node controller sync successful
+[pod/rke2-canal-pz4m4/kube-flannel] I1126 20:04:19.035444       1 main.go:255] Created subnet manager: Kubernetes Subnet Manager - rke2-server
+[pod/rke2-canal-pz4m4/kube-flannel] I1126 20:04:19.035461       1 main.go:258] Installing signal handlers
+[pod/rke2-canal-pz4m4/kube-flannel] I1126 20:04:19.035727       1 main.go:554] Start healthz server on 0.0.0.0:8081
+[pod/rke2-canal-pz4m4/kube-flannel] I1126 20:04:19.035776       1 main.go:540] Found network config - Backend type: host-gw
+[pod/rke2-canal-pz4m4/kube-flannel] E1126 20:04:19.035806       1 main.go:292] Failed to check br_netfilter: stat /proc/sys/net/bridge/bridge-nf-call-iptables: no such file or directory
