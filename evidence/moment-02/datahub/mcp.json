@@ -1,0 +1,2313 @@
+[
+{
+    "entityType": "domain",
+    "entityUrn": "urn:li:domain:lago-abastecimiento",
+    "changeType": "UPSERT",
+    "aspectName": "domainProperties",
+    "aspect": {
+        "json": {
+            "customProperties": {},
+            "name": "Abastecimiento"
+        }
+    }
+},
+{
+    "entityType": "domain",
+    "entityUrn": "urn:li:domain:lago-analitica",
+    "changeType": "UPSERT",
+    "aspectName": "domainProperties",
+    "aspect": {
+        "json": {
+            "customProperties": {},
+            "name": "Anal\u00edtica comercial"
+        }
+    }
+},
+{
+    "entityType": "domain",
+    "entityUrn": "urn:li:domain:lago-calidad",
+    "changeType": "UPSERT",
+    "aspectName": "domainProperties",
+    "aspect": {
+        "json": {
+            "customProperties": {},
+            "name": "Calidad de datos"
+        }
+    }
+},
+{
+    "entityType": "domain",
+    "entityUrn": "urn:li:domain:lago-comercial",
+    "changeType": "UPSERT",
+    "aspectName": "domainProperties",
+    "aspect": {
+        "json": {
+            "customProperties": {},
+            "name": "Ventas y clientes"
+        }
+    }
+},
+{
+    "entityType": "corpGroup",
+    "entityUrn": "urn:li:corpGroup:lago-analitica",
+    "changeType": "UPSERT",
+    "aspectName": "corpGroupInfo",
+    "aspect": {
+        "json": {
+            "displayName": "Equipo de anal\u00edtica comercial",
+            "admins": [],
+            "members": [],
+            "groups": []
+        }
+    }
+},
+{
+    "entityType": "corpGroup",
+    "entityUrn": "urn:li:corpGroup:lago-calidad",
+    "changeType": "UPSERT",
+    "aspectName": "corpGroupInfo",
+    "aspect": {
+        "json": {
+            "displayName": "Equipo de calidad de datos",
+            "admins": [],
+            "members": [],
+            "groups": []
+        }
+    }
+},
+{
+    "entityType": "corpGroup",
+    "entityUrn": "urn:li:corpGroup:lago-inventarios",
+    "changeType": "UPSERT",
+    "aspectName": "corpGroupInfo",
+    "aspect": {
+        "json": {
+            "displayName": "Control de inventarios",
+            "admins": [],
+            "members": [],
+            "groups": []
+        }
+    }
+},
+{
+    "entityType": "corpGroup",
+    "entityUrn": "urn:li:corpGroup:lago-operaciones",
+    "changeType": "UPSERT",
+    "aspectName": "corpGroupInfo",
+    "aspect": {
+        "json": {
+            "displayName": "Operaciones comerciales",
+            "admins": [],
+            "members": [],
+            "groups": []
+        }
+    }
+},
+{
+    "entityType": "tag",
+    "entityUrn": "urn:li:tag:lago-bronze",
+    "changeType": "UPSERT",
+    "aspectName": "tagProperties",
+    "aspect": {
+        "json": {
+            "name": "bronze"
+        }
+    }
+},
+{
+    "entityType": "tag",
+    "entityUrn": "urn:li:tag:lago-gold",
+    "changeType": "UPSERT",
+    "aspectName": "tagProperties",
+    "aspect": {
+        "json": {
+            "name": "gold"
+        }
+    }
+},
+{
+    "entityType": "tag",
+    "entityUrn": "urn:li:tag:lago-interno",
+    "changeType": "UPSERT",
+    "aspectName": "tagProperties",
+    "aspect": {
+        "json": {
+            "name": "interno"
+        }
+    }
+},
+{
+    "entityType": "tag",
+    "entityUrn": "urn:li:tag:lago-restringido",
+    "changeType": "UPSERT",
+    "aspectName": "tagProperties",
+    "aspect": {
+        "json": {
+            "name": "restringido"
+        }
+    }
+},
+{
+    "entityType": "tag",
+    "entityUrn": "urn:li:tag:lago-silver",
+    "changeType": "UPSERT",
+    "aspectName": "tagProperties",
+    "aspect": {
+        "json": {
+            "name": "silver"
+        }
+    }
+},
+{
+    "entityType": "tag",
+    "entityUrn": "urn:li:tag:lago-sintetico",
+    "changeType": "UPSERT",
+    "aspectName": "tagProperties",
+    "aspect": {
+        "json": {
+            "name": "sintetico"
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.clientes,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "datasetProperties",
+    "aspect": {
+        "json": {
+            "customProperties": {
+                "formato": "CSV",
+                "granularidad": "Cliente",
+                "filas": "52",
+                "archivo_sha256": "ceea3fa0779abb30959543f808e1a8018cf8a6152df70e95c4ea4a03312863b1",
+                "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774"
+            },
+            "name": "bronze.clientes",
+            "description": "Clientes sint\u00e9ticos y su segmento comercial.",
+            "uri": "s3://bronze/clientes.csv",
+            "tags": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.clientes,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "schemaMetadata",
+    "aspect": {
+        "json": {
+            "schemaName": "bronze.clientes",
+            "platform": "urn:li:dataPlatform:s3",
+            "version": 0,
+            "created": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "hash": "f00bd114d5115b2bd3dc49fdc4e8dc28e5e1d2292d5f5c40af8b02f0ed54f72a",
+            "platformSchema": {
+                "com.linkedin.schema.OtherSchema": {
+                    "rawSchema": "[{\"cliente_id\": \"string\"}, {\"segmento\": \"string\"}]"
+                }
+            },
+            "fields": [
+                {
+                    "fieldPath": "cliente_id",
+                    "nullable": false,
+                    "description": "Identificador sint\u00e9tico del cliente en el maestro comercial. Texto alfanum\u00e9rico, prefijo CL en el generador.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "segmento",
+                    "nullable": false,
+                    "description": "Segmento comercial asignado al cliente. Ocasional, Frecuente o Empresa.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.clientes,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "ownership",
+    "aspect": {
+        "json": {
+            "owners": [
+                {
+                    "owner": "urn:li:corpGroup:lago-operaciones",
+                    "type": "BUSINESS_OWNER"
+                }
+            ],
+            "ownerTypes": {},
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            }
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.clientes,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "domains",
+    "aspect": {
+        "json": {
+            "domains": [
+                "urn:li:domain:lago-comercial"
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.clientes,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "globalTags",
+    "aspect": {
+        "json": {
+            "tags": [
+                {
+                    "tag": "urn:li:tag:lago-bronze"
+                },
+                {
+                    "tag": "urn:li:tag:lago-sintetico"
+                },
+                {
+                    "tag": "urn:li:tag:lago-restringido"
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.clientes,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "upstreamLineage",
+    "aspect": {
+        "json": {
+            "upstreams": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.categorias,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "datasetProperties",
+    "aspect": {
+        "json": {
+            "customProperties": {
+                "formato": "CSV",
+                "granularidad": "Categor\u00eda",
+                "filas": "4",
+                "archivo_sha256": "96defe27e8c296c337a0cf85429df0b4c80d7b668a0c157f77f2072de25b5feb",
+                "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774"
+            },
+            "name": "bronze.categorias",
+            "description": "Cat\u00e1logo de las categor\u00edas de mercanc\u00edas.",
+            "uri": "s3://bronze/categorias.csv",
+            "tags": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.categorias,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "schemaMetadata",
+    "aspect": {
+        "json": {
+            "schemaName": "bronze.categorias",
+            "platform": "urn:li:dataPlatform:s3",
+            "version": 0,
+            "created": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "hash": "b61770d7865124267288c3e2b7130ff04f46551f1cdca7fefa755722b207bcb7",
+            "platformSchema": {
+                "com.linkedin.schema.OtherSchema": {
+                    "rawSchema": "[{\"categoria_id\": \"string\"}, {\"categoria\": \"string\"}]"
+                }
+            },
+            "fields": [
+                {
+                    "fieldPath": "categoria_id",
+                    "nullable": false,
+                    "description": "Identificador estable de una categor\u00eda de productos. C\u00f3digo de la dimensi\u00f3n categorias.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "categoria",
+                    "nullable": false,
+                    "description": "Nombre comercial de la categor\u00eda. Alimentos, Hogar, Papeler\u00eda o Cuidado.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.categorias,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "ownership",
+    "aspect": {
+        "json": {
+            "owners": [
+                {
+                    "owner": "urn:li:corpGroup:lago-inventarios",
+                    "type": "BUSINESS_OWNER"
+                }
+            ],
+            "ownerTypes": {},
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            }
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.categorias,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "domains",
+    "aspect": {
+        "json": {
+            "domains": [
+                "urn:li:domain:lago-abastecimiento"
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.categorias,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "globalTags",
+    "aspect": {
+        "json": {
+            "tags": [
+                {
+                    "tag": "urn:li:tag:lago-bronze"
+                },
+                {
+                    "tag": "urn:li:tag:lago-sintetico"
+                },
+                {
+                    "tag": "urn:li:tag:lago-interno"
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.categorias,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "upstreamLineage",
+    "aspect": {
+        "json": {
+            "upstreams": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.productos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "datasetProperties",
+    "aspect": {
+        "json": {
+            "customProperties": {
+                "formato": "CSV",
+                "granularidad": "Producto",
+                "filas": "24",
+                "archivo_sha256": "20f020f955638bd10b4f11f626e262959df29cd50da5bec977d787d975439c18",
+                "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774"
+            },
+            "name": "bronze.productos",
+            "description": "Maestro de productos, categor\u00eda y precio unitario de lista.",
+            "uri": "s3://bronze/productos.csv",
+            "tags": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.productos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "schemaMetadata",
+    "aspect": {
+        "json": {
+            "schemaName": "bronze.productos",
+            "platform": "urn:li:dataPlatform:s3",
+            "version": 0,
+            "created": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "hash": "b9c748a99979bd9e8b91bf9c0f5be9eb5e619df239296dfe79e6dd378fb9b2aa",
+            "platformSchema": {
+                "com.linkedin.schema.OtherSchema": {
+                    "rawSchema": "[{\"producto_id\": \"string\"}, {\"categoria_id\": \"string\"}, {\"precio_unitario_cop\": \"string\"}]"
+                }
+            },
+            "fields": [
+                {
+                    "fieldPath": "producto_id",
+                    "nullable": false,
+                    "description": "Identificador del producto o SKU utilizado en el maestro, la venta o las existencias. C\u00f3digo del maestro productos. En Bronze puede faltar o no existir.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "categoria_id",
+                    "nullable": false,
+                    "description": "Identificador estable de una categor\u00eda de productos. C\u00f3digo de la dimensi\u00f3n categorias.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "precio_unitario_cop",
+                    "nullable": false,
+                    "description": "Precio de una unidad del producto, expresado en pesos colombianos. Importe entero en COP, mayor o igual a cero en l\u00edneas aceptadas.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.productos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "ownership",
+    "aspect": {
+        "json": {
+            "owners": [
+                {
+                    "owner": "urn:li:corpGroup:lago-inventarios",
+                    "type": "BUSINESS_OWNER"
+                }
+            ],
+            "ownerTypes": {},
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            }
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.productos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "domains",
+    "aspect": {
+        "json": {
+            "domains": [
+                "urn:li:domain:lago-abastecimiento"
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.productos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "globalTags",
+    "aspect": {
+        "json": {
+            "tags": [
+                {
+                    "tag": "urn:li:tag:lago-bronze"
+                },
+                {
+                    "tag": "urn:li:tag:lago-sintetico"
+                },
+                {
+                    "tag": "urn:li:tag:lago-interno"
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.productos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "upstreamLineage",
+    "aspect": {
+        "json": {
+            "upstreams": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.sucursales,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "datasetProperties",
+    "aspect": {
+        "json": {
+            "customProperties": {
+                "formato": "CSV",
+                "granularidad": "Sucursal",
+                "filas": "3",
+                "archivo_sha256": "7d0036b6660d4c15b4e8f1064bda043519ed2a7f2c75b17b258bd10134089673",
+                "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774"
+            },
+            "name": "bronze.sucursales",
+            "description": "Sucursales de la cadena y su regi\u00f3n comercial.",
+            "uri": "s3://bronze/sucursales.csv",
+            "tags": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.sucursales,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "schemaMetadata",
+    "aspect": {
+        "json": {
+            "schemaName": "bronze.sucursales",
+            "platform": "urn:li:dataPlatform:s3",
+            "version": 0,
+            "created": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "hash": "0c9d1023ce0ddab4dabc83f0a1312103927b6a81325e82338872201dbe24dc1c",
+            "platformSchema": {
+                "com.linkedin.schema.OtherSchema": {
+                    "rawSchema": "[{\"sucursal_id\": \"string\"}, {\"region\": \"string\"}]"
+                }
+            },
+            "fields": [
+                {
+                    "fieldPath": "sucursal_id",
+                    "nullable": false,
+                    "description": "Identificador de la tienda donde se registr\u00f3 la operaci\u00f3n. C\u00f3digo de la dimensi\u00f3n sucursales.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "region",
+                    "nullable": false,
+                    "description": "Regi\u00f3n comercial de la sucursal. Centro, Norte u Occidente.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.sucursales,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "ownership",
+    "aspect": {
+        "json": {
+            "owners": [
+                {
+                    "owner": "urn:li:corpGroup:lago-operaciones",
+                    "type": "BUSINESS_OWNER"
+                }
+            ],
+            "ownerTypes": {},
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            }
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.sucursales,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "domains",
+    "aspect": {
+        "json": {
+            "domains": [
+                "urn:li:domain:lago-comercial"
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.sucursales,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "globalTags",
+    "aspect": {
+        "json": {
+            "tags": [
+                {
+                    "tag": "urn:li:tag:lago-bronze"
+                },
+                {
+                    "tag": "urn:li:tag:lago-sintetico"
+                },
+                {
+                    "tag": "urn:li:tag:lago-interno"
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.sucursales,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "upstreamLineage",
+    "aspect": {
+        "json": {
+            "upstreams": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.transacciones,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "datasetProperties",
+    "aspect": {
+        "json": {
+            "customProperties": {
+                "formato": "CSV",
+                "granularidad": "Tiquete",
+                "filas": "120",
+                "archivo_sha256": "3776fbc8959ffc4424250da629419b39902183a425ed5e556d85e063f0a9dd79",
+                "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774"
+            },
+            "name": "bronze.transacciones",
+            "description": "Cabeceras de transacciones con fecha, cliente y sucursal.",
+            "uri": "s3://bronze/transacciones.csv",
+            "tags": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.transacciones,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "schemaMetadata",
+    "aspect": {
+        "json": {
+            "schemaName": "bronze.transacciones",
+            "platform": "urn:li:dataPlatform:s3",
+            "version": 0,
+            "created": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "hash": "aa7a0fe4056d3b90f27020f6c09b9cf593ba8bfdb18c9de3180ba69778ab98e8",
+            "platformSchema": {
+                "com.linkedin.schema.OtherSchema": {
+                    "rawSchema": "[{\"transaccion_id\": \"string\"}, {\"fecha\": \"string\"}, {\"cliente_id\": \"string\"}, {\"sucursal_id\": \"string\"}]"
+                }
+            },
+            "fields": [
+                {
+                    "fieldPath": "transaccion_id",
+                    "nullable": false,
+                    "description": "Identificador del tiquete que agrupa una o m\u00e1s l\u00edneas de venta. C\u00f3digo de la cabecera transacciones.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "fecha",
+                    "nullable": false,
+                    "description": "Fecha de la transacci\u00f3n o del corte de existencias, seg\u00fan el conjunto. Fecha civil ISO 8601. Gold diario agrupa por esta fecha.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "cliente_id",
+                    "nullable": false,
+                    "description": "Identificador sint\u00e9tico del cliente en el maestro comercial. Texto alfanum\u00e9rico, prefijo CL en el generador.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "sucursal_id",
+                    "nullable": false,
+                    "description": "Identificador de la tienda donde se registr\u00f3 la operaci\u00f3n. C\u00f3digo de la dimensi\u00f3n sucursales.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.transacciones,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "ownership",
+    "aspect": {
+        "json": {
+            "owners": [
+                {
+                    "owner": "urn:li:corpGroup:lago-operaciones",
+                    "type": "BUSINESS_OWNER"
+                }
+            ],
+            "ownerTypes": {},
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            }
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.transacciones,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "domains",
+    "aspect": {
+        "json": {
+            "domains": [
+                "urn:li:domain:lago-comercial"
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.transacciones,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "globalTags",
+    "aspect": {
+        "json": {
+            "tags": [
+                {
+                    "tag": "urn:li:tag:lago-bronze"
+                },
+                {
+                    "tag": "urn:li:tag:lago-sintetico"
+                },
+                {
+                    "tag": "urn:li:tag:lago-restringido"
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.transacciones,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "upstreamLineage",
+    "aspect": {
+        "json": {
+            "upstreams": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.ventas,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "datasetProperties",
+    "aspect": {
+        "json": {
+            "customProperties": {
+                "formato": "CSV",
+                "granularidad": "L\u00ednea recibida",
+                "filas": "251",
+                "archivo_sha256": "93fcbd243fc069c94145a573a828bd5971169fa63cd0d98b59c303b5c1dbfde4",
+                "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774"
+            },
+            "name": "bronze.ventas",
+            "description": "L\u00edneas de venta originales, con las anomal\u00edas deliberadas del lote de prueba.",
+            "uri": "s3://bronze/ventas.csv",
+            "tags": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.ventas,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "schemaMetadata",
+    "aspect": {
+        "json": {
+            "schemaName": "bronze.ventas",
+            "platform": "urn:li:dataPlatform:s3",
+            "version": 0,
+            "created": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "hash": "804b916602038d5a60bfe38198c9f44c3731bd6e378ccbdebd7a12e6e68c97ab",
+            "platformSchema": {
+                "com.linkedin.schema.OtherSchema": {
+                    "rawSchema": "[{\"venta_id\": \"string\"}, {\"transaccion_id\": \"string\"}, {\"producto_id\": \"string\"}, {\"cantidad\": \"string\"}]"
+                }
+            },
+            "fields": [
+                {
+                    "fieldPath": "venta_id",
+                    "nullable": false,
+                    "description": "Identificador de una l\u00ednea individual de venta. Clave l\u00f3gica en Bronze, donde puede repetirse. \u00danica en Silver ventas.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "transaccion_id",
+                    "nullable": false,
+                    "description": "Identificador del tiquete que agrupa una o m\u00e1s l\u00edneas de venta. C\u00f3digo de la cabecera transacciones.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "producto_id",
+                    "nullable": false,
+                    "description": "Identificador del producto o SKU utilizado en el maestro, la venta o las existencias. C\u00f3digo del maestro productos. En Bronze puede faltar o no existir.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "cantidad",
+                    "nullable": false,
+                    "description": "N\u00famero de unidades del producto en una l\u00ednea de venta. Entero estrictamente positivo para las l\u00edneas aceptadas.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.ventas,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "ownership",
+    "aspect": {
+        "json": {
+            "owners": [
+                {
+                    "owner": "urn:li:corpGroup:lago-operaciones",
+                    "type": "BUSINESS_OWNER"
+                }
+            ],
+            "ownerTypes": {},
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            }
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.ventas,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "domains",
+    "aspect": {
+        "json": {
+            "domains": [
+                "urn:li:domain:lago-comercial"
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.ventas,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "globalTags",
+    "aspect": {
+        "json": {
+            "tags": [
+                {
+                    "tag": "urn:li:tag:lago-bronze"
+                },
+                {
+                    "tag": "urn:li:tag:lago-sintetico"
+                },
+                {
+                    "tag": "urn:li:tag:lago-interno"
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.ventas,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "upstreamLineage",
+    "aspect": {
+        "json": {
+            "upstreams": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.inventario,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "datasetProperties",
+    "aspect": {
+        "json": {
+            "customProperties": {
+                "formato": "CSV",
+                "granularidad": "Producto en una sucursal y fecha",
+                "filas": "72",
+                "archivo_sha256": "dd0f7be68dacdcb044e170c25664aed383db7ebe2104a643a75ef425508f2301",
+                "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774"
+            },
+            "name": "bronze.inventario",
+            "description": "Existencias originales por sucursal, producto y fecha de corte.",
+            "uri": "s3://bronze/inventario.csv",
+            "tags": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.inventario,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "schemaMetadata",
+    "aspect": {
+        "json": {
+            "schemaName": "bronze.inventario",
+            "platform": "urn:li:dataPlatform:s3",
+            "version": 0,
+            "created": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "hash": "3e1d605c83717093f13860b4ca24ea8287cffc02cab96c616f20cfa9a1d0acb5",
+            "platformSchema": {
+                "com.linkedin.schema.OtherSchema": {
+                    "rawSchema": "[{\"fecha\": \"string\"}, {\"sucursal_id\": \"string\"}, {\"producto_id\": \"string\"}, {\"existencias\": \"string\"}]"
+                }
+            },
+            "fields": [
+                {
+                    "fieldPath": "fecha",
+                    "nullable": false,
+                    "description": "Fecha de la transacci\u00f3n o del corte de existencias, seg\u00fan el conjunto. Fecha civil ISO 8601. Gold diario agrupa por esta fecha.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "sucursal_id",
+                    "nullable": false,
+                    "description": "Identificador de la tienda donde se registr\u00f3 la operaci\u00f3n. C\u00f3digo de la dimensi\u00f3n sucursales.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "producto_id",
+                    "nullable": false,
+                    "description": "Identificador del producto o SKU utilizado en el maestro, la venta o las existencias. C\u00f3digo del maestro productos. En Bronze puede faltar o no existir.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "existencias",
+                    "nullable": false,
+                    "description": "Unidades de un producto disponibles en una sucursal al cierre del inventario. Conteo entero sint\u00e9tico.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.inventario,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "ownership",
+    "aspect": {
+        "json": {
+            "owners": [
+                {
+                    "owner": "urn:li:corpGroup:lago-inventarios",
+                    "type": "BUSINESS_OWNER"
+                }
+            ],
+            "ownerTypes": {},
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            }
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.inventario,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "domains",
+    "aspect": {
+        "json": {
+            "domains": [
+                "urn:li:domain:lago-abastecimiento"
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.inventario,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "globalTags",
+    "aspect": {
+        "json": {
+            "tags": [
+                {
+                    "tag": "urn:li:tag:lago-bronze"
+                },
+                {
+                    "tag": "urn:li:tag:lago-sintetico"
+                },
+                {
+                    "tag": "urn:li:tag:lago-interno"
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.inventario,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "upstreamLineage",
+    "aspect": {
+        "json": {
+            "upstreams": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.ventas,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "datasetProperties",
+    "aspect": {
+        "json": {
+            "customProperties": {
+                "formato": "Parquet",
+                "granularidad": "L\u00ednea aceptada",
+                "filas": "247",
+                "archivo_sha256": "09d9cfda128a4fb710e659ac3b9ac1ecc3dd5470ac73187886330a06bec81795",
+                "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774"
+            },
+            "name": "silver.ventas",
+            "description": "L\u00edneas \u00fanicas aceptadas despu\u00e9s de comprobar claves, cantidades, precios y dimensiones.",
+            "uri": "s3://silver/ventas/part-00000.parquet",
+            "tags": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.ventas,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "schemaMetadata",
+    "aspect": {
+        "json": {
+            "schemaName": "silver.ventas",
+            "platform": "urn:li:dataPlatform:s3",
+            "version": 0,
+            "created": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "hash": "6421bf1d3a645820836cb748887dbd345960e9faabb0f0fda4bcc90215b21994",
+            "platformSchema": {
+                "com.linkedin.schema.OtherSchema": {
+                    "rawSchema": "[{\"venta_id\": \"string\"}, {\"transaccion_id\": \"string\"}, {\"fecha\": \"date32[day]\"}, {\"cliente_id\": \"string\"}, {\"sucursal_id\": \"string\"}, {\"producto_id\": \"string\"}, {\"categoria\": \"string\"}, {\"cantidad\": \"int32\"}, {\"precio_unitario_cop\": \"int64\"}, {\"importe_cop\": \"int64\"}]"
+                }
+            },
+            "fields": [
+                {
+                    "fieldPath": "venta_id",
+                    "nullable": false,
+                    "description": "Identificador de una l\u00ednea individual de venta. Clave l\u00f3gica en Bronze, donde puede repetirse. \u00danica en Silver ventas.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "transaccion_id",
+                    "nullable": false,
+                    "description": "Identificador del tiquete que agrupa una o m\u00e1s l\u00edneas de venta. C\u00f3digo de la cabecera transacciones.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "fecha",
+                    "nullable": false,
+                    "description": "Fecha de la transacci\u00f3n o del corte de existencias, seg\u00fan el conjunto. Fecha civil ISO 8601. Gold diario agrupa por esta fecha.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.DateType": {}
+                        }
+                    },
+                    "nativeDataType": "date32[day]",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "cliente_id",
+                    "nullable": false,
+                    "description": "Identificador sint\u00e9tico del cliente en el maestro comercial. Texto alfanum\u00e9rico, prefijo CL en el generador.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "sucursal_id",
+                    "nullable": false,
+                    "description": "Identificador de la tienda donde se registr\u00f3 la operaci\u00f3n. C\u00f3digo de la dimensi\u00f3n sucursales.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "producto_id",
+                    "nullable": false,
+                    "description": "Identificador del producto o SKU utilizado en el maestro, la venta o las existencias. C\u00f3digo del maestro productos. En Bronze puede faltar o no existir.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "categoria",
+                    "nullable": false,
+                    "description": "Nombre comercial de la categor\u00eda. Alimentos, Hogar, Papeler\u00eda o Cuidado.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "cantidad",
+                    "nullable": false,
+                    "description": "N\u00famero de unidades del producto en una l\u00ednea de venta. Entero estrictamente positivo para las l\u00edneas aceptadas.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.NumberType": {}
+                        }
+                    },
+                    "nativeDataType": "int32",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "precio_unitario_cop",
+                    "nullable": false,
+                    "description": "Precio de una unidad del producto, expresado en pesos colombianos. Importe entero en COP, mayor o igual a cero en l\u00edneas aceptadas.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.NumberType": {}
+                        }
+                    },
+                    "nativeDataType": "int64",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "importe_cop",
+                    "nullable": false,
+                    "description": "Importe de la l\u00ednea en pesos colombianos. cantidad multiplicada por precio_unitario_cop.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.NumberType": {}
+                        }
+                    },
+                    "nativeDataType": "int64",
+                    "recursive": false,
+                    "isPartOfKey": false
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.ventas,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "ownership",
+    "aspect": {
+        "json": {
+            "owners": [
+                {
+                    "owner": "urn:li:corpGroup:lago-calidad",
+                    "type": "BUSINESS_OWNER"
+                }
+            ],
+            "ownerTypes": {},
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            }
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.ventas,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "domains",
+    "aspect": {
+        "json": {
+            "domains": [
+                "urn:li:domain:lago-comercial"
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.ventas,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "globalTags",
+    "aspect": {
+        "json": {
+            "tags": [
+                {
+                    "tag": "urn:li:tag:lago-silver"
+                },
+                {
+                    "tag": "urn:li:tag:lago-sintetico"
+                },
+                {
+                    "tag": "urn:li:tag:lago-restringido"
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.ventas,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "upstreamLineage",
+    "aspect": {
+        "json": {
+            "upstreams": [
+                {
+                    "auditStamp": {
+                        "time": 0,
+                        "actor": "urn:li:corpuser:unknown"
+                    },
+                    "dataset": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.ventas,DEV)",
+                    "type": "TRANSFORMED"
+                },
+                {
+                    "auditStamp": {
+                        "time": 0,
+                        "actor": "urn:li:corpuser:unknown"
+                    },
+                    "dataset": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.transacciones,DEV)",
+                    "type": "TRANSFORMED"
+                },
+                {
+                    "auditStamp": {
+                        "time": 0,
+                        "actor": "urn:li:corpuser:unknown"
+                    },
+                    "dataset": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.productos,DEV)",
+                    "type": "TRANSFORMED"
+                },
+                {
+                    "auditStamp": {
+                        "time": 0,
+                        "actor": "urn:li:corpuser:unknown"
+                    },
+                    "dataset": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.categorias,DEV)",
+                    "type": "TRANSFORMED"
+                },
+                {
+                    "auditStamp": {
+                        "time": 0,
+                        "actor": "urn:li:corpuser:unknown"
+                    },
+                    "dataset": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.clientes,DEV)",
+                    "type": "TRANSFORMED"
+                },
+                {
+                    "auditStamp": {
+                        "time": 0,
+                        "actor": "urn:li:corpuser:unknown"
+                    },
+                    "dataset": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.sucursales,DEV)",
+                    "type": "TRANSFORMED"
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.inventario,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "datasetProperties",
+    "aspect": {
+        "json": {
+            "customProperties": {
+                "formato": "Parquet",
+                "granularidad": "Producto en una sucursal y fecha",
+                "filas": "72",
+                "archivo_sha256": "7858cf29eaeea43ca3b7caed14500ed2f1a6ac89978511a487c0f73c1f3ee2ea",
+                "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774"
+            },
+            "name": "silver.inventario",
+            "description": "Existencias con fechas y cantidades tipadas.",
+            "uri": "s3://silver/inventario/part-00000.parquet",
+            "tags": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.inventario,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "schemaMetadata",
+    "aspect": {
+        "json": {
+            "schemaName": "silver.inventario",
+            "platform": "urn:li:dataPlatform:s3",
+            "version": 0,
+            "created": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "hash": "b6b3c16c198527ca80580b7f792b4a0545b5d1c9a7b713442ebcaed7e7f490d1",
+            "platformSchema": {
+                "com.linkedin.schema.OtherSchema": {
+                    "rawSchema": "[{\"fecha\": \"date32[day]\"}, {\"sucursal_id\": \"string\"}, {\"producto_id\": \"string\"}, {\"existencias\": \"int32\"}]"
+                }
+            },
+            "fields": [
+                {
+                    "fieldPath": "fecha",
+                    "nullable": false,
+                    "description": "Fecha de la transacci\u00f3n o del corte de existencias, seg\u00fan el conjunto. Fecha civil ISO 8601. Gold diario agrupa por esta fecha.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.DateType": {}
+                        }
+                    },
+                    "nativeDataType": "date32[day]",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "sucursal_id",
+                    "nullable": false,
+                    "description": "Identificador de la tienda donde se registr\u00f3 la operaci\u00f3n. C\u00f3digo de la dimensi\u00f3n sucursales.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "producto_id",
+                    "nullable": false,
+                    "description": "Identificador del producto o SKU utilizado en el maestro, la venta o las existencias. C\u00f3digo del maestro productos. En Bronze puede faltar o no existir.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "existencias",
+                    "nullable": false,
+                    "description": "Unidades de un producto disponibles en una sucursal al cierre del inventario. Conteo entero sint\u00e9tico.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.NumberType": {}
+                        }
+                    },
+                    "nativeDataType": "int32",
+                    "recursive": false,
+                    "isPartOfKey": false
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.inventario,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "ownership",
+    "aspect": {
+        "json": {
+            "owners": [
+                {
+                    "owner": "urn:li:corpGroup:lago-inventarios",
+                    "type": "BUSINESS_OWNER"
+                }
+            ],
+            "ownerTypes": {},
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            }
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.inventario,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "domains",
+    "aspect": {
+        "json": {
+            "domains": [
+                "urn:li:domain:lago-abastecimiento"
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.inventario,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "globalTags",
+    "aspect": {
+        "json": {
+            "tags": [
+                {
+                    "tag": "urn:li:tag:lago-silver"
+                },
+                {
+                    "tag": "urn:li:tag:lago-sintetico"
+                },
+                {
+                    "tag": "urn:li:tag:lago-interno"
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.inventario,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "upstreamLineage",
+    "aspect": {
+        "json": {
+            "upstreams": [
+                {
+                    "auditStamp": {
+                        "time": 0,
+                        "actor": "urn:li:corpuser:unknown"
+                    },
+                    "dataset": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.inventario,DEV)",
+                    "type": "TRANSFORMED"
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.rechazos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "datasetProperties",
+    "aspect": {
+        "json": {
+            "customProperties": {
+                "formato": "Parquet",
+                "granularidad": "L\u00ednea rechazada",
+                "filas": "3",
+                "archivo_sha256": "7c73afa153b57741309a935e4524e437b40f01cb0afb17097ce3a136cede61b6",
+                "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774"
+            },
+            "name": "silver.rechazos",
+            "description": "L\u00edneas excluidas de los indicadores y motivo de su rechazo.",
+            "uri": "s3://silver/rechazos/part-00000.parquet",
+            "tags": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.rechazos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "schemaMetadata",
+    "aspect": {
+        "json": {
+            "schemaName": "silver.rechazos",
+            "platform": "urn:li:dataPlatform:s3",
+            "version": 0,
+            "created": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "hash": "ae42259d1cbe5630daa27f798b841f24b023b0a507ab41d3b4b53222fbae93db",
+            "platformSchema": {
+                "com.linkedin.schema.OtherSchema": {
+                    "rawSchema": "[{\"venta_id\": \"string\"}, {\"transaccion_id\": \"string\"}, {\"producto_id\": \"string\"}, {\"motivo\": \"string\"}]"
+                }
+            },
+            "fields": [
+                {
+                    "fieldPath": "venta_id",
+                    "nullable": false,
+                    "description": "Identificador de una l\u00ednea individual de venta. Clave l\u00f3gica en Bronze, donde puede repetirse. \u00danica en Silver ventas.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "transaccion_id",
+                    "nullable": false,
+                    "description": "Identificador del tiquete que agrupa una o m\u00e1s l\u00edneas de venta. C\u00f3digo de la cabecera transacciones.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "producto_id",
+                    "nullable": false,
+                    "description": "Identificador del producto o SKU utilizado en el maestro, la venta o las existencias. C\u00f3digo del maestro productos. En Bronze puede faltar o no existir.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "motivo",
+                    "nullable": false,
+                    "description": "Primera regla incumplida durante la clasificaci\u00f3n de la venta. id_nulo, id_con_conflicto, producto_nulo, producto_desconocido, cantidad_no_positiva, transaccion_invalida, dimension_incompleta o precio_invalido.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": false
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.rechazos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "ownership",
+    "aspect": {
+        "json": {
+            "owners": [
+                {
+                    "owner": "urn:li:corpGroup:lago-calidad",
+                    "type": "BUSINESS_OWNER"
+                }
+            ],
+            "ownerTypes": {},
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            }
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.rechazos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "domains",
+    "aspect": {
+        "json": {
+            "domains": [
+                "urn:li:domain:lago-calidad"
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.rechazos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "globalTags",
+    "aspect": {
+        "json": {
+            "tags": [
+                {
+                    "tag": "urn:li:tag:lago-silver"
+                },
+                {
+                    "tag": "urn:li:tag:lago-sintetico"
+                },
+                {
+                    "tag": "urn:li:tag:lago-restringido"
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.rechazos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "upstreamLineage",
+    "aspect": {
+        "json": {
+            "upstreams": [
+                {
+                    "auditStamp": {
+                        "time": 0,
+                        "actor": "urn:li:corpuser:unknown"
+                    },
+                    "dataset": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.ventas,DEV)",
+                    "type": "TRANSFORMED"
+                },
+                {
+                    "auditStamp": {
+                        "time": 0,
+                        "actor": "urn:li:corpuser:unknown"
+                    },
+                    "dataset": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.transacciones,DEV)",
+                    "type": "TRANSFORMED"
+                },
+                {
+                    "auditStamp": {
+                        "time": 0,
+                        "actor": "urn:li:corpuser:unknown"
+                    },
+                    "dataset": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.productos,DEV)",
+                    "type": "TRANSFORMED"
+                },
+                {
+                    "auditStamp": {
+                        "time": 0,
+                        "actor": "urn:li:corpuser:unknown"
+                    },
+                    "dataset": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.categorias,DEV)",
+                    "type": "TRANSFORMED"
+                },
+                {
+                    "auditStamp": {
+                        "time": 0,
+                        "actor": "urn:li:corpuser:unknown"
+                    },
+                    "dataset": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.clientes,DEV)",
+                    "type": "TRANSFORMED"
+                },
+                {
+                    "auditStamp": {
+                        "time": 0,
+                        "actor": "urn:li:corpuser:unknown"
+                    },
+                    "dataset": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.bronze.sucursales,DEV)",
+                    "type": "TRANSFORMED"
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.ventas_diarias,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "datasetProperties",
+    "aspect": {
+        "json": {
+            "customProperties": {
+                "formato": "Parquet",
+                "granularidad": "Sucursal y d\u00eda",
+                "filas": "107",
+                "archivo_sha256": "99308bef07b50f157e0f141c181e37d511856fbd8eb5b45a7f91ad3189468387",
+                "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774"
+            },
+            "name": "gold.ventas_diarias",
+            "description": "Ingresos en COP, unidades y tiquetes distintos por fecha y sucursal.",
+            "uri": "s3://gold/ventas_diarias/part-00000.parquet",
+            "tags": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.ventas_diarias,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "schemaMetadata",
+    "aspect": {
+        "json": {
+            "schemaName": "gold.ventas_diarias",
+            "platform": "urn:li:dataPlatform:s3",
+            "version": 0,
+            "created": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "hash": "a9edf4130f0797c36b5e5e13a57797da76cb5f15adf1d9bd836d56125a4f2fc8",
+            "platformSchema": {
+                "com.linkedin.schema.OtherSchema": {
+                    "rawSchema": "[{\"fecha\": \"date32[day]\"}, {\"sucursal_id\": \"string\"}, {\"ventas_cop\": \"int64\"}, {\"unidades\": \"int64\"}, {\"transacciones\": \"int64\"}]"
+                }
+            },
+            "fields": [
+                {
+                    "fieldPath": "fecha",
+                    "nullable": false,
+                    "description": "Fecha de la transacci\u00f3n o del corte de existencias, seg\u00fan el conjunto. Fecha civil ISO 8601. Gold diario agrupa por esta fecha.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.DateType": {}
+                        }
+                    },
+                    "nativeDataType": "date32[day]",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "sucursal_id",
+                    "nullable": false,
+                    "description": "Identificador de la tienda donde se registr\u00f3 la operaci\u00f3n. C\u00f3digo de la dimensi\u00f3n sucursales.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "ventas_cop",
+                    "nullable": false,
+                    "description": "Suma de los importes de l\u00edneas v\u00e1lidas del grupo, en pesos colombianos. Suma de importe_cop.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.NumberType": {}
+                        }
+                    },
+                    "nativeDataType": "int64",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "unidades",
+                    "nullable": false,
+                    "description": "Suma de las cantidades de las l\u00edneas v\u00e1lidas del grupo. Conteo entero de unidades vendidas.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.NumberType": {}
+                        }
+                    },
+                    "nativeDataType": "int64",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "transacciones",
+                    "nullable": false,
+                    "description": "Cantidad de tiquetes distintos incluidos en el grupo. COUNT DISTINCT de transaccion_id por d\u00eda y sucursal.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.NumberType": {}
+                        }
+                    },
+                    "nativeDataType": "int64",
+                    "recursive": false,
+                    "isPartOfKey": false
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.ventas_diarias,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "ownership",
+    "aspect": {
+        "json": {
+            "owners": [
+                {
+                    "owner": "urn:li:corpGroup:lago-analitica",
+                    "type": "BUSINESS_OWNER"
+                }
+            ],
+            "ownerTypes": {},
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            }
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.ventas_diarias,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "domains",
+    "aspect": {
+        "json": {
+            "domains": [
+                "urn:li:domain:lago-analitica"
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.ventas_diarias,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "globalTags",
+    "aspect": {
+        "json": {
+            "tags": [
+                {
+                    "tag": "urn:li:tag:lago-gold"
+                },
+                {
+                    "tag": "urn:li:tag:lago-sintetico"
+                },
+                {
+                    "tag": "urn:li:tag:lago-interno"
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.ventas_diarias,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "upstreamLineage",
+    "aspect": {
+        "json": {
+            "upstreams": [
+                {
+                    "auditStamp": {
+                        "time": 0,
+                        "actor": "urn:li:corpuser:unknown"
+                    },
+                    "dataset": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.ventas,DEV)",
+                    "type": "TRANSFORMED"
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.productos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "datasetProperties",
+    "aspect": {
+        "json": {
+            "customProperties": {
+                "formato": "Parquet",
+                "granularidad": "Producto y categor\u00eda",
+                "filas": "24",
+                "archivo_sha256": "c17167d9aae3777563257f5fd58e95891aabf933f36c9b7f47cd91147d07d3ee",
+                "lote_sha256": "52e2e1cb084d6d92e48c03c055895eb49d0ca50882bf2e69c2337a391e4f2774"
+            },
+            "name": "gold.productos",
+            "description": "Ingresos y unidades vendidas por producto y categor\u00eda.",
+            "uri": "s3://gold/productos/part-00000.parquet",
+            "tags": []
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.productos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "schemaMetadata",
+    "aspect": {
+        "json": {
+            "schemaName": "gold.productos",
+            "platform": "urn:li:dataPlatform:s3",
+            "version": 0,
+            "created": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            },
+            "hash": "c55e5c9dd862dd469d5ec7b4241e3c5e87032940f7cd9cccffd2e8ef2bd9005e",
+            "platformSchema": {
+                "com.linkedin.schema.OtherSchema": {
+                    "rawSchema": "[{\"producto_id\": \"string\"}, {\"categoria\": \"string\"}, {\"ventas_cop\": \"int64\"}, {\"unidades\": \"int64\"}]"
+                }
+            },
+            "fields": [
+                {
+                    "fieldPath": "producto_id",
+                    "nullable": false,
+                    "description": "Identificador del producto o SKU utilizado en el maestro, la venta o las existencias. C\u00f3digo del maestro productos. En Bronze puede faltar o no existir.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "categoria",
+                    "nullable": false,
+                    "description": "Nombre comercial de la categor\u00eda. Alimentos, Hogar, Papeler\u00eda o Cuidado.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.StringType": {}
+                        }
+                    },
+                    "nativeDataType": "string",
+                    "recursive": false,
+                    "isPartOfKey": true
+                },
+                {
+                    "fieldPath": "ventas_cop",
+                    "nullable": false,
+                    "description": "Suma de los importes de l\u00edneas v\u00e1lidas del grupo, en pesos colombianos. Suma de importe_cop.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.NumberType": {}
+                        }
+                    },
+                    "nativeDataType": "int64",
+                    "recursive": false,
+                    "isPartOfKey": false
+                },
+                {
+                    "fieldPath": "unidades",
+                    "nullable": false,
+                    "description": "Suma de las cantidades de las l\u00edneas v\u00e1lidas del grupo. Conteo entero de unidades vendidas.",
+                    "type": {
+                        "type": {
+                            "com.linkedin.schema.NumberType": {}
+                        }
+                    },
+                    "nativeDataType": "int64",
+                    "recursive": false,
+                    "isPartOfKey": false
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.productos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "ownership",
+    "aspect": {
+        "json": {
+            "owners": [
+                {
+                    "owner": "urn:li:corpGroup:lago-analitica",
+                    "type": "BUSINESS_OWNER"
+                }
+            ],
+            "ownerTypes": {},
+            "lastModified": {
+                "time": 0,
+                "actor": "urn:li:corpuser:unknown"
+            }
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.productos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "domains",
+    "aspect": {
+        "json": {
+            "domains": [
+                "urn:li:domain:lago-analitica"
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.productos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "globalTags",
+    "aspect": {
+        "json": {
+            "tags": [
+                {
+                    "tag": "urn:li:tag:lago-gold"
+                },
+                {
+                    "tag": "urn:li:tag:lago-sintetico"
+                },
+                {
+                    "tag": "urn:li:tag:lago-interno"
+                }
+            ]
+        }
+    }
+},
+{
+    "entityType": "dataset",
+    "entityUrn": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.gold.productos,DEV)",
+    "changeType": "UPSERT",
+    "aspectName": "upstreamLineage",
+    "aspect": {
+        "json": {
+            "upstreams": [
+                {
+                    "auditStamp": {
+                        "time": 0,
+                        "actor": "urn:li:corpuser:unknown"
+                    },
+                    "dataset": "urn:li:dataset:(urn:li:dataPlatform:s3,lago.silver.ventas,DEV)",
+                    "type": "TRANSFORMED"
+                }
+            ]
+        }
+    }
+}
+]

@@ -1,0 +1,10 @@
+source:
+  type: file
+  config:
+    path: "${LAGO_MCP_FILE}"
+sink:
+  type: datahub-lite
+  config:
+    type: sqlite
+    config:
+      file: "${LAGO_DATAHUB_DB}"

@@ -1,0 +1,10 @@
+Sink (datahub-lite) report:
+{'total_records_written': 86,
+ 'records_written_per_second': 67,
+ 'warnings': [],
+ 'failures': [],
+ 'start_time': '2026-11-26 20:13:14.788711 (1.28 seconds ago)',
+ 'current_time': '2026-11-26 20:13:16.065239 (now)',
+ 'total_duration_in_seconds': 1.28}
+
+Pipeline finished successfully; produced 86 events in 1.21 seconds.
